@@ -31,3 +31,4 @@ Things you may want to cover:
 
 Database creation
 
+![alt text](https://github.com/alex07L/Rocket_Elevators_Information_System/blob/Ange/Capture.PNG)
