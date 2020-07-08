@@ -35,26 +35,26 @@ Database creation :
 
  Category: 
     it has many quote
-    -category id
-    -name has the same name in Type
-    -contains three distinct product lines: Standard, Premium or Excelium caraterized by the price
-    -the prices fees
+    * category id
+    * name has the same name in Type
+    * contains three distinct product lines: Standard, Premium or Excelium caraterized by the price
+    * the prices fees
  Type :
     it has many quote
-    -type id
-    -bulding type : Residential, Commercial, Corporate and Hybrid caracterized by name
+    * type id
+    * bulding type : Residential, Commercial, Corporate and Hybrid caracterized by name
  Quote :
     belongs to both above
-    -quote id
-     -contains all the parts of the bulding
+    * quote id
+    * contains all the parts of the bulding
  User :
-    -user get an email, password and token
+    * user get an email, password and token
  Employee :
-    -it belongs to user and have fristname, lastname and his title
+    * it belongs to user and have fristname, lastname and his title
 
 START SERVER
 
--cd Rocket_Elevators_Information_System
--rake db:create
--rails s
+* cd Rocket_Elevators_Information_System
+* rake db:create
+* rails s
 
