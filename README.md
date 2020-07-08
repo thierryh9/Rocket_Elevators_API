@@ -29,6 +29,32 @@ Things you may want to cover:
 
 * Rails version 5.2.4.3
 
-Database creation
+Database creation :
 
 ![alt text](https://github.com/alex07L/Rocket_Elevators_Information_System/blob/Ange/Capture.PNG)
+
+ - Category: 
+    it has many quote
+    _category id
+    _name has the same name in Type
+    _contains three distinct product lines: Standard, Premium or Excelium caraterized by the price
+    _the prices fees
+ - Type :
+    it has many quote
+    _type id
+    _bulding type : Residential, Commercial, Corporate and Hybrid caracterized by name
+ - Quote :
+    belongs to both above
+    _quote id
+    _ contains all the parts of the bulding
+ - User :
+    _ user get an email, password and token
+ - Employee :
+    _it belongs to user and have fristname, lastname and his title
+
+START SERVER
+
+cd Rocket_Elevators_Information_System
+rake db:create
+rails s
+
