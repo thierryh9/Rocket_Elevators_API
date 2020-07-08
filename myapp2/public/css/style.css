@@ -1,0 +1,60 @@
+/*
+header style
+*/
+#header.header-md #topNav a.logo > img{
+    margin: 5px 0;
+    height: 55px;
+}
+
+.header-image{
+    margin: 0;
+    padding: 0;
+    
+}
+.header-image img{
+    height: 600px;
+}
+
+/*----------------*/
+
+.blue{
+    background-color:#0163a0;
+    border-bottom: rgba(255,255,255,0.1) 1px solid;
+    color: white;
+}
+.blue:hover{
+    background-color:#064872;
+}
+
+.default{
+    border: #ccc 2px solid;
+    color: white !important;
+}
+.default:hover{
+    background-color: #ccc;
+    color: #000 !important;
+}
+
+.auto-height{
+    height: auto !important;
+}
+
+/*----------*/
+.col-center{
+    margin: 0 auto;
+}
+.quote{
+    margin: 10px 0 0 0;
+}
+.result{
+    border: #444444 1px solid;
+    border-radius: 5px;
+    background-color: #c0c0c0;
+}
+
+table{
+    text-align: center;
+}
+.space{
+    margin: 10px 0;
+}
