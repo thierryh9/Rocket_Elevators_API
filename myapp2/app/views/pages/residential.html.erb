@@ -63,8 +63,9 @@
 						</button>
 
 						<!-- Logo -->
-						<a class="logo float-left" href="index.html#top">
-							<img src="img/R2.png" alt="Rocket Elevator logo" />
+						<a class="logo float-left" href="index">
+							<%= image_tag("R2.png", :alt => "Rocket Elevator logo") %>
+							
 						</a>
 
 						<!-- 
@@ -84,37 +85,37 @@
 								-->
 								<ul id="topMain" class="nav nav-pills nav-main nav-onepage">
 									<li ><!-- HOME -->
-										<a href="index.html#home">
+										<a href="index#home">
 											HOME
 										</a>
 									</li>
 									<li class="active"><!-- SERVICES -->
-										<a href="index.html#services" class="dropdown-toggle">
+										<a href="index#services" class="dropdown-toggle">
 											SERVICES
 										</a>
 										<ul class="dropdown-menu sub-menu">
 											<li class="active"><a href="residential.html">Residential</a></li>
-											<li><a href="corporate.html">Corporate</a></li>
-											<li><a href="quote.html">Get a Quote</a></li>
+											<li><a href="corporate">Corporate</a></li>
+											<li><a href="quote">Get a Quote</a></li>
 										  </ul>
 									</li>
 									<li><!-- WORK -->
-										<a href="index.html#portfolio">
+										<a href="index#portfolio">
 											PORTFOLIO
 										</a>
 									</li>
 									<li><!-- NEWS -->
-										<a href="index.html#news">
+										<a href="index#news">
 											NEWS
 										</a>
 									</li>
 									<li><!-- CLIENTS -->
-										<a href="index.html#clients">
+										<a href="index#clients">
 											CLIENTS
 										</a>
 									</li>
 									<li><!-- CONTACT -->
-										<a href="index.html#contact">
+										<a href="index#contact">
 											CONTACT
 										</a>
 									</li>
@@ -130,13 +131,13 @@
 			</div>
 
 			<section class="header-image">
-				<img class="fullwidth" src="img/AdobeStock_72034307.jpeg" alt="residential header image"/>
+				<%= image_tag("AdobeStock_72034307.jpeg", :alt => "residential header imaget", :class => "fullwidth") %>
 			</section>
 
 			<section class="container">
 				<div class="row">
 					<div class="col-sm">
-						<img src="img/AdobeStock_146216308.jpeg" alt="residential" width="300" height="300">
+						<%= image_tag("AdobeStock_146216308.jpeg", :alt => "residential", height:300 ,width:300) %>
 					</div>
 					<div class="col-sm">
 						<h1>Residential Details</h1>
@@ -156,7 +157,7 @@
 				<div class="row ">
 					<div class="col-sm-12 d-flex justify-content-center">
 						
-						<a href="quote.html" class="btn blue">Get quote</a>
+						<a href="quote" class="btn blue">Get quote</a>
 					</div>
 					
 				</div>
@@ -223,24 +224,9 @@
 
 
 
-		<!-- PRELOADER -->
-		<div id="preloader">
-			<div class="inner">
-				<span class="loader"></span>
-			</div>
-		</div><!-- /PRELOADER -->
-
 
 		<!-- JAVASCRIPT FILES -->
 		<script>var plugin_path = 'assets/plugins/';</script>
-		<script src="assets/plugins/jquery/jquery-3.3.1.min.js"></script>
-
-		<script src="assets/js/scripts.js"></script>
-
-		<!-- REVOLUTION SLIDER -->
-		<script src="assets/plugins/slider.revolution/js/jquery.themepunch.tools.min.js"></script>
-		<script src="assets/plugins/slider.revolution/js/jquery.themepunch.revolution.min.js"></script>
-		<script src="assets/js/view/demo.revolution_slider.js"></script>
-
-		<!-- PAGELEVEL SCRIPTS -->
-		<script src="assets/js/contact.js"></script>
+		<%= javascript_include_tag 'contact', media: 'all', 'data-turbolinks-track': 'reload' %>
+		<%= javascript_include_tag 'smoothscroll', media: 'all', 'data-turbolinks-track': 'reload' %>
+		<%= javascript_include_tag 'scripts', media: 'all', 'data-turbolinks-track': 'reload' %>

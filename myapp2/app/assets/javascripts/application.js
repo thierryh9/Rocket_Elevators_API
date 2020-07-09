@@ -18,7 +18,7 @@
 //= require_tree.
 //= require popper
 //= require bootstrap-sprockets
-
+//= require jquery.nav.min
 //= require_tree ../plugins/owl-carousel/
 //= require_tree ../plugins/mixitup/
 //= require_tree ../plugins/slider.revolution/js/

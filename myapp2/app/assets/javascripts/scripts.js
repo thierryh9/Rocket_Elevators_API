@@ -1179,7 +1179,7 @@ Init(false);
 
 		if(_container1.length > 0) {
 
-			loadScript(plugin_path + 'jquery.nav.min.js', function() {
+			//loadScript(plugin_path + 'jquery.nav.min.js', function() {
 
 				jQuery(_container1).onePageNav({
 					currentClass: 		'active',
@@ -1197,7 +1197,7 @@ Init(false);
 					}
 				});
 
-			});
+			//});
 		
 		}
 

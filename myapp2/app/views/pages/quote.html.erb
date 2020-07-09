@@ -63,8 +63,8 @@
 					</button>
 
 					<!-- Logo -->
-					<a class="logo float-left" href="index.html#top">
-						<img src="img/R2.png" alt="Rocket Elevator logo" />
+					<a class="logo float-left" href="index#top">
+						<%= image_tag("R2.png", :alt => "Rocket Elevator logo") %>
 					</a>
 
 					<!-- 
@@ -85,7 +85,7 @@
 							<ul id="topMain" class="nav nav-pills nav-main nav-onepage">
 								<li>
 									<!-- HOME -->
-									<a href="index.html#home">
+									<a href="index#home">
 										HOME
 									</a>
 								</li>
@@ -95,8 +95,8 @@
 										SERVICES
 									</a>
 									<ul class="dropdown-menu sub-menu">
-										<li><a href="residential.html">Residential</a></li>
-										<li><a href="corporate.html">Corporate</a></li>
+										<li><a href="residential">Residential</a></li>
+										<li><a href="corporate">Corporate</a></li>
 										<li class="active"><a href="quote.html">Get a Quote</a></li>
 									</ul>
 								</li>
@@ -362,20 +362,8 @@
 
 
 
-	<!-- PRELOADER -->
-	<div id="preloader">
-		<div class="inner">
-			<span class="loader"></span>
-		</div>
-	</div><!-- /PRELOADER -->
-
-
-	<!-- JAVASCRIPT FILES -->
-	<script>var plugin_path = 'assets/plugins/';</script>
-	<script src="assets/plugins/jquery/jquery-3.3.1.min.js"></script>
-
-	<script src="assets/js/scripts.js"></script>
-
-	<script src="js/quote.js"></script>
+		<%= javascript_include_tag 'contact', media: 'all', 'data-turbolinks-track': 'reload' %>
+		<%= javascript_include_tag 'smoothscroll', media: 'all', 'data-turbolinks-track': 'reload' %>
+		<%= javascript_include_tag 'scripts', media: 'all', 'data-turbolinks-track': 'reload' %>
 
 
