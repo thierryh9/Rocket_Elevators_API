@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   devise_for :users
   post 'pages', to: "pages#create"
-  get 'index', to: 'pages#index'
+  get 'index', to: 'pages#index.html'
   get 'residential', to: 'pages#residential'
   get 'corporate', to: 'pages#corporate'
   get 'quote', to: 'pages#quote'
