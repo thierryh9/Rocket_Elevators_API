@@ -56,7 +56,7 @@
 		_loadPopperBS4();
 
 		// Load Bootstrap JS
-		loadScript(plugin_path + 'bootstrap/js/bootstrap.min.js', function() {
+		/*loadScript(plugin_path + 'bootstrap/js/bootstrap.min.js', function() {
 
 			// Load Material Design Js
 			if(jQuery("body").hasClass('enable-materialdesign')) {
@@ -66,17 +66,17 @@
 			// Init
 			Init(false);
 
-		});
-
+		});*/
+Init(false);
 
 		/* --- */
-		if(jQuery("body").hasClass("smoothscroll") && navigator.platform.indexOf('Mac') < 0) {
+//		if(jQuery("body").hasClass("smoothscroll") && navigator.platform.indexOf('Mac') < 0) {
 
-			loadScript(plugin_path + 'smoothscroll.js', function() {
+			//loadScript(plugin_path + 'smoothscroll.js', function() {
 				jQuery.smoothScroll();
-			});
+			//});
 
-		}
+		//}
 		/* --- */
 	});
 
@@ -1237,7 +1237,7 @@
 
 		if(_container.length > 0) {
 
-			loadScript(plugin_path + 'owl-carousel/owl.carousel.min.js', function() {
+			//loadScript(plugin_path + 'owl-carousel/owl.carousel.min.js', function() {
 
 				_container.each(function() {
 
@@ -1319,7 +1319,6 @@
 
 					var config = jQuery.extend({}, defaults, options, slider.data("plugin-options"));
 					slider.owlCarousel(config).addClass("owl-carousel-init");
-					
 
 					// Progress Bar
 					var elem = jQuery(this);
@@ -1383,7 +1382,7 @@
 
 				});
 
-			});
+			//});
 
 		}
 
@@ -1394,7 +1393,7 @@
 
 		if(_container2.length > 0) {
 
-			loadScript(plugin_path + 'owl-carousel-2/owl.carousel.min.js', function() {
+			//loadScript(plugin_path + 'owl-carousel-2/owl.carousel.min.js', function() {
 
 
 				_container2.each(function() {
@@ -1477,7 +1476,7 @@
 				});
 
 
-			});
+			//});
 
 		}
 
@@ -1795,7 +1794,7 @@
 		var _container = jQuery('.mix-grid');
 		
 		if(_container.length > 0) {
-			loadScript(plugin_path + 'mixitup/jquery.mixitup.min.js', function() {
+			//loadScript(plugin_path + 'mixitup/jquery.mixitup.min.js', function() {
 
 				if(jQuery().mixitup) {
 
@@ -1806,7 +1805,7 @@
 
 				}
 			
-			});
+			//});
 		
 		}
 
@@ -2019,7 +2018,7 @@
 		var portfolio_isotope_container = jQuery("#portfolio.portfolio-isotope");
 
 		if(portfolio_isotope_container.length > 0) {
-			loadScript(plugin_path + 'isotope/isotope.pkgd.min.js', function() {
+			//loadScript(plugin_path + 'isotope/isotope.pkgd.min.js', function() {
 
 				// Isotope Portfolio
 				if(jQuery().isotope) {
@@ -2159,7 +2158,7 @@
 				}
 
 
-			});
+			//});
 		}	/** end isotope **/
 
 

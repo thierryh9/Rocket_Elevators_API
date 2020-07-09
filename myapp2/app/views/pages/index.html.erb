@@ -65,7 +65,7 @@
 
 						<!-- Logo -->
 						<a class="logo float-left scrollTo" href="#top">
-							<img src="img/R2.png" alt="Rocket Elevator logo" />
+							<%= image_tag("R2.png", :alt => "Rocket Elevator logo") %>
 						</a>
 
 						<!-- 
@@ -168,8 +168,7 @@
 						<!-- SLIDE  -->
 						<li data-transition="parallaxtobottom" data-slotamount="7" data-masterspeed="600"  data-saveperformance="off" data-title="Submission">
 							<!-- MAIN IMAGE -->
-							<img src="img/AdobeStock_122227340.jpeg"  alt="submission cover image"  data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
-
+							<%= image_tag("AdobeStock_122227340.jpeg", :alt => "submission cover image", :data => { :bgposition => "center top", :bgfit => "cover", :bgrepeat => "no-repeat" }  ) %>
 							<div class="tp-caption white_big skewfromleft tp-resizeme"
 								data-x="471"
 								data-y="100" 
@@ -221,8 +220,7 @@
 						<!-- SLIDE  -->
 						<li data-transition="parallaxtotop" data-slotamount="7" data-masterspeed="300" data-saveperformance="off" data-title="Residential Services">
 							<!-- MAIN IMAGE -->
-							<img src="img/AdobeStock_124493370.jpeg" alt="cover image"  data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
-
+							<%= image_tag("AdobeStock_124493370.jpeg", :alt => "cover image", :data => { :bgposition => "center top", :bgfit => "cover", :bgrepeat => "no-repeat" }  ) %>
 							<div class="overlay dark-4"><!-- dark overlay [0 to 9 opacity] --></div>
 
 							<div class="tp-caption font-roboto skewfromleft tp-resizeme"
@@ -275,8 +273,8 @@
 						<!-- SLIDE  -->
 						<li data-transition="parallaxtotop" data-slotamount="7" data-masterspeed="300" data-saveperformance="off" data-title="Corporatif Services">
 							<!-- MAIN IMAGE -->
-							<img src="img/AdobeStock_162479912.jpeg" alt="cover image"  data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
-						
+							
+							<%= image_tag("AdobeStock_162479912.jpeg", :alt => "cover image", :data => { :bgposition => "center top", :bgfit => "cover", :bgrepeat => "no-repeat" }  ) %>
 							<div class="overlay dark-4"><!-- dark overlay [0 to 9 opacity] --></div>
 						
 							<div class="tp-caption font-roboto skewfromleft tp-resizeme"
@@ -340,21 +338,21 @@
 
 					<div class="row">
 						<div class="col-sm-4">
-							<img class="img-fluid" src="img/AdobeStock_3294993.jpeg" alt="Elevator Project" />
+							<%= image_tag("AdobeStock_3294993.jpeg", :alt => "Elevator Project", :class => "img-fluid") %>
 							<h3 class="mt-10">Our projects</h3>
 							<p>Go see all the wonderful projects we have done in the past</p>
 							<a href="#portfolio" class="btn btn-default scrollTo">SEE PROJECTS</a>
 						</div>
 
 						<div class="col-sm-4">
-							<img class="img-fluid" src="img/AdobeStock_72034307.jpeg" alt="Residential services" />
+							<%= image_tag("AdobeStock_72034307.jpeg", :alt => "Residential services", :class => "img-fluid") %>
 							<h3 class="mt-10">Residential building service</h3>
 							<p>Residential service is for small elevator.</p>
 							<a href="residential.html" class="btn btn-default">SEE MORE</a>
 						</div>
 
 						<div class="col-sm-4">
-							<img class="img-fluid" src="img/AdobeStock_73868131.jpeg" alt="Corporate services" />
+							<%= image_tag("AdobeStock_73868131.jpeg", :alt => "Corporate services", :class => "img-fluid") %>
 							<h3 class="mt-10">Corporate building service</h3>
 							<p>Corporate services is for high volume of people or heavy mass.</p>
 							<a href="corporate" class="btn btn-default">SEE MORE</a>
@@ -370,7 +368,8 @@
 
 
 			<!-- Parallax -->
-			<section class="parallax parallax-1" style="background-image: url('img/M.jpg');">
+			
+			<section class="parallax parallax-1" style="background-image: url(/assets/M.jpg);">
 				<div class="overlay dark-4"><!-- dark overlay [1 to 9 opacity] --></div>
 
 				<div class="container">
@@ -427,7 +426,8 @@
 											</span>
 										</span>
 
-										<img class="img-fluid" src="img/Apple Park.jpg" width="600"alt="Apple park project">
+										<%= image_tag("Apple Park.jpg", :alt => "Apple park project", :class => "img-fluid") %>
+										
 									</figure>
 
 									<div class="item-box-desc">
@@ -459,8 +459,7 @@
 
 											</span>
 										</span>
-
-										<img class="img-fluid" src="img/Elevator-Awards-2018.jpg" width="600" alt="Award Rocket Elevator">
+										<%= image_tag("Elevator-Awards-2018.jpg", :alt => "Award Rocket Elevator", :class => "img-fluid") %>
 									</figure>
 
 									<div class="item-box-desc">
@@ -491,8 +490,7 @@
 
 											</span>
 										</span>
-
-										<img class="img-fluid" src="img/residential.png" width="600" alt="residential elevators">
+										<%= image_tag("residential.png", :alt => "residential elevators", :class => "img-fluid") %>
 									</figure>
 
 									<div class="item-box-desc">
@@ -524,8 +522,7 @@
 
 											</span>
 										</span>
-
-										<img class="img-fluid" src="img/microsoft_building.jpg" width="600" alt="Microsoft building">
+										<%= image_tag("microsoft_building.jpg", :alt => "Microsoft building", :class => "img-fluid") %>
 									</figure>
 
 									<div class="item-box-desc">
@@ -556,8 +553,7 @@
 
 											</span>
 										</span>
-
-										<img class="img-fluid" src="img/customer_choice.png" width="600" alt="Customer choice award">
+										<%= image_tag("customer_choice.png", :alt => "Customer choice award", :class => "img-fluid") %>
 									</figure>
 
 									<div class="item-box-desc">
@@ -588,8 +584,7 @@
 
 											</span>
 										</span>
-
-										<img class="img-fluid" src="img/house.jpg" width="600" alt="house elevator">
+										<%= image_tag("house.jpg", :alt => "house elevator", :class => "img-fluid") %>
 									</figure>
 
 									<div class="item-box-desc">
@@ -621,8 +616,7 @@
 
 											</span>
 										</span>
-
-										<img class="img-fluid" src="img/Small-Elevator.jpg" width="600" alt="Small elevator for house">
+										<%= image_tag("Small-Elevator.jpg", :alt => "Small elevator for house", :class => "img-fluid") %>
 									</figure>
 
 									<div class="item-box-desc">
@@ -653,8 +647,7 @@
 
 											</span>
 										</span>
-
-										<img class="img-fluid" src="img/Elevator_featur.jpg" width="600" alt="new design elevators">
+										<%= image_tag("Elevator_featur.jpg", :alt => "new design elevators", :class => "img-fluid") %>
 									</figure>
 
 									<div class="item-box-desc">
@@ -684,8 +677,7 @@
 
 											</span>
 										</span>
-
-										<img class="img-fluid" src="img/award1.jpg" width="600" alt="first award">
+										<%= image_tag("award1.jpg", :alt => "first award", :class => "img-fluid") %>
 									</figure>
 
 									<div class="item-box-desc">
@@ -715,8 +707,7 @@
 
 											</span>
 										</span>
-
-										<img class="img-fluid" src="img/customElevator.jpg" width="600" alt="Custom design">
+										<%= image_tag("customElevator.jpg", :alt => "Custom design", :class => "img-fluid") %>
 									</figure>
 
 									<div class="item-box-desc">
@@ -748,7 +739,7 @@
 											</span>
 										</span>
 
-										<img class="img-fluid" src="img/modern.jpg" width="600" alt="new design elevators">
+										<%= image_tag("modern.jpg", :alt => "new design elevators", :class => "img-fluid") %>
 									</figure>
 
 									<div class="item-box-desc">
@@ -778,8 +769,7 @@
 
 											</span>
 										</span>
-
-										<img class="img-fluid" src="img/elevatorMulti.jpg" width="600" alt="new design elevators">
+										<%= image_tag("elevatorMulti.jpg", :alt => "new design elevators", :class => "img-fluid") %>
 									</figure>
 
 									<div class="item-box-desc">
@@ -811,7 +801,7 @@
 					<div class="owl-carousel text-center owl-testimonial m-0" data-plugin-options='{"singleItem": true, "autoPlay": 3500, "navigation": false, "pagination": false, "transitionStyle":"fade"}'>
 						<div class="testimonial">
 							<figure>
-								<img class="rounded" src="img/david.jpg" alt="david ceo" />
+								<%= image_tag("david.jpg", :alt => "david ceo", :class => "rounded") %>
 							</figure>
 							<div class="testimonial-content p-0">
 								<p class="lead">CEO of Rocket Elevator</p>
@@ -823,7 +813,7 @@
 						</div>
 						<div class="testimonial">
 							<figure>
-								<img class="rounded" src="img/alex.jpg" alt="alex" />
+								<%= image_tag("alex.jpg", :alt => "alex", :class => "rounded") %>
 							</figure>
 							<div class="testimonial-content p-0">
 								<p class="lead">Employee of the month</p>
@@ -873,7 +863,7 @@
 					<div class="owl-carousel owl-padding-10 buttons-autohide controlls-over" data-plugin-options='{"singleItem": false, "items":"4", "autoPlay": 4000, "navigation": true, "pagination": false}'>
 						<div class="img-hover">
 							<a href="https://www.globenewswire.com/news-release/2020/05/29/2040763/0/en/Elevators-Markets-in-China-2020-Profile-of-Major-Players-Including-Otis-Elevator-China-Investment-Co-Ltd-and-Shanghai-Mitsubishi-Elevator-Co-Ltd-SMEC.html">
-								<img class="img-fluid" src="img/AdobeStock_170843598.jpeg" alt="Elevator">
+								<%= image_tag("AdobeStock_170843598.jpeg", :alt => "Elevator", :class => "img-fluid") %>
 							</a>
 
 							<h4 class="text-left mt-20"><a href="https://www.globenewswire.com/news-release/2020/05/29/2040763/0/en/Elevators-Markets-in-China-2020-Profile-of-Major-Players-Including-Otis-Elevator-China-Investment-Co-Ltd-and-Shanghai-Mitsubishi-Elevator-Co-Ltd-SMEC.html">Elevator in China</a></h4>
@@ -887,7 +877,7 @@
 						</div>
 						<div class="img-hover">
 							<a href="https://news.watercloudsolutions.com/news/188077/residential-elevators-market-research-report-2020-key-players-applications-drivers-trends-and-forecast-to-2026/">
-								<img class="img-fluid" src="img/AdobeStock_179073967.jpeg" alt="Residential Elevator">
+								<%= image_tag("AdobeStock_179073967.jpeg", :alt => "Residential Elevator", :class => "img-fluid") %>
 							</a>
 
 							<h4 class="text-left mt-20"><a href="https://news.watercloudsolutions.com/news/188077/residential-elevators-market-research-report-2020-key-players-applications-drivers-trends-and-forecast-to-2026/">Residential Elevators Market</a></h4>
@@ -901,7 +891,7 @@
 						</div>
 						<div class="img-hover">
 							<a href="https://www.newsdistinct.com/global-fire-elevator-market-2020-know-the-companies-list-could-potentially-benefit-or-loose-out-from-the-impact-of-covid-19-top-companies-zhejiang-meilun-elevator-schindler-group-kone-shenyang/">
-								<img class="img-fluid" src="img/AdobeStock_66781279.jpeg" alt="bluiding Elevator">
+								<%= image_tag("AdobeStock_66781279.jpeg", :alt => "bluiding Elevator", :class => "img-fluid") %>
 							</a>
 
 							<h4 class="text-left mt-20"><a href="https://www.newsdistinct.com/global-fire-elevator-market-2020-know-the-companies-list-could-potentially-benefit-or-loose-out-from-the-impact-of-covid-19-top-companies-zhejiang-meilun-elevator-schindler-group-kone-shenyang/">Global Fire Elevator market 2020</a></h4>
@@ -915,7 +905,7 @@
 						</div>
 						<div class="img-hover">
 							<a href="https://www.businesswire.com/news/home/20200511005131/en/Mitsubishi-Electric-Introduces-%E2%80%9CTouch-Free%E2%80%9D-Elevator-Call">
-								<img class="img-fluid" src="img/AdobeStock_130711085.jpeg" alt="Smart Elevator">
+								<%= image_tag("AdobeStock_130711085.jpeg", :alt => "Smart Elevator", :class => "img-fluid") %>
 							</a>
 
 							<h4 class="text-left mt-20"><a href="https://www.businesswire.com/news/home/20200511005131/en/Mitsubishi-Electric-Introduces-%E2%80%9CTouch-Free%E2%80%9D-Elevator-Call">Touch Free Elevator</a></h4>
@@ -929,7 +919,7 @@
 						</div>
 						<div class="img-hover">
 							<a href="https://www.bloomberg.com/news/articles/2020-05-12/thyssenkrupp-rising-debt-gnaws-at-19-billion-elevator-lifeline">
-								<img class="img-fluid" src="img/AdobeStock_146216308.jpeg" alt="Elevators">
+								<%= image_tag("AdobeStock_146216308.jpeg", :alt => "Smart Elevator", :class => "img-fluid") %>
 							</a>
 							<h4 class="text-left mt-20"><a href="https://www.bloomberg.com/news/articles/2020-05-12/thyssenkrupp-rising-debt-gnaws-at-19-billion-elevator-lifeline">Elevator cash</a></h4>
 							<p class="text-left">10 billion of debt for an elevator Company</p>
@@ -942,7 +932,7 @@
 						</div>
 						<div class="img-hover">
 							<a href="https://www.kentucky.com/entertainment/celebrities/article242966876.html">
-								<img class="img-fluid" src="img/AdobeStock_41696502.jpeg" alt="Futur Elevators">
+								<%= image_tag("AdobeStock_41696502.jpeg", :alt => "Futur Elevator", :class => "img-fluid") %>
 							</a>
 							<h4 class="text-left mt-20"><a href="https://www.kentucky.com/entertainment/celebrities/article242966876.html">Repair elevators</a></h4>
 							<p class="text-left">New elevators in 2020 have less issues than 10 years ago</p>
@@ -972,62 +962,62 @@
 					<ul class="row clients-dotted list-inline">
 						<li class="col-md-3 col-sm-3 col-6">
 							<a href="https://www.apple.com/ca/" target="_blank">
-								<img class="img-fluid" src="img/Apple.png" alt="Apple client" />
+								<%= image_tag("Apple.png", :alt => "Apple client", :class => "img-fluid") %>
 							</a>
 						</li>
 						<li class="col-md-3 col-sm-3 col-6">
 							<a href="https://www.microsoft.com/en-ca" target="_blank">
-								<img class="img-fluid" src="img/Microsoft.png" alt="Microsoft client" />
+								<%= image_tag("Microsoft.png", :alt => "Microsoft client", :class => "img-fluid") %>
 							</a>
 						</li>
 						<li class="col-md-3 col-sm-3 col-6">
 							<a href="https://www.spacex.com/" target="_blank">
-								<img class="img-fluid" src="img/Spacex.png" alt="SpaceX client" />
+								<%= image_tag("Spacex.png", :alt => "SpaceX client", :class => "img-fluid") %>
 							</a>
 						</li>
 						<li class="col-md-3 col-sm-3 col-6">
 							<a href="https://www.ikea.com/ca/en/" target="_blank">
-								<img class="img-fluid" src="img/Ikea.png" alt="Ikea client" />
+							<%= image_tag("Ikea.png", :alt => "Ikea client", :class => "img-fluid") %>
 							</a>
 						</li>
 						<li class="col-md-3 col-sm-3 col-6">
 							<a href="https://www.walmart.ca/en" target="_blank">
-								<img class="img-fluid" src="img/Walmart.png" alt="Walmart client" />
+								<%= image_tag("Walmart.png", :alt => "Walmart client", :class => "img-fluid") %>
 							</a>
 						</li>
 						<li class="col-md-3 col-sm-3 col-6">
 							<a href="https://www.amazon.ca/" target="_blank">
-								<img class="img-fluid" src="img/Amazon.png" alt="Amazon client" />
+								<%= image_tag("Amazon.png", :alt => "Amazon client", :class => "img-fluid") %>
 							</a>
 						</li>
 						<li class="col-md-3 col-sm-3 col-6">
 							<a href="https://www.nike.com/ca/" target="_blank">
-								<img class="img-fluid" src="img/Nike.png" alt="Nike client" />
+								<%= image_tag("Nike.png", :alt => "Nike client", :class => "img-fluid") %>
 							</a>
 						</li>
 						<li class="col-md-3 col-sm-3 col-6">
 							<a href="https://www.aircanada.com/ca/en/aco/home.html" target="_blank">
-								<img class="img-fluid" src="img/AirCanada.png" alt="Air Canada client" />
+								<%= image_tag("AirCanada.png", :alt => "Air Canada client", :class => "img-fluid") %>
 							</a>
 						</li>
 						<li class="col-md-3 col-sm-3 col-6">
 							<a href="https://videotron.com" target="_blank">
-								<img class="img-fluid" src="img/Logo Centre Videotron.png" alt="Videotron client" />
+								<%= image_tag("Logo Centre Videotron.png", :alt => "Videotron client", :class => "img-fluid") %>
 							</a>
 						</li>
 						<li class="col-md-3 col-sm-3 col-6">
 							<a href="https://www.ovh.com/ca/fr/" target="_blank">
-								<img class="img-fluid" src="img/OVH.png" alt="OVH client" />
+								<%= image_tag("OVH.png", :alt => "OVH client", :class => "img-fluid") %>
 							</a>
 						</li>
 						<li class="col-md-3 col-sm-3 col-6">
 							<a href="https://www.desjardins.com" target="_blank">
-								<img class="img-fluid" src="img/desjardins.png" alt="desjardins client" />
+								<%= image_tag("desjardins.png", :alt => "desjardins client", :class => "img-fluid") %>
 							</a>
 						</li>
 						<li class="col-md-3 col-sm-3 col-6">
 							<a href="https://www.honda.com" target="_blank">
-								<img class="img-fluid" src="img/honda-logo.png" alt="Air Canada client" />
+								<%= image_tag("honda-logo.png", :alt => "Honda client", :class => "img-fluid") %>
 							</a>
 						</li>
 					</ul>
@@ -1275,24 +1265,10 @@
 		<a href="#" id="toTop"></a>
 
 
-		<!-- PRELOADER -->
-		<div id="preloader">
-			<div class="inner">
-				<span class="loader"></span>
-			</div>
-		</div><!-- /PRELOADER -->
-
-
-		<!-- JAVASCRIPT FILES -->
-		<script>var plugin_path = 'assets/plugins/';</script>
-		<script src="assets/plugins/jquery/jquery-3.3.1.min.js"></script>
-
-		<script src="assets/js/scripts.js"></script>
-
-		<!-- REVOLUTION SLIDER -->
-		<script src="assets/plugins/slider.revolution/js/jquery.themepunch.tools.min.js"></script>
-		<script src="assets/plugins/slider.revolution/js/jquery.themepunch.revolution.min.js"></script>
-		<script src="assets/js/view/demo.revolution_slider.js"></script>
-
 		<!-- PAGELEVEL SCRIPTS -->
-		<script src="assets/js/contact.js"></script>
+		<%= javascript_include_tag 'contact', media: 'all', 'data-turbolinks-track': 'reload' %>
+		<%= javascript_include_tag 'smoothscroll', media: 'all', 'data-turbolinks-track': 'reload' %>
+		<%= javascript_include_tag 'scripts', media: 'all', 'data-turbolinks-track': 'reload' %>
+		
+		
+		
