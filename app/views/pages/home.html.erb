@@ -1,13 +1,12 @@
 
 <h1 class="text-primary">Pages#home</h1>
 <% if current_user %>
-<%= link_to "Sign out", destroy_user_session_path, :method => :get %>
+<%= link_to 'Dashbord', rails_admin.dashboard_path %>
 <% else %>
-<%= link_to 'sign up', new_user_registration_path %>
-<%= link_to 'sign in', new_user_session_path %>
+<%= link_to 'Login', new_user_session_path %>
 <% end %>
 
-<%= link_to 'allo', rails_admin.dashboard_path %>
+
 
 
 <p>Find me in app/views/pages/home.html.erb</p>

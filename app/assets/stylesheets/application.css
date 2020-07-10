@@ -16,6 +16,7 @@
  */
  @import "font-awesome-sprockets";
  @import "font-awesome";
+ /*
  @import "bootstrap"
  @import "sprockets"
  @import "extralayers.css"
@@ -27,4 +28,4 @@
  @import "blue.css"
  
  *= require owl.carousel
- *= require owl.theme
+ *= require owl.theme*/

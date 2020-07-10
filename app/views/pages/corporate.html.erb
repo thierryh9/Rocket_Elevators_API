@@ -96,6 +96,18 @@
 											CONTACT
 										</a>
 									</li>
+									<li>
+									<% if current_user %>
+										<%= link_to 'Dashboard', rails_admin.dashboard_path %>
+									<% else %>
+										<%= link_to 'Login', new_user_session_path %>
+									<% end %>
+									</li>
+									<li>
+									<% if current_user %>
+										<%= link_to "Sign out", destroy_user_session_path, :method => :get %>
+									<% end %>
+									</li>
 								</ul>
 
 							</nav>

@@ -67,7 +67,7 @@
 			Init(false);
 
 		});*/
-Init(false);
+	Init(false);
 
 		/* --- */
 //		if(jQuery("body").hasClass("smoothscroll") && navigator.platform.indexOf('Mac') < 0) {

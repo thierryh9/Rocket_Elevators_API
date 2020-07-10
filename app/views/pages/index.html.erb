@@ -119,6 +119,18 @@
 											CONTACT
 										</a>
 									</li>
+									<li>
+									<% if current_user.try(:admin?) %>
+										<%= link_to 'Dashboard', rails_admin.dashboard_path %>
+									<% end %>
+									</li>
+									<li>
+									<% if current_user %>
+										<%= link_to "Sign out", destroy_user_session_path, :method => :get %>
+									<% else %>
+										<%= link_to 'Login', new_user_session_path %>
+									<% end %>
+									</li>
 								</ul>
 
 							</nav>
@@ -732,7 +744,7 @@
 											<span class="inner">
 
 												<!-- lightbox -->
-												<a class="ico-rounded lightbox" href="img/modern.jpg" data-plugin-options='{"type":"image"}'>
+												<a class="ico-rounded lightbox" href="<%= image_path('modern.jpg')%>" data-plugin-options='{"type":"image"}'>
 													<span class="fa fa-plus fs-20"></span>
 												</a>
 
@@ -763,7 +775,7 @@
 											<span class="inner">
 
 												<!-- lightbox -->
-												<a class="ico-rounded lightbox" href="img/elevatorMulti.jpg" data-plugin-options='{"type":"image"}'>
+												<a class="ico-rounded lightbox" href="<%= image_path('elevatorMulti.jpg')%>" data-plugin-options='{"type":"image"}'>
 													<span class="fa fa-plus fs-20"></span>
 												</a>
 

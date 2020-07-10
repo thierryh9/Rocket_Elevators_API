@@ -124,6 +124,18 @@
 										CONTACT
 									</a>
 								</li>
+								<li>
+									<% if current_user %>
+										<%= link_to 'Dashboard', rails_admin.dashboard_path %>
+									<% else %>
+										<%= link_to 'Login', new_user_session_path %>
+									<% end %>
+								</li>
+								<li>
+									<% if current_user %>
+										<%= link_to "Sign out", destroy_user_session_path, :method => :get %>
+									<% end %>
+								</li>
 							</ul>
 
 						</nav>
@@ -361,7 +373,7 @@
 	<!-- /wrapper -->
 
 
-
+		<%= javascript_include_tag 'quote', media: 'all', 'data-turbolinks-track': 'reload' %>
 		<%= javascript_include_tag 'contact', media: 'all', 'data-turbolinks-track': 'reload' %>
 		<%= javascript_include_tag 'smoothscroll', media: 'all', 'data-turbolinks-track': 'reload' %>
 		<%= javascript_include_tag 'scripts', media: 'all', 'data-turbolinks-track': 'reload' %>
