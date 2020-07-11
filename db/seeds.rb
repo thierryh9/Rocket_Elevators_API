@@ -38,5 +38,5 @@ r = User.create(email: Faker::Internet.email, password: s, password_confirmation
 end
 
 100.times do
-Quote.create(floor: Random.new(10),basement: Random.new(10),apartment: Random.new(10),business: Random.new(20),shaft: Random.new(20),parking: Random.new(20),companie: Random.new(20),ocupant: Random.new(20),open: Random.new(20), type: Type.offset(rand(Type.count)).first, category: Category.offset(rand(Category.count)).first)
+Quote.create(floor: rand(10),basement: rand(10),apartment: rand(10),business: rand(10),shaft: rand(10),parking: rand(10),companie: rand(10),ocupant: rand(10),open: rand(10), type: Type.offset(rand(Type.count)).first, category: Category.offset(rand(Category.count)).first)
 end
