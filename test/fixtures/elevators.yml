@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  serialNumber: MyString
+  status: false
+  serviceDate: 2020-07-13
+  dateInspection: 2020-07-13
+  certificat: MyString
+  information: MyString
+  note: MyString
+  column: one
+  category: one
+
+two:
+  serialNumber: MyString
+  status: false
+  serviceDate: 2020-07-13
+  dateInspection: 2020-07-13
+  certificat: MyString
+  information: MyString
+  note: MyString
+  column: two
+  category: two

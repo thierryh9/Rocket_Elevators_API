@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  inpectionDate: 2020-07-13
+  serviceDate: 2020-07-13
+  status: false
+  type: one
+  employee: one
+  building: one
+
+two:
+  inpectionDate: 2020-07-13
+  serviceDate: 2020-07-13
+  status: false
+  type: two
+  employee: two
+  building: two

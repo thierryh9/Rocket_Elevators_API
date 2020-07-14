@@ -23,3 +23,6 @@
 //= require_tree ../plugins/mixitup/
 //= require_tree ../plugins/slider.revolution/js/
 //= require_tree ./view
+
+//= require chartkick
+//= require Chart.bundle
