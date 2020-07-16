@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   devise_for :users
   post 'pages', to: "pages#create"
+  post 'leads', to: "pages#createLead"
+  get 'fileLeads/:id', to: 'pages#download'
   get 'index', to: 'pages#index.html'
   get 'residential', to: 'pages#residential'
   get 'corporate', to: 'pages#corporate'

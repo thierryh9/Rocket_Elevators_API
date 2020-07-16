@@ -5,11 +5,11 @@ one:
   status: false
   information: MyString
   note: MyString
-  building: one
+  battery: one
 
 two:
   numberFloor: 1
   status: false
   information: MyString
   note: MyString
-  building: two
+  battery: two

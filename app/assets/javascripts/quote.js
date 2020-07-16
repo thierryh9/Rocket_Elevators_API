@@ -35,6 +35,7 @@ function showDetails() {
     $("#summary_type").text($("label[for="+input_Gamme.attr("id")+"]").text());
     var shaft = calcul();
     $("#summary_shaft").text(shaft);
+	$("#shafts").val(shaft);
     var type = type_Gamme[input_Gamme.val()];
     var costE = type.price*shaft;
     $("#summary_ECost").text("$"+Number(costE).toLocaleString('en', {

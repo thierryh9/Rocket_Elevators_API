@@ -46,6 +46,7 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'owlcarousel-rails'
 
+gem 'whenever'
 gem 'pg', '~> 0.18.4'
 gem "chartkick"
 

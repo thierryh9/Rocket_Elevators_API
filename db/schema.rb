@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_14_005246) do
+ActiveRecord::Schema.define(version: 2020_07_15_143651) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "type"
+    t.string "aType"
     t.string "status"
-    t.string "enity"
+    t.string "entity"
     t.string "street"
     t.string "suite"
     t.string "city"
@@ -27,9 +27,11 @@ ActiveRecord::Schema.define(version: 2020_07_14_005246) do
   end
 
   create_table "batteries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.date "inpectionDate"
-    t.date "serviceDate"
+    t.date "inspectionDate"
+    t.date "installDate"
     t.boolean "status"
+    t.text "information"
+    t.text "note"
     t.bigint "type_id"
     t.bigint "employee_id"
     t.bigint "building_id"
@@ -75,16 +77,16 @@ ActiveRecord::Schema.define(version: 2020_07_14_005246) do
   create_table "columns", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "numberFloor"
     t.boolean "status"
-    t.string "information"
-    t.string "note"
-    t.bigint "building_id"
+    t.text "information"
+    t.text "note"
+    t.bigint "battery_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["building_id"], name: "index_columns_on_building_id"
+    t.index ["battery_id"], name: "index_columns_on_battery_id"
   end
 
   create_table "customers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
+    t.string "entrepriseName"
     t.string "nameContact"
     t.string "cellPhone"
     t.string "email"
@@ -103,11 +105,11 @@ ActiveRecord::Schema.define(version: 2020_07_14_005246) do
   create_table "elevators", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "serialNumber"
     t.boolean "status"
-    t.date "serviceDate"
-    t.date "dateInspection"
+    t.date "inspectionDate"
+    t.date "installDate"
     t.string "certificat"
-    t.string "information"
-    t.string "note"
+    t.text "information"
+    t.text "note"
     t.bigint "column_id"
     t.bigint "category_id"
     t.datetime "created_at", null: false
@@ -136,14 +138,17 @@ ActiveRecord::Schema.define(version: 2020_07_14_005246) do
     t.string "description"
     t.string "division"
     t.string "message"
-    t.binary "file"
+    t.binary "file", limit: 16777215
     t.date "contactDate"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "fileName", default: ""
   end
 
   create_table "quotes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "type_id"
+    t.string "companyName"
+    t.string "email"
     t.integer "floor"
     t.integer "basement"
     t.integer "apartment"
@@ -185,7 +190,7 @@ ActiveRecord::Schema.define(version: 2020_07_14_005246) do
   add_foreign_key "building_details", "buildings"
   add_foreign_key "buildings", "addresses"
   add_foreign_key "buildings", "customers"
-  add_foreign_key "columns", "buildings"
+  add_foreign_key "columns", "batteries"
   add_foreign_key "customers", "addresses"
   add_foreign_key "customers", "users"
   add_foreign_key "elevators", "categories"

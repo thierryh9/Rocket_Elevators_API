@@ -1101,20 +1101,19 @@
 								<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 								<strong>Sorry!</strong> You need to complete all mandatory (*) fields!
 							</div><!-- /Alert Mandatory -->
-
-
-							<form action="php/contact.php" method="post" enctype="multipart/form-data">
+							
+							<%= form_tag leads_path, multipart: true do %>
 								<fieldset>
 									<input type="hidden" name="action" value="contact_send" />
 
 									<div class="row">
 											<div class="col-md-4">
 												<label for="contact:name">Full Name *</label>
-												<input required type="text" value="" class="form-control" name="contact[name][required]" id="contact:name">
+												<input required type="text" value="" class="form-control" name="contact[name]" id="contact:name">
 											</div>
 											<div class="col-md-4">
 												<label for="contact:email">E-mail Address *</label>
-												<input required type="email" value="" class="form-control" name="contact[email][required]" id="contact:email">
+												<input required type="email" value="" class="form-control" name="contact[email]" id="contact:email">
 											</div>
 											<div class="col-md-4">
 												<label for="contact:phone">Phone</label>
@@ -1122,9 +1121,13 @@
 											</div>
 									</div>
 									<div class="row">
-											<div class="col-md-8">
+											<div class="col-md-4">
 												<label for="contact:entreprise">Entreprise name *</label>
-												<input required type="text" value="" class="form-control" name="contact[entreprise][required]" id="contact:entreprise">
+												<input required type="text" value="" class="form-control" name="contact[entreprise]" id="contact:entreprise">
+											</div>
+											<div class="col-md-4">
+												<label for="contact:projectname">Project name *</label>
+												<input required type="text" value="" class="form-control" name="contact[projectname]" id="contact:projectname">
 											</div>
 											<div class="col-md-4">
 												<label for="contact_department">Department</label>
@@ -1166,15 +1169,11 @@
 										<button type="submit" class="btn blue"><i class="fa fa-check"></i> SEND MESSAGE</button>
 									</div>
 								</div>
-							</form>
+							<% end %>
 
 						</div>
 						<!-- /FORM -->
 						
-						<div>
-						
-						<script>
-						</script>
 						</div>
 
 
