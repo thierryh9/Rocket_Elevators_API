@@ -18,6 +18,9 @@
 # end
 
 # Learn more: http://github.com/javan/whenever
-every 2.minutes do
-	rake "rocket_elevator:sync"
-end
+
+
+#This is the cron job. execute every 2 minutes
+#every 2.minutes do
+#	rake "rocket_elevator:sync"
+#end

@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS fact_contact (
   project_name VARCHAR(255) NOT NULL);
   
 CREATE TABLE IF NOT EXISTS fact_elevator (
-  serial_number INT NOT NULL,
+  serial_number VARCHAR(70) NOT NULL,
   commissionning_date timestamp NOT NULL,
   building_id INT NOT NULL,
   customer_id INT NOT NULL,
