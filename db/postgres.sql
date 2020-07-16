@@ -9,6 +9,7 @@ CREATE TABLE IF NOT EXISTS fact_contact (
   contact_id SERIAL NOT NULL,
   date_created timestamp NOT NULL,
   email VARCHAR(255) NOT NULL,
+  entreprise VARCHAR(255) NOT NULL,
   project_name VARCHAR(255) NOT NULL);
   
 CREATE TABLE IF NOT EXISTS fact_elevator (

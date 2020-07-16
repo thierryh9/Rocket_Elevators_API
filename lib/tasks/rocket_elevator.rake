@@ -6,7 +6,7 @@ namespace :rocket_elevator do
 	
 	#fix the ' error
 	connection.prepare('addFactQuotes', "INSERT INTO fact_quotes (quote_id,date_created,company_name,email,nb_elevators) VALUES ($1,$2,$3,$4,$5)")
-	connection.prepare('addFactContact', "INSERT INTO fact_contact (contact_id,date_created,email,project_name) VALUES ($1,$2,$3,$4)")
+	connection.prepare('addFactContact', "INSERT INTO fact_contact (contact_id,date_created,email,entreprise,project_name) VALUES ($1,$2,$3,$4,$5)")
 	connection.prepare('addFactElevator', "INSERT INTO fact_elevator (serial_number,commissionning_date,building_id,customer_id, building_city) VALUES ($1,$2,$3,$4,$5)")
 	connection.prepare('addDimCustomers', "INSERT INTO dim_customers (id,date_created,company_name,contact_name, contact_email,nb_elevators, customer_city) VALUES ($1,$2,$3,$4,$5,$6,$7)")
 	
@@ -19,7 +19,7 @@ namespace :rocket_elevator do
 	
 	connection.exec("TRUNCATE fact_contact RESTART IDENTITY")
 	Lead.all.each do |l|
-		connection.exec_prepared('addFactContact',[l.id, l.created_at, l.email, l.projectName])
+		connection.exec_prepared('addFactContact',[l.id, l.created_at, l.email,l.entrepriseName, l.projectName])
 		#connection.exec("INSERT INTO fact_contact (contact_id,date_created,email,project_name) VALUES (#{l.id},'#{l.created_at}', '#{l.email}', '#{l.projectName}')")
 	end
 
