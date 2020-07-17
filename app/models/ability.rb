@@ -4,7 +4,7 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-	return unless user.admin == true || !Customer.find_by(user_id:user.id).nil?
+	return unless user && (user.admin == true || !Customer.find_by(user_id:user.id).nil?)
 	if user.admin == true
 		can :manage, :all
 	else
