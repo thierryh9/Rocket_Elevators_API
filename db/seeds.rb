@@ -47,6 +47,10 @@ csvFile = CSV.read("db/address.csv", :headers => true)
 #puts csvFile[0]["first_name"]
 ee = ["Building", "Customer"]
 aa = ["Billing", "Shipping", "Home", "Business"]
+
+ uc = User.create(email: 'customer@user.com', password: 'password', password_confirmation: 'password', admin: 0)
+ ac = Address.create(aType: aa[rand(3)], status: "actif", entity: ee[1], street: csvFile[300]["address"].split("#")[0], suite: "#"+csvFile[300]["address"].split("#")[1].to_s, city: csvFile[300]["city"], postalCode: csvFile[300]["postal"], country: csvFile[300]["province"], notes: Faker::Types.rb_string)
+ Customer.create(entrepriseName: csvFile[300]["company_name"], nameContact: csvFile[300]["first_name"], cellPhone: csvFile[300]["phone1"], email: csvFile[300]["email"], description: "", authorityName: csvFile[300]["first_name"], authorityPhone: csvFile[300]["phone2"], authorityEmail: csvFile[300]["email"], user: uc, address: ac)
 100.times do |n|
  u = User.create(email: csvFile[n]["email"], password: 'password', password_confirmation: 'password', admin: 0)
  a = Address.create(aType: aa[rand(3)], status: "actif", entity: ee[1], street: csvFile[n]["address"].split("#")[0], suite: "#"+csvFile[n]["address"].split("#")[1].to_s, city: csvFile[n]["city"], postalCode: csvFile[n]["postal"], country: csvFile[n]["province"], notes: Faker::Types.rb_string)
