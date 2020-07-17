@@ -3,7 +3,7 @@
 WEEK 5 : MYSQL & POSTGRESQL DATABASES
 
 Ruby On Rails project for RocketElevators.
-Make the interactive website with the original static website of "Alexandre" and link it to a database to store "User" and "Employee" login data and the quote data in separate tables.
+Make the interactive website with the original static website of genesis 2 weeks and link it to a database to store "User" and "Employee" login data and the quote data in separate tables.
 The website have a backoffice that employee can login to access the data from quote.
 
 DEPENDENCIES 
