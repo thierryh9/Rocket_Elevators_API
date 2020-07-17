@@ -12,6 +12,19 @@
  *
  *= require_tree .
  *= require_self
+
  */
- 
+ @import "font-awesome";
+ /*
  @import "bootstrap"
+ @import "sprockets"
+ @import "extralayers.css"
+ @import "settings.css"
+ 
+ @import "essentials.css"
+ @import "header-1.css"
+ @import "layout.css"
+ @import "blue.css"
+ 
+ *= require owl.carousel
+ *= require owl.theme*/

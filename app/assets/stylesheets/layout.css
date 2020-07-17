@@ -540,95 +540,9 @@ body.boxed #wrapper {
  	body.grain-orange section.page-header,
  	body.grain-yellow section.page-header {
  		background-color: rgba(0,0,0,0.05) !important;
- 	}
+	 }
+	 
 
-
-
-	/* 
-		GRAIN BLUE BACKGROUND 
-	*/
-	body.grain-blue,
-	body.grain-blue #wrapper,
-	body.grain-blue #topBar,
-	body.grain-blue #header.fixed,
-	body.grain-blue #header li.search .search-box, 
-	body.grain-blue #header li.quick-cart .quick-cart-box,
-	body.grain-blue div.heading-title h1, 
-	body.grain-blue div.heading-title h2, 
-	body.grain-blue div.heading-title h3, 
-	body.grain-blue div.heading-title h4, 
-	body.grain-blue div.heading-title h5, 
-	body.grain-blue div.heading-title h6 {
-		background:#dce4e9  url('../images/_smarty/grain_bg.png') repeat;
-	}
-	/* 
-		GRAIN GREY BACKGROUND 
-	*/
-	body.grain-grey,
-	body.grain-grey #wrapper,
-	body.grain-grey #topBar,
-	body.grain-grey #header.fixed,
-	body.grain-grey #header li.search .search-box, 
-	body.grain-grey #header li.quick-cart .quick-cart-box,
-	body.grain-grey div.heading-title h1, 
-	body.grain-grey div.heading-title h2, 
-	body.grain-grey div.heading-title h3, 
-	body.grain-grey div.heading-title h4, 
-	body.grain-grey div.heading-title h5, 
-	body.grain-grey div.heading-title h6 {
-		background:#f1f2f7  url('../images/_smarty/grain_bg.png') repeat;
-	}
-	/* 
-		GRAIN GREEN BACKGROUND 
-	*/
-	body.grain-green,
-	body.grain-green #wrapper,
-	body.grain-green #topBar,
-	body.grain-green #header.fixed,
-	body.grain-green #header li.search .search-box, 
-	body.grain-green #header li.quick-cart .quick-cart-box,
-	body.grain-green div.heading-title h1, 
-	body.grain-green div.heading-title h2, 
-	body.grain-green div.heading-title h3, 
-	body.grain-green div.heading-title h4, 
-	body.grain-green div.heading-title h5, 
-	body.grain-green div.heading-title h6 {
-		background:#e6eeea  url('../images/_smarty/grain_bg.png') repeat;
-	}
-	/* 
-		GRAIN ORANGE BACKGROUND 
-	*/
-	body.grain-orange,
-	body.grain-orange #wrapper,
-	body.grain-orange #topBar,
-	body.grain-orange #header.fixed,
-	body.grain-orange #header li.search .search-box, 
-	body.grain-orange #header li.quick-cart .quick-cart-box,
-	body.grain-orange div.heading-title h1, 
-	body.grain-orange div.heading-title h2, 
-	body.grain-orange div.heading-title h3, 
-	body.grain-orange div.heading-title h4, 
-	body.grain-orange div.heading-title h5, 
-	body.grain-orange div.heading-title h6 {
-		background:#fff4ea  url('../images/_smarty/grain_bg.png') repeat;
-	}
-	/* 
-		GRAIN YELLOW BACKGROUND 
-	*/
-	body.grain-yellow,
-	body.grain-yellow #wrapper,
-	body.grain-yellow #topBar,
-	body.grain-yellow #header.fixed,
-	body.grain-yellow #header li.search .search-box, 
-	body.grain-yellow #header li.quick-cart .quick-cart-box,
-	body.grain-yellow div.heading-title h1, 
-	body.grain-yellow div.heading-title h2, 
-	body.grain-yellow div.heading-title h3, 
-	body.grain-yellow div.heading-title h4, 
-	body.grain-yellow div.heading-title h5, 
-	body.grain-yellow div.heading-title h6 {
-		background:#ffffe6  url('../images/_smarty/grain_bg.png') repeat;
-	}
 
 	/* essentials.css rewrite : heading shortcode */
 	body.grain-blue div.heading-title.heading-line-single:before,
@@ -1015,36 +929,6 @@ section.page-header {
 	}
 
 }
-
-
-	/* shadows */
-	section.page-header.shadow-after-1:before {
-			content:' ';
-			position:absolute;
-			left:0; right:0;
-			width:100%; height:60px;
-			bottom:-60px;
-			background-image:url('../images/_smarty/misc/shadow1.png');
-			background-size: 100% 100%;
-	}
-	section.page-header.shadow-after-2:before {
-			content:' ';
-			position:absolute;
-			left:0; right:0;
-			width:100%; height:60px;
-			bottom:-60px;
-			background-image:url('../images/_smarty/misc/shadow2.png');
-			background-size: 100% 100%;
-	}
-	section.page-header.shadow-after-3:before {
-			content:' ';
-			position:absolute;
-			left:0; right:0;
-			width:100%; height:60px;
-			bottom:-60px;
-			background-image:url('../images/_smarty/misc/shadow3.png');
-			background-size: 100% 100%;
-	}
 
 
 	section.dark.page-header {
@@ -1437,60 +1321,6 @@ body.menu-vertical #mainMenu.sidebar-vertical .navbar-collapse>ul.nav.navbar-nav
 }
 
 
-
-	/* shadows */
-	#header.shadow-after-1:before {
-		content:' ';
-		position:absolute;
-		left:0; right:0;
-		width:100%; height:60px;
-		bottom:-60px;
-		background-image:url('../images/_smarty/misc/shadow1.png');
-		background-size: 100% 100%;
-	}
-	#header.shadow-before-1:before {
-		content:' ';
-		position:absolute;
-		left:0; right:0; top:0;
-		width:100%; height:60px;
-		background-image:url('../images/_smarty/misc/shadow1.png');
-		background-size: 100% 100%;
-	}
-
-	#header.shadow-after-2:before {
-		content:' ';
-		position:absolute;
-		left:0; right:0;
-		width:100%; height:60px;
-		bottom:-60px;
-		background-image:url('../images/_smarty/misc/shadow2.png');
-		background-size: 100% 100%;
-	}
-	#header.shadow-before-2:before {
-		content:' ';
-		position:absolute;
-		left:0; right:0; top:0;
-		width:100%; height:60px;
-		background-image:url('../images/_smarty/misc/shadow2.png');
-		background-size: 100% 100%;
-	}
-	#header.shadow-after-3:before {
-		content:' ';
-		position:absolute;
-		left:0; right:0;
-		width:100%; height:60px;
-		bottom:-60px;
-		background-image:url('../images/_smarty/misc/shadow3.png');
-		background-size: 100% 100%;
-	}
-	#header.shadow-before-3:before {
-		content:' ';
-		position:absolute;
-		left:0; right:0; top:0;
-		width:100%; height:60px;
-		background-image:url('../images/_smarty/misc/shadow3.png');
-		background-size: 100% 100%;
-	}
 
 
 	/** Search - Default
@@ -1938,11 +1768,6 @@ body.menu-vertical #mainMenu.sidebar-vertical .navbar-collapse>ul.nav.navbar-nav
 		font-size:12px;
 		text-transform:uppercase;
 	}
-		body.menu-vertical #mainMenu.sidebar-vertical .navbar-default .navbar-nav>li>a.dropdown-toggle {
-			background-image: url('../images/_smarty/submenu_light.png');
-			background-position:center right;
-			background-repeat:no-repeat;
-		}
 
 	body.menu-vertical #mainMenu.sidebar-vertical .navbar-default .navbar-nav>li>a>i {
 		margin-right:13px;
@@ -2147,9 +1972,6 @@ body.menu-vertical #mainMenu.sidebar-vertical .navbar-collapse>ul.nav.navbar-nav
 	body.menu-vertical #mainMenu.sidebar-vertical.sidebar-dark .dropdown-menu>li>a,
 	body.menu-vertical #mainMenu.sidebar-vertical.sidebar-dark .navbar-default .navbar-nav>li>a {
 		border-bottom-color:rgba(255,255,255,0.1);
-	}
-	body.menu-vertical #mainMenu.sidebar-vertical.sidebar-dark .navbar-default .navbar-nav>li>a.dropdown-toggle {
-		background-image: url('../images/_smarty/submenu_dark.png');
 	}
 	body.menu-vertical #mainMenu.sidebar-vertical.sidebar-dark .sidebar-nav .navbar li a {
 		color:#ccc;
@@ -3642,20 +3464,12 @@ body.menu-vertical #mainMenu.sidebar-vertical .navbar-collapse>ul.nav.navbar-nav
 	}
 
 
-	/* LIGHT SUBMENU */
-	#topNav ul.dropdown-menu a.dropdown-toggle {
-		background-image: url('../images/_smarty/submenu_light.png');
-	}
-
-
 	/* DARK SUBMENU */
 	#topNav div.submenu-dark ul.dropdown-menu {
 		background:#333;
 		background-color:#333;
 	}
-	#topNav div.submenu-dark ul.dropdown-menu a.dropdown-toggle {
-		background-image: url('../images/_smarty/submenu_dark.png');
-	}
+
 	#topNav div.submenu-dark ul.dropdown-menu li.active>a, 
 	#topNav div.submenu-dark ul.dropdown-menu li.active:hover>a, 
 	#topNav div.submenu-dark ul.dropdown-menu li.active:focus>a, 
@@ -4498,7 +4312,7 @@ section.dark .event-item {
 				<i class="fa fa-bullhorn"></i> 
 				STICKY POST
 			</span>
-			<img class="img-fluid" src="assets/images/_smarty/demo/thematics/music/i3-min.jpg" alt="image" />
+			<img class="img-fluid" src="assets/images//demo/thematics/music/i3-min.jpg" alt="image" />
 		</a>
 		
 		<div class="inews-item-content">
@@ -4649,7 +4463,7 @@ section.dark .event-item {
 
 
 	<div class="team-item clearfix">
-		<img class="team-item-image rounded" src="assets/images/_smarty/demo/thematics/wedding/him-min.jpg" alt="wedding" width="150" height="150" />
+		<img class="team-item-image rounded" src="assets/images//demo/thematics/wedding/him-min.jpg" alt="wedding" width="150" height="150" />
 		
 		<div class="team-item-desc">
 			<h4 class="nomargin">MIKE BAKER</h4>
@@ -6988,7 +6802,6 @@ section#slider:not(.custom-form) .btn-default {
 		display:inline-block;
 		width:22px;
 		height:22px;
-		background:url('../images/_smarty/plugins/slider.nivo/bullets.png') no-repeat;
 		text-indent:-9999px;
 		border:0;
 		margin: 0 2px;
@@ -8397,7 +8210,6 @@ section.dark.alternate .timeline .timeline-entry {
 	.timeline_center { 
 		margin: 0; 
 		position: relative;  
-		background: url('../images/_smarty/timeline/timeline_top.png') no-repeat top center; 
 		padding-top: 9px; 
 	}
 	.timeline_center:after { 
@@ -8415,16 +8227,6 @@ section.dark.alternate .timeline .timeline-entry {
 		
 		-webkit-border-radius: 100%; 
 				border-radius: 100%; 
-	}
-	.timeline_center li { 
-		padding: 0 0 25px 55%; 
-		position: relative; 
-		background: url('../images/_smarty/timeline/timeline_right.png') no-repeat top center; 
-	}
-	.timeline_center li:nth-child(even) { 
-		padding: 0 55% 25px 0; 
-		background: url('../images/_smarty/timeline/timeline_left.png') no-repeat top center; 
-		text-align:right;
 	}
 
 	.timeline_center li h3 { 
@@ -8475,9 +8277,6 @@ section.dark.alternate .timeline .timeline-entry {
 		left: -122%; 
 		top: 0; 
 	}
-	.timeline_center li .timeline-desc.timeline-desc-line {
-		background: url('../images/_smarty/timeline/textline.png') repeat-y; 
-	}
 	.timeline_center li:nth-child(even) .timeline-desc:before { 
 		left: auto; 
 		right: -122%; 
@@ -8493,7 +8292,7 @@ section.dark.alternate .timeline .timeline-entry {
 
 	@media only screen and (max-width: 650px) {
 		.timeline_center { background-position: 11px top; }
-		.timeline_center li { padding: 0 0 25px 70px !important; background: url('../images/_smarty/timeline/timeline_right.png') no-repeat !important; background-position: -30px top !important; width: auto; }
+		.timeline_center li { padding: 0 0 25px 70px !important; width: auto; }
 		.timeline_center li h3 span { position:relative; display:block; right:auto; left:auto; padding:5px 0 !important; margin:0; }
 		.timeline_center li:nth-child(even) h3 span { position:relative; display:block; right:auto; left:auto; padding:0; margin:0; }
 		.timeline_center li h3 { font-size:24px; line-height:24px; }
@@ -9069,15 +8868,6 @@ section.dark-2 div.category-grid .card {
 		display:block;
 	}
 
-	/* footer contact text */
-	#footer address {
-		background:url('../images/_smarty/world-map.png') no-repeat center;
-	}
-	#footer address .footer-sprite {
-		margin-bottom:20px;
-		padding-left:30px; 
-		background:url('../images/_smarty/footer_sprite.png') no-repeat 0 0;
-	}
 		#footer address .footer-sprite:last-child {
 			margin-bottom:0;
 		}
