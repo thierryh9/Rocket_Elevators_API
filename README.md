@@ -59,3 +59,25 @@ to synchronize the mysql database with the postgresql database, you must do the 
 ```
 rake rocket_elevator:sync
 ```
+## USER
+###Admin User:
+admin have the full access
+  ```
+  nicolas.genest@codeboxx.biz 
+  ```
+  Ou courriel d'un coach
+###Customer User:
+customer can only see charts
+  ```
+  customer@user.com
+  ```
+###Normal User:
+normal user can connect but can't see the dashboard
+```
+normal@user.com
+```
+###pasword:
+the password for every account on this app is:
+```
+password
+```
