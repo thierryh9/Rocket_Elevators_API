@@ -1,49 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<title>Rocket Elevators - Residential Building</title>
-		<meta name="description" content="" />
-		<meta name="Author" content="Dorin Grigoras [www.stepofweb.com]" />
 
-		<!-- mobile settings -->
-		<meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
-		<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
-
-		<!-- WEB FONTS : use %7C instead of | (pipe) -->
-		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600%7CRaleway:300,400,500,600,700%7CLato:300,400,400italic,600,700" rel="stylesheet" type="text/css" />
-
-		<!-- CORE CSS -->
-		<link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-
-		<!-- REVOLUTION SLIDER -->
-		<link href="assets/plugins/slider.revolution/css/extralayers.css" rel="stylesheet" type="text/css" />
-		<link href="assets/plugins/slider.revolution/css/settings.css" rel="stylesheet" type="text/css" />
-
-		<!-- THEME CSS -->
-		<link href="assets/stylesheets/essentials.css" rel="stylesheet" type="text/css" />
-		<link href="assets/stylesheets/layout.css" rel="stylesheet" type="text/css" />
-
-		<!-- PAGE LEVEL SCRIPTS -->
-		<link href="assets/stylesheets/header-1.css" rel="stylesheet" type="text/css" />
-		<link href="assets/stylesheets/color_scheme/blue.css" rel="stylesheet" type="text/css" id="color_scheme" />
-	</head>
-	<!--/HEAD-->
-
-	
-	<!--BODY-->
-	
-	<body class="smoothscroll enable-animation">
-
-		
 
 		<!-- wrapper -->
 		<div id="wrapper">
 
-			<div id="header" class="navbar-toggleable-md sticky clearfix">
+			<!-- 
+				AVAILABLE HEADER CLASSES
 
+				Default nav height: 96px
+				.header-md 		= 70px nav height
+				.header-sm 		= 60px nav height
 
-				<!-- TOP NAVIGATION BAR -->
+				.b-0 		= remove bottom border (only with transparent use)
+				.transparent	= transparent header
+				.translucent	= translucent header
+				.sticky			= sticky header
+				.static			= static header
+				.dark			= dark header
+				.bottom			= header on bottom
+				
+				shadow-before-1 = shadow 1 header top
+				shadow-after-1 	= shadow 1 header bottom
+				shadow-before-2 = shadow 2 header top
+				shadow-after-2 	= shadow 2 header bottom
+				shadow-before-3 = shadow 3 header top
+				shadow-after-3 	= shadow 3 header bottom
+
+				.clearfix		= required for mobile menu, do not remove!
+
+				Example Usage:  class="clearfix sticky header-sm transparent b-0"
+			-->
+			<div id="header" class="navbar-toggleable-md sticky header-md clearfix">
+
+				<!-- TOP NAV -->
 				<header id="topNav">
 					<div class="container">
 
@@ -52,96 +40,74 @@
 							<i class="fa fa-bars"></i>
 						</button>
 
-						
 						<!-- Logo -->
-						<a class="logo float-left" href="#">
-							<img src="assets\images\Rocket Elevator Assets\R2.png" alt="logo = assets\images\Rocket Elevator Assets\R2.png"/>
-						</a>	
-						<!-- /Logo -->
-						
-						<!-- Top Nav -->
-							
-							<!-- AVAILABLE CLASSES:
-							submenu-dark = dark sub menu-->
+						<a class="logo float-left" href="index">
+							<%= image_tag("R2.png", :alt => "Rocket Elevator logo") %>
+						</a>
 
-						<div class="navbar-collapse collapse float-right nav-main-collapse submenu-dark">
+						<!-- 
+							Top Nav 
+							
+							AVAILABLE CLASSES:
+							submenu-dark = dark sub menu
+						-->
+						<div class="navbar-collapse collapse float-right nav-main-collapse">
 							<nav class="nav-main">
 
-								<!--
-									NOTE
+								<!-- 
+									.nav-onepage
+									Required for onepage navigation links
 									
-									For a regular link, remove "dropdown" class from LI tag and "dropdown-toggle" class from the href.
-									Direct Link Example: 
-
-									<li>
-										<a href="#">HOME</a>
-									</li>
+									Add .external for an external link!
 								-->
-								<ul id="topMain" class="nav nav-pills nav-main">
-									
-									<!-- HOME -->
-									<li>
-										<a target="_blank" href="index.html.erb">
+								<ul id="topMain" class="nav nav-pills nav-main nav-onepage">
+									<li ><!-- HOME -->
+										<a href="index">
 											HOME
-
 										</a>
-										
-										
 									</li>
-									<!--/HOME-->
-
-
-									<!--SERVICES-->
-									<li class="dropdown">
-										<a class="dropdown-toggle" href="#">
+									<li class="active"><!-- SERVICES -->
+										<a href="index#services" class="dropdown-toggle">
 											SERVICES
 										</a>
-										<ul class="dropdown-menu">
-
-											<li>
-												<a target = "blank" href="residential.html.erb">
-													RESIDENTIAL BUILDING
-												</a>
-											</li>
-
-										</ul>
+										<ul class="dropdown-menu sub-menu">
+											<li><a href="residential">Residential</a></li>
+											<li class="active"><a href="corporate">Corporate</a></li>
+											<li><a href="quote">Get a Quote</a></li>
+										  </ul>
 									</li>
-									<!--/SERVICES-->
-
-
-									<!-- PORTFOLIO -->
-									<li>
-										<a target ="blank" href="index.html.erb#Portfolio">
+									<li><!-- WORK -->
+										<a href="index#portfolio">
 											PORTFOLIO
 										</a>
 									</li>
-									<!--/PORTFOLIO-->
-
-									<!-- NEWS -->
-									<li>
-										<a target ="blank" href="index.html.erb#News">
+									<li><!-- NEWS -->
+										<a href="index#news">
 											NEWS
 										</a>
 									</li>
-									<!--/NEWS-->
-
-									<!-- CLIENTS -->
-									<li>
-										<a target ="blank" href="index.html.erb#Clients">
+									<li><!-- CLIENTS -->
+										<a href="index#clients">
 											CLIENTS
 										</a>
 									</li>
-									<!--/CLIENTS-->
-
-
-									<!-- CONTACT -->
-									<li>
-										<a data-wow-delay="0.5s" href="#contact">
-											CONTACT US
+									<li><!-- CONTACT -->
+										<a href="index#contact">
+											CONTACT
 										</a>
 									</li>
-									<!--/CONTACT-->
-
+									<li>
+									<% if current_user %>
+										<%= link_to 'Dashboard', rails_admin.dashboard_path %>
+									<% else %>
+										<%= link_to 'Login', new_user_session_path %>
+									<% end %>
+									</li>
+									<li>
+									<% if current_user %>
+										<%= link_to "Sign out", destroy_user_session_path, :method => :get %>
+									<% end %>
+									</li>
 								</ul>
 
 							</nav>
@@ -149,370 +115,104 @@
 
 					</div>
 				</header>
-				<!-- /Top Navigation bar -->
+				<!-- /Top Nav -->
 
 			</div>
-			<!-- /Wrapper -->
 
-            <!-- Main Text-->			
+			<section class="header-image">
+				<%= image_tag("AdobeStock_66781279.jpeg", :alt => "corporate header imaget", :class => "fullwidth") %>
+			</section>
+
+			<section class="container">
+				<div class="row">
+					<div class="col-sm">
+						<h1>Corporate Details</h1>
+						<p>This type of elevator supports a large capacity without affecting speed.</p>
+						<ul>
+							<li>Low cost of maintenance</li>
+							<li>Support up to 6000 lbs</li>
+							<li>10 year warranty</li>
+						</ul>
+						<p>We are so sure of our product that we are able to offer you the longest warranty in the industry</p>
+					</div>
+					<div class="col-sm">
+						<%= image_tag("AdobeStock_103570025.jpeg", :alt => "corporate", height:300 ,width:300) %>
+						
+					</div>
+				</div>
+				<hr/>
+				<div class="row ">
+					<div class="col-sm-12 d-flex justify-content-center">
+						
+						<a href="quote" class="btn blue">Get a quote</a>
+					</div>
+					
+				</div>
+			</section>
+		<!-- FOOTER -->
+		<footer id="footer">
 			<div class="container">
 
-				<br><br><br>
-				<div class="heading-title heading-dotted text-center">
-					
-					<h2>Our Services For Commercial & Corporate Building</h2>
+
+				<div class="row">
+
+					<!-- col #1 -->
+					<div class="col-md-8">
+
+						<h3 class="letter-spacing-1">WHY US?</h3>
+
+						<!-- Small Description -->
+						<p>
+							Rocket Elevator is a Company in the elevator industry. We work to improve all elevators with our repair and engineer team. We have our own manufacturing plant to create quick elevator.
+							</p>
+						<h2>(581) 701-0303</h2>
+					</div>
+					<!-- /col #1 -->
+
+					<!-- col #2 -->
+					<div class="col-md-4">
+						<h3 class="letter-spacing-1">KEEP IN TOUCH</h3>
+
+						<!-- Newsletter Form -->
+						<p>Subscribe to Our Newsletter to get Important News & Offers</p>
+
+						<form class="validate" action="php/newsletter.php" method="post"
+							data-success="Subscribed! Thank you!" data-toastr-position="bottom-right">
+							<div class="input-group">
+								<span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+								<input type="email" id="email" name="email" class="form-control required"
+									placeholder="Enter your Email">
+								<span class="input-group-btn">
+									<button class="btn blue" type="submit">Subscribe</button>
+								</span>
+							</div>
+						</form>
+						<!-- /Newsletter Form -->
+
+
+					</div>
+					<!-- /col #2 -->
+
 				</div>
-				<div class="row">					
-					<h4>Safety, Speed & Style</h4><br>
-					<p>After more than Four decades in the industry, Rocket Elevators learned how to design and fabricate exceptional
-					<b>commercials elevators</b> by offering three types of elevators, <b>Standard</b>, <b>Premium</b> & <b>Excelium</b>. We involve our clients in every step of the procedure.
-					 From a raw idea to a perfect reality and from design to installation.
-						
-						
-					Excellent material's quality, Excellent installation, Excellent maintenance and Excellent price for our <b>Elevators</b>. 
-					We’re strongly proud of our product. We are also able to charge less than our competitors thanks to our internal efficient
-					administration and management.<br><br>
-					    
-						
-					We’re known for our originality, quality, skills, competences, pricing, and our unlimited commitment to safety.
-					This mission is accomplished by product design, complete installation, adequate maintenance
-					and a responsability to our customers.<br><br>
 
 
-					<b>Rocket Elevators</b> is the best solution for commercial elevators installation and maintenance for property owners,
-					architects & general contractors. Rocket Elevators supports your projects from the begining to the end.</p><br>
-						
-						
-						
+			</div>
+			<div class="copyright">
+				<div class="container">
+					&copy; All Rights Reserved, Rocket Elevator
 				</div>
 			</div>
-			<!-- /Main Text-->
-
-			<!--Second Ribbon-->
-			
-			<section class="parallax parallax-1" style="background-image: url('demo_files/images/1200x800/Second_Ribbon.jpeg');">
-				<div class="overlay dark-5"><!-- dark overlay [1 to 9 opacity] --></div>
-
-				<div class="container">
-
-					<div class="text-center">
-						<h2 class="fs-40 fw-300">Rocket Elevators has been in business since 1976</h2>
-						<a class="btn btn-default btn-lg" target ="blank"href="Rocket-Elev-4Quot-Requ.html">GET A QUOTE <i class="fa fa-angle-right"></i></a> 
-					</div>
-
-				</div>
-			</section>
-
-			<!--/Second Ribbon-->
-            <!-- Section Contact US-->
-			<section id="contact">
-				<div class="container">
-
-					<header class="text-center mb-60">
-						<div class="heading-title heading-dotted text-center">
-							<h2 id="Contact-Us">Contact Us</h2>
-						</div>
-						<p class="lead font-lato">For more informations</p>
-						<hr />
-					</header>
-
-
-					<div class="row">
-
-						<!-- FORM -->
-						<div class="col-md-8 col-sm-8">
-
-							
-							<!-- Alert Success -->
-							<div id="alert_success" class="alert alert-success mb-30">
-								<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-								<strong>Thank You!</strong> Your message successfully sent!
-							</div><!-- /Alert Success -->
-
-
-							<!-- Alert Failed -->
-							<div id="alert_failed" class="alert alert-danger mb-30">
-								<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-								<strong>[SMTP] Error!</strong> Internal server error!
-							</div><!-- /Alert Failed -->
-
-
-							<!-- Alert Mandatory -->
-							<div id="alert_mandatory" class="alert alert-danger mb-30">
-								<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-								<strong>Sorry!</strong> You need to complete all mandatory (*) fields!
-							</div><!-- /Alert Mandatory -->
-                    <%= form_for :contact_us, url: url_for(controller: 'pages', action: 'contact_us_post'), :html =>{id: "sendMessage", :class => ""}, :multipart => true do |f|%>
-								<fieldset>
-									<input type="hidden" name="action" value="contact_send" />
-
-									<div class="row">
-										<div class="col-md-4">
-											<%= f.label "Full Name *" %>
-											<%= f.text_field :Full_Name, required: true, class: "form-control input-text elevators" %>
-										</div>
-						 					<div class="col-md-4">
-											<%= f.label "Business Name *" %>
-											<%= f.text_field :Business_Name, required: true, class: "form-control input-text elevators" %>
-											</div>
-										<div class="col-md-4">
-											<%= f.label "E-mail Address *" %>
-									        <%= f.text_field :Email, required: true, class: "form-control input-text elevators" %>
-										</div>
-                                        <div class="col-md-4">
-											<%= f.label "Phone Number *" %>
-											<%= f.text_field :Phone_Number, required: true, class: "form-control input-text elevators" %>
-										</div>
-										<div class="col-md-8">                                       									
-											<%= f.label "Project Name *" %>
-											<%= f.text_area :Project_Name, required: true, maxlength: "10000", class: "form-control input-text elevators" %>
-										</div>
-											
-										<div class="col-md-12">
-                                        <%= f.label "Description *" %>						
-											<%= f.label " Projet Description *" %>
-											<%= f.text_field :Description, required: true, class: "form-control input-text elevators" %>
-										</div>
-										<div class="col-md-4">									
-											<%= f.label "Department *" %>
-                                            <%= f.select(:Department, [['Residential', 'Residential'], ['Corporate', 'Corporate'], ['Commercial', 'Commercial']], {}, required: true, class: "form-control input-text elevators") %>
-										</div>
-										<div class="col-md-12">					
-											<%= f.label "Message *" %>
-											<%= f.text_area :Message, required: true, maxlength: "10000", rows: "8", class: "form-control input-text text-left elevators" %>
-										</div>
-										<div class="col-md-12">                                           
-                                            <%= f.label "File Attachment" %>
-								            <%= f.file_field 'File' %>
-                                             <!-- custom file upload -->
-											<small class="text-muted block">Max file size: 10Mb (zip/pdf/jpg/png)</small>
-
-										</div>
-									</div>
-									
-								</fieldset>
-
-								<div class="row">
-									<div class="col-md-12">
-                                    <%= button_tag(class: "btn btn-primary") do %>
-									<i class="fa fa-check"></i> SEND MESSAGE
-								    <% end %>
-										<button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> SEND MESSAGE</button>
-									</div>
-								</div>
-							</form>
-                        <% end %>
-						</div>
-						<!-- /FORM -->
-
-                        <!-- INFO -->
-						<div class="col-md-4 col-sm-4">
-
-							<h2 class="text-center" >Or Visit Us</h2>
-                            <!-- 
-							Available heights
-								h-100
-								h-150
-								h-200
-								h-250
-								h-300
-								h-350
-								h-400
-								h-450
-								h-500
-								h-550
-								h-600
-							-->
-							<div id="map2">
-								
-								<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2729.043180175514!2d-71.2818834841894!3d46.842839879141394!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cb897f6ac637a1f%3A0x357d156c701453e3!2sRocket%20Elevators!5e0!3m2!1sfr!2sca!4v1591707456043!5m2!1sfr!2sca" width="500" height="375" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-							</div>
-
-							
-
-							<p>
-								<span class="block"><strong><i class="fa fa-map-marker"></i> Address:</strong> 725 Blvd Lebourgneuf. Quebec city, G2J 0C4, Qc, Canada.</span> 
-									
-									
-								<span class="block"><strong><i class="fa fa-phone"></i> Phone:</strong> <a href="tel:1800-555-1234">1514-555-5555</a></span>
-								<span class="block"><strong><i class="fa fa-envelope"></i> Email:</strong> <a href="mailto:mail@yourdomain.com">support@rocketelevator.com</a></span>
-							</p>
-
-						</div>
-						<!-- /INFO -->
-
-					</div>
-
-				</div>
-			</section>
-			<!-- / Section Contact Us-->
-
-            <!-- FOOTER -->
-			<footer id="footer">
-				<div class="container">
-
-					<div class="row">
-						
-						<div class="col-md-3">
-							<!-- Footer Logo -->
-							<img class="footer-logo" src="assets\images\Rocket Elevator Assets\RE-logo-footer.png" alt="" />
-
-
-							<!-- Contact Address -->
-							<address>
-								<ul class="list-unstyled">
-									<li class="footer-sprite address">
-										725 Blvd Lebourgneuf<br>
-										Quebec city, G2J 0C4<br>
-										Qc, Canada.<br>
-									</li>
-									<li class="footer-sprite phone">
-										Phone: 1-514-555-5555
-									</li>
-									<li class="footer-sprite email">
-										<a href="mailto:support@yourname.com">support@rocketelevator.com</a>
-									</li>
-								</ul>
-							</address>
-							<!-- /Contact Address -->
-
-						</div>
-
-						<div class="col-md-3">
-
-							<!-- Latest Blog Post -->
-							<h4 class="letter-spacing-1">LATEST NEWS</h4>
-							<ul class="footer-posts list-unstyled">
-								<li>
-									<a target="blank" href="https://www.usatoday.com/story/opinion/2020/06/02/return-to-office-strategy-elevator-etiquette-9-easy-steps-column/5302164002/">Elevator etiquette in 9 easy steps for returning to the workplace</a>
-									<small>02 June 2020</small>
-								</li>
-								<li>
-									<a target="blank" href="https://www.citylab.com/transportation/2020/05/elevator-anxiety-coronavirus-health-risks-design-history/611032/">Elevators Changed Cities. Will Coronavirus Change Elevators?</a>
-									<small>21 Mai 2020</small>
-								</li>
-								<li>
-									<a target="blank" href="https://www.aithority.com/technology/life-sciences/kone-elevator-india-introduces-health-and-wellbeing-solutions-for-lifts-escalators-to-beat-covid-19/">KONE Elevator India Introduces Health and Wellbeing ...</a>
-									<small>02 June 2020 </small>
-								</li>
-							</ul>
-							<!-- /Latest Blog Post -->
-
-						</div>
-
-						<div class="col-md-2">
-
-							<!-- Links -->
-							<h4 class="letter-spacing-1">EXPLORE Rocket Elevators</h4>
-							<ul class="footer-links list-unstyled">
-								<li><a href="index.html.erb">Home</a></li>
-								<li><a href="#Portfolio">Portfolio</a></li>
-								<li><a href="#News">News</a></li>
-								<li><a href="#Clients">Clients</a></li>
-								<li><a href="#contact">Contact Us</a></li>
-							</ul>
-							<!-- /Links -->
-
-						</div>
-
-						<div class="col-md-4">
-
-							<!-- Newsletter Form -->
-							<h4 class="letter-spacing-1">KEEP IN TOUCH</h4>
-							<p>Subscribe to Our Newsletter to get Important News &amp; Offers</p>
-
-							<form class="validate" action="php/newsletter.php" method="post" data-success="Subscribed! Thank you!" data-toastr-position="bottom-right">
-								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-									<input type="email" id="email" name="email" class="form-control required" placeholder="Enter your Email">
-									<span class="input-group-btn">
-										<button class="btn btn-success" type="submit">Subscribe</button>
-									</span>
-								</div>
-							</form>
-							<!-- /Newsletter Form -->
-
-							<!-- Social Icons -->
-							<div class="mt-20">
-								<a href="#" class="social-icon social-icon-border social-facebook float-left" data-toggle="tooltip" data-placement="top" title="Facebook">
-
-									<i class="icon-facebook"></i>
-									<i class="icon-facebook"></i>
-								</a>
-
-								<a href="#" class="social-icon social-icon-border social-twitter float-left" data-toggle="tooltip" data-placement="top" title="Twitter">
-									<i class="icon-twitter"></i>
-									<i class="icon-twitter"></i>
-								</a>
-
-								<a href="#" class="social-icon social-icon-border social-gplus float-left" data-toggle="tooltip" data-placement="top" title="Google plus">
-									<i class="icon-gplus"></i>
-									<i class="icon-gplus"></i>
-								</a>
-
-								<a href="#" class="social-icon social-icon-border social-linkedin float-left" data-toggle="tooltip" data-placement="top" title="Linkedin">
-									<i class="icon-linkedin"></i>
-									<i class="icon-linkedin"></i>
-								</a>
-
-								<a href="#" class="social-icon social-icon-border social-rss float-left" data-toggle="tooltip" data-placement="top" title="Rss">
-									<i class="icon-rss"></i>
-									<i class="icon-rss"></i>
-								</a>
-					
-							</div>
-							<!-- /Social Icons -->
-
-						</div>
-
-					</div>
-
-				</div>
-
-				<div class="copyright">
-					<div class="container">
-						<ul class="float-right m-0 list-inline mobile-block">
-							<li><a href="#">Terms &amp; Conditions</a></li>
-							<li>&bull;</li>
-							<li><a href="#">Privacy</a></li>
-						</ul>
-						&copy; All Rights Reserved, Rocket Elevators LTD
-					</div>
-				</div>
-			</footer>
-			<!-- /FOOTER -->
+		</footer>
+		<!-- /FOOTER -->
 
 		</div>
 		<!-- /wrapper -->
-		
-
-		<!-- SCROLL TO TOP -->
-		<a href="#" id="toTop"></a>
 
 
-		<!-- PRELOADER -->
-		<div id="preloader">
-			<div class="inner">
-				<span class="loader"></span>
-			</div>
-		</div><!-- /PRELOADER -->
 
 
 		<!-- JAVASCRIPT FILES -->
 		<script>var plugin_path = 'assets/plugins/';</script>
-		<script src="assets/plugins/jquery/jquery-3.3.1.min.js"></script>
-
-		<!-- SCRIPTS -->
-		<script src="assets/javascripts/scripts.js"></script>
-		
-		<!-- STYLESWITCHER - REMOVE -->
-		<script async src="demo_files/styleswitcher/styleswitcher.js"></script>
-
-		<!-- SWIPER SLIDER -->
-		<script src="assets/plugins/slider.swiper/dist/js/swiper.min.js"></script>
-		<script src="assets/javascripts/view/demo.swiper_slider.js"></script>
-
-	</body>
-	<!--/BODY-->
-
-</html>
+				<%= javascript_include_tag 'contact', media: 'all', 'data-turbolinks-track': 'reload' %>
+		<%= javascript_include_tag 'smoothscroll', media: 'all', 'data-turbolinks-track': 'reload' %>
+		<%= javascript_include_tag 'scripts', media: 'all', 'data-turbolinks-track': 'reload' %>

@@ -1,0 +1,113 @@
+<div id="header" class="navbar-toggleable-md sticky header-md clearfix">
+
+				<!-- TOP NAV -->
+				<header id="topNav">
+					<div class="container">
+
+						<!-- Mobile Menu Button -->
+						<button class="btn btn-mobile" data-toggle="collapse" data-target=".nav-main-collapse">
+							<i class="fa fa-bars"></i>
+						</button>
+
+						<!-- Logo -->
+						<a class="logo float-left" href="<%=index_path%>">
+							<%= image_tag("R2.png", :alt => "Rocket Elevator logo") %>
+						</a>
+
+						<!-- 
+							Top Nav 
+							
+							AVAILABLE CLASSES:
+							submenu-dark = dark sub menu
+						-->
+						<div class="navbar-collapse collapse float-right nav-main-collapse">
+							<nav class="nav-main">
+
+								<!-- 
+									.nav-onepage
+									Required for onepage navigation links
+									
+									Add .external for an external link!
+								-->
+								<ul id="topMain" class="nav nav-pills nav-main nav-onepage">
+									<li><!-- HOME -->
+										<a href="<%=index_path%>">
+											HOME
+										</a>
+									</li>
+									<li><!-- SERVICES -->
+										<a href="#services" class="dropdown-toggle">
+											SERVICES
+										</a>
+										<ul class="dropdown-menu sub-menu">
+											<li><a href="<%=residential_path%>">Residential</a></li>
+											<li><a href="<%=corporate_path%>">Corporate</a></li>
+											<li><a href="<%=quote_path%>">Get a Quote</a></li>
+										  </ul>
+									</li>
+									<li><!-- WORK -->
+										<a href="<%=index_path+"#portfolio"%>">
+											PORTFOLIO
+										</a>
+									</li>
+									<li><!-- NEWS -->
+										<a href="<%=index_path+"#news"%>">
+											NEWS
+										</a>
+									</li>
+									<li><!-- CLIENTS -->
+										<a href="<%=index_path+"#clients"%>">
+											CLIENTS
+										</a>
+									</li>
+									<li><!-- CONTACT -->
+										<a href="<%=index_path+"#contact"%>">
+											CONTACT
+										</a>
+									</li>
+									<li>
+									<% if current_user.try(:admin?) %>
+										<%= link_to 'Dashboard', rails_admin.dashboard_path %>
+									<% end %>
+									</li>
+									<li>
+									<% if current_user %>
+										<%= link_to "Sign out", destroy_user_session_path, :method => :get %>
+									<% else %>
+										<%= link_to 'Login', new_user_session_path %>
+									<% end %>
+									</li>
+								</ul>
+
+							</nav>
+						</div>
+
+					</div>
+				</header>
+				<!-- /Top Nav -->
+
+			</div>
+<div class="container">
+<div class="text-center">
+<h2>Forgot your password?</h2>
+</div>
+
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class: 'col-lg-6 offset-lg-3' }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+  <div class="row justify-content-center">
+  <div class="field form-group">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+</div>
+
+<div class="row justify-content-center">
+  <div class="actions">
+    <%= f.submit "Send me reset password instructions",  class: 'btn btn-primary' %>
+  </div>
+    </div>
+<% end %>
+<div class="text-center">
+<%= render "devise/shared/links" %>
+</div>
+</div>
