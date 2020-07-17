@@ -1,8 +1,10 @@
 # README
 
-Rocket_Elevators_Information_System
+WEEK 5 : MYSQL & POSTGRESQL DATABASES
 
-CodeBoxx Odyssey project, week 4
+Ruby On Rails project for RocketElevators.
+Make the interactive website with the original static website of "Alexandre" and link it to a database to store "User" and "Employee" login data and the quote data in separate tables.
+The website have a backoffice that employee can login to access the data from quote.
 
 DEPENDENCIES 
 
@@ -33,33 +35,21 @@ Database creation :
 
 ![alt text](https://github.com/alex07L/Rocket_Elevators_Information_System/blob/Ange/mysql-db-model.PNG)
 
-Category: 
-  it has many quote
-* category id
-* name has the same name in Type
-* contains three distinct product lines: Standard, Premium or Excelium caraterized by the price
-* the prices fees
-
-Type :
-  it has many quote
-* type id
-* bulding type : Residential, Commercial, Corporate and Hybrid caracterized by name
-
-Quote :
-    belongs to both above
-* quote id
-* contains all the parts of the bulding
-
-User :
-* user get an email, password and token
-
-Employee :
-* it belongs to user and have fristname, lastname and his title
 
 START SERVER
 
 * cd Rocket_Elevators_Information_System
 * rake db:create
 * rails s
+
+Expansion of the relational database model. Creation of a decision database (DataWarehouse) with PostgreSQL and was also linked to our Rails app to stock the data harvested through MySQL from the website or the dashboard.
+Restitution and visualization of the data used for answering the three questions.
+
+1. How many contact requests are made per month?
+
+2. How many bid solicitations are made per month?
+
+3. How many elevators per customer do we have?
+
 
 ![alt text](https://github.com/alex07L/Rocket_Elevators_Information_System/blob/Ange/postgresql-db-model.PNG)
