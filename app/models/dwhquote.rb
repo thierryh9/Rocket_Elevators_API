@@ -21,7 +21,7 @@ group by to_char(q.date_created , \'YYYY\'), date_trunc(\'month\', q.date_create
       })
 	end
 	end
-	puts d
+	#puts d
 	d
   end
   def self.chart_type

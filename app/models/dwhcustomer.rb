@@ -15,7 +15,7 @@ include RailsAdminCharts
       })
 	end
 	end
-	puts d
+	#puts d
 	d
   end
   def self.chart_type
