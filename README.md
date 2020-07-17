@@ -36,12 +36,6 @@ Database creation :
 ![alt text](https://github.com/alex07L/Rocket_Elevators_Information_System/blob/Ange/mysql-db-model.PNG)
 
 
-START SERVER
-
-* cd Rocket_Elevators_Information_System
-* rake db:create
-* rails s
-
 Expansion of the relational database model. Creation of a decision database (DataWarehouse) with PostgreSQL and was also linked to our Rails app to stock the data harvested through MySQL from the website or the dashboard.
 Restitution and visualization of the data used for answering the three questions.
 
@@ -53,3 +47,9 @@ Restitution and visualization of the data used for answering the three questions
 
 
 ![alt text](https://github.com/alex07L/Rocket_Elevators_Information_System/blob/Ange/postgresql-db-model.PNG)
+
+START SERVER
+
+* cd Rocket_Elevators_Information_System
+* rake db:create
+* rails s
