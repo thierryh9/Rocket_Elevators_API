@@ -8,7 +8,69 @@ RailsAdmin.config do |config|
   # end
   # config.current_user_method(&:current_user)
   config.authorize_with do
-    redirect_to main_app.root_path unless current_user.admin == true
+    if !Customer.find_by(user_id:current_user.id).nil?
+      #to slow, problem of security
+      #ActiveRecord::Base.descendants.each do |imodel|
+      #  config.model "#{imodel.name}" do
+      #    visible false
+      #  end
+      #end
+      config.model "Customer" do
+        visible false
+      end
+      config.model "User" do
+        visible false
+      end
+      config.model "Building" do
+        visible false
+      end
+      config.model "BuildingDetail" do
+        visible false
+      end
+      config.model "Category" do
+        visible false
+      end
+      config.model "Battery" do
+        visible false
+      end
+      config.model "Column" do
+        visible false
+      end
+      config.model "Elevator" do
+        visible false
+      end
+      config.model "Employee" do
+        visible false
+      end
+      config.model "Lead" do
+        visible false
+      end
+      config.model "Quote" do
+        visible false
+      end
+      config.model "Type" do
+        visible false
+      end
+      config.model "Address" do
+        visible false
+      end
+      config.model "Dwhlead" do
+        visible true
+      end
+      config.model "Dwhcustomer" do
+        visible true
+      end
+      config.model "Dwhquote" do
+        visible true
+      end
+      else
+        ActiveRecord::Base.descendants.each do |imodel|
+          config.model "#{imodel.name}" do
+            visible true
+          end
+        end
+    end
+    redirect_to main_app.root_path unless current_user.admin == true || !Customer.find_by(user_id:current_user.id).nil?
   end
   config.main_app_name = ["Rocket Elevator", "BackOffice"]
   # or something more dynamic
@@ -29,7 +91,7 @@ RailsAdmin.config do |config|
   # config.show_gravatar = true
 
 
-config.excluded_models= ['Dwhquote','Dwhcustomer','Dwhlead']
+#config.excluded_models= ['Dwhquote','Dwhcustomer','Dwhlead']
 
 
 

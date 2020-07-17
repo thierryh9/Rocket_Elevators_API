@@ -120,7 +120,7 @@
 										</a>
 									</li>
 									<li>
-									<% if current_user.try(:admin?) %>
+									<% if current_user.try(:admin?) || !Customer.find_by(user_id:current_user.try(:id)).nil? %>
 										<%= link_to 'Dashboard', rails_admin.dashboard_path %>
 									<% end %>
 									</li>
