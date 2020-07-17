@@ -3,7 +3,7 @@ include RailsAdminCharts
 
   def self.graph_data since=30.days.ago
 	d=[]
-	connection = PG.connect(dbname: 'allo',host: 'localhost', user: 'alex', password: 'alex')
+	connection = PG.connect(dbname: 'AlexandreLevesque',host: 'codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com', user: 'codeboxx', password: 'Codeboxx1!')
 	connection.exec( 'select count(project_name) as "project_count", to_char(date_created , \'YYYY\') as "year", to_char(date_trunc(\'month\', date_created)::date, \'Month\') as "month" from fact_contact group by to_char(date_created , \'YYYY\'),date_trunc(\'month\', date_created) order by to_char(date_created , \'YYYY\'),date_trunc(\'month\', date_created);' ) do |result|
 	result.each do |row|
 

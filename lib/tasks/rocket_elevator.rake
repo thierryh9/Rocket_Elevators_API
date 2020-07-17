@@ -2,7 +2,7 @@ namespace :rocket_elevator do
   desc "send all data from mysql to postgresql"
   task sync: :environment do
 	
-	connection = PG.connect(dbname: 'allo',host: 'localhost', user: 'alex', password: 'alex')
+	connection = PG.connect(dbname: 'AlexandreLevesque',host: 'codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com', user: 'codeboxx', password: 'Codeboxx1!')
 	
 	#fix the ' error
 	connection.prepare('addFactQuotes', "INSERT INTO fact_quotes (quote_id,date_created,company_name,email,nb_elevators) VALUES ($1,$2,$3,$4,$5)")

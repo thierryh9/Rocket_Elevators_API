@@ -3,7 +3,7 @@ include RailsAdminCharts
 
   def self.graph_data since=30.days.ago
 	d=[]
-	connection = PG.connect(dbname: 'allo',host: 'localhost', user: 'alex', password: 'alex')
+	connection = PG.connect(dbname: 'AlexandreLevesque',host: 'codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com', user: 'codeboxx', password: 'Codeboxx1!')
 	connection.exec( 'select count(serial_number) as "elevators", customer_id from fact_elevator group by customer_id;' ) do |result|
 	result.each do |row|
 

@@ -102,11 +102,6 @@ ActiveRecord::Schema.define(version: 2020_07_17_042623) do
     t.index ["user_id"], name: "index_customers_on_user_id"
   end
 
-  create_table "data_warehouses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "dwhcustomers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -183,11 +178,6 @@ ActiveRecord::Schema.define(version: 2020_07_17_042623) do
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_quotes_on_category_id"
     t.index ["type_id"], name: "index_quotes_on_type_id"
-  end
-
-  create_table "tests", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "types", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

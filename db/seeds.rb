@@ -66,6 +66,6 @@ aa = ["Billing", "Shipping", "Home", "Business"]
 end
 #------------------------- POSTGRESQL -----------------------------------
 
-connection = PG.connect(dbname: 'allo',host: 'localhost', user: 'alex', password: 'alex')
+connection = PG.connect(dbname: 'AlexandreLevesque',host: 'codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com', user: 'codeboxx', password: 'Codeboxx1!')
 sql = File.open('db/postgres.sql', 'rb') { |file| file.read }
 connection.exec(sql)

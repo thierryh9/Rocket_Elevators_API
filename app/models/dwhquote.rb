@@ -3,7 +3,7 @@ include RailsAdminCharts
 
   def self.graph_data since=30.days.ago
 	d=[]
-	connection = PG.connect(dbname: 'allo',host: 'localhost', user: 'alex', password: 'alex')
+	connection = PG.connect(dbname: 'AlexandreLevesque',host: 'codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com', user: 'codeboxx', password: 'Codeboxx1!')
 	connection.exec( 'select count(q.quote_id) as "quote_count", to_char(q.date_created , \'YYYY\') as "year", to_char(date_trunc(\'month\', q.date_created)::date, \'Month\') as "month" from fact_quotes q where q.quote_id not in (select distinct on (fq.company_name,fq.nb_elevators) fq.quote_id from fact_quotes fq 
 join fact_quotes fq2 on
 fq.company_name = fq2.company_name 

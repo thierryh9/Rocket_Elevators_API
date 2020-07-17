@@ -1,5 +1,5 @@
 RailsAdmin.config do |config|
-
+	config.parent_controller = 'ApplicationController' 
   ### Popular gems integration
 
   ## == Devise ==
@@ -7,43 +7,7 @@ RailsAdmin.config do |config|
   #   warden.authenticate! scope: :user
   # end
   # config.current_user_method(&:current_user)
-  config.authorize_with do
-    #if !Customer.find_by(user_id:current_user.id).nil?
-	 if current_user.admin == true
-      #to slow, problem of security
-      ActiveRecord::Base.descendants.each do |imodel|
-        config.model "#{imodel.name}" do
-          visible true
-        end
-      end
-	  
-      config.model "Dwhlead" do
-        visible true
-      end
-      config.model "Dwhcustomer" do
-        visible true
-      end
-      config.model "Dwhquote" do
-        visible true
-      end
-      else
-      ActiveRecord::Base.descendants.each do |imodel|
-        config.model "#{imodel.name}" do
-          visible false
-        end
-      end
-      config.model "Dwhlead" do
-        visible true
-      end
-      config.model "Dwhcustomer" do
-        visible true
-      end
-      config.model "Dwhquote" do
-        visible true
-      end
-    end
-    redirect_to main_app.root_path unless current_user.admin == true || !Customer.find_by(user_id:current_user.id).nil?
-  end
+  config.authorize_with :cancancan
   config.main_app_name = ["Rocket Elevator", "BackOffice"]
   # or something more dynamic
   config.main_app_name = Proc.new { |controller| [ "Rocket Elevator", "BackOffice - #{controller.params[:action].try(:titleize)}" ] }
@@ -68,6 +32,7 @@ RailsAdmin.config do |config|
 
 
   config.current_user_method(&:current_user)
+
   config.actions do
     dashboard  do
     except ['Dwhquote','Dwhcustomer','Dwhlead']
@@ -95,4 +60,5 @@ RailsAdmin.config do |config|
     # history_index
     # history_show
   end
+  
 end
