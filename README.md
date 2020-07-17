@@ -53,3 +53,8 @@ START SERVER
 * cd Rocket_Elevators_Information_System
 * rake db:create
 * rails s
+
+to synchronize the mysql database with the postgresql database, you must do the following command line:
+```
+rake rocket_elevator:sync
+```
