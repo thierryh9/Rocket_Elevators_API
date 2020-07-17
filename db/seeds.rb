@@ -49,18 +49,18 @@ ee = ["Building", "Customer"]
 aa = ["Billing", "Shipping", "Home", "Business"]
 100.times do |n|
  u = User.create(email: csvFile[n]["email"], password: 'password', password_confirmation: 'password', admin: 0)
- a = Address.create(aType: aa[rand(3)], status: "actif", entity: ee[1], street: csvFile[n]["address"], suite: "", city: csvFile[n]["city"], postalCode: csvFile[n]["postal"], country: csvFile[n]["province"], notes: Faker::Lorem)
+ a = Address.create(aType: aa[rand(3)], status: "actif", entity: ee[1], street: csvFile[n]["address"].split("#")[0], suite: "#"+csvFile[n]["address"].split("#")[1].to_s, city: csvFile[n]["city"], postalCode: csvFile[n]["postal"], country: csvFile[n]["province"], notes: Faker::Types.rb_string)
  c = Customer.create(entrepriseName: csvFile[n]["company_name"], nameContact: csvFile[n]["first_name"], cellPhone: csvFile[n]["phone1"], email: csvFile[n]["email"], description: "", authorityName: csvFile[n]["first_name"], authorityPhone: csvFile[n]["phone2"], authorityEmail: csvFile[n]["email"], user: u, address: a)
- a1 = Address.create(aType: aa[3], status: "actif", entity: ee[0], street: csvFile[499-n]["address"], suite: "", city: csvFile[499-n]["city"], postalCode: csvFile[499-n]["postal"], country: csvFile[499-n]["province"], notes: Faker::Lorem)
+ a1 = Address.create(aType: aa[3], status: "actif", entity: ee[0], street: csvFile[499-n]["address"].split("#")[0], suite: "#"+csvFile[499-n]["address"].split("#")[1].to_s, city: csvFile[499-n]["city"], postalCode: csvFile[499-n]["postal"], country: csvFile[499-n]["province"], notes: Faker::Types.rb_string)
  bb = Building.create(fullName: csvFile[499-n]["first_name"],email: csvFile[499-n]["email"],cellPhone: csvFile[499-n]["phone1"], techName: csvFile[499-n]["first_name"],techPhone: csvFile[499-n]["phone2"],techEmail: csvFile[499-n]["email"], address: a1, customer: c)
- b_details = BuildingDetail.create(infoKey: Faker::Lorem, infoValue: Faker::Lorem, building: bb)
- batterie = Battery.create(installDate: Faker::Date.between(from: '2019-09-23', to: '2020-01-25'),inspectionDate: Faker::Date.between(from: '2019-09-23', to: '2020-01-25'), status: rand(1), information: Faker::Lorem, note: Faker::Lorem, type: Type.offset(rand(Type.count)).first, employee: Employee.offset(rand(Employee.count)).first, building: bb)
+ b_details = BuildingDetail.create(infoKey: Faker::Types.rb_string , infoValue: Faker::Types.rb_string , building: bb)
+ batterie = Battery.create(installDate: Faker::Date.between(from: '2019-09-23', to: '2020-01-25'),inspectionDate: Faker::Date.between(from: '2019-09-23', to: '2020-01-25'), status: rand(1), information: Faker::Types.rb_string , note: Faker::Types.rb_string , type: Type.offset(rand(Type.count)).first, employee: Employee.offset(rand(Employee.count)).first, building: bb)
  rand(2).times do |x|
 	#column
-	col = Column.create(numberFloor: rand(100),status: rand(1),information: Faker::Lorem, note: Faker::Lorem, battery: batterie)
+	col = Column.create(numberFloor: rand(100),status: rand(1),information: Faker::Types.rb_string , note: Faker::Types.rb_string , battery: batterie)
 	rand(4).times do
 		#elevator
-		elevator = Elevator.create(serialNumber: Faker::Device.serial,installDate: Faker::Date.between(from: '2019-09-23', to: '2020-01-25'),inspectionDate: Faker::Date.between(from: '2019-09-23', to: '2020-01-25'),status: rand(1),certificat: Faker::Device.serial,information: Faker::Lorem, note: Faker::Lorem, column: col, category: Category.offset(rand(Category.count)).first)
+		elevator = Elevator.create(serialNumber: Faker::Device.serial,installDate: Faker::Date.between(from: '2019-09-23', to: '2020-01-25'),inspectionDate: Faker::Date.between(from: '2019-09-23', to: '2020-01-25'),status: rand(1),certificat: Faker::Device.serial,information: Faker::Types.rb_string , note: Faker::Types.rb_string , column: col, category: Category.offset(rand(Category.count)).first)
 	end
  end
 end
