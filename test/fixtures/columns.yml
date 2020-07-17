@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  numberFloor: 1
+  status: false
+  information: MyString
+  note: MyString
+  battery: one
+
+two:
+  numberFloor: 1
+  status: false
+  information: MyString
+  note: MyString
+  battery: two
