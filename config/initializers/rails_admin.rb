@@ -27,7 +27,18 @@ RailsAdmin.config do |config|
   ## == Gravatar integration ==
   ## To disable Gravatar integration in Navigation Bar set to false
   # config.show_gravatar = true
-  
+
+  config.model 'Car' do
+    create do
+        field :name
+    end
+end
+
+  config.navigation_static_links = {
+    'Google' => 'http://www.google.com'
+  }
+  config.navigation_static_label = "Chart"
+
   config.current_user_method(&:current_user)
   config.actions do
     dashboard                     # mandatory
@@ -39,7 +50,6 @@ RailsAdmin.config do |config|
     edit
     delete
     show_in_app
-
     ## With an audit adapter, you can add:
     # history_index
     # history_show
