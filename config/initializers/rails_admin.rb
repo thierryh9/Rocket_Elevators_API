@@ -16,6 +16,16 @@ RailsAdmin.config do |config|
           visible true
         end
       end
+	  
+      config.model "Dwhlead" do
+        visible true
+      end
+      config.model "Dwhcustomer" do
+        visible true
+      end
+      config.model "Dwhquote" do
+        visible true
+      end
       else
       ActiveRecord::Base.descendants.each do |imodel|
         config.model "#{imodel.name}" do

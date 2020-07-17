@@ -48,7 +48,6 @@ gem 'owlcarousel-rails'
 
 gem 'whenever'
 gem 'pg', '~> 0.18.4'
-gem "chartkick"
 gem 'rails_admin_charts'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
