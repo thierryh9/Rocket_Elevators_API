@@ -1,5 +1,5 @@
 class Lead < ApplicationRecord
-
+  belongs_to :type
   def file_link
     %{<a href="/fileLeads/#{self.id}">Download file</a>}.html_safe
   end

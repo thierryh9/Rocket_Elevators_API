@@ -125,12 +125,14 @@ ActiveRecord::Schema.define(version: 2020_07_17_042623) do
     t.string "certificat"
     t.text "information"
     t.text "note"
+    t.bigint "type_id"
     t.bigint "column_id"
     t.bigint "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_elevators_on_category_id"
     t.index ["column_id"], name: "index_elevators_on_column_id"
+    t.index ["type_id"], name: "index_elevators_on_type_id"
   end
 
   create_table "employees", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -151,13 +153,14 @@ ActiveRecord::Schema.define(version: 2020_07_17_042623) do
     t.string "cellPhone"
     t.string "projectName"
     t.string "description"
-    t.string "division"
+    t.bigint "type_id"
     t.string "message"
     t.binary "file", limit: 16777215
     t.date "contactDate"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "fileName", default: ""
+    t.index ["type_id"], name: "index_leads_on_type_id"
   end
 
   create_table "quotes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -210,7 +213,9 @@ ActiveRecord::Schema.define(version: 2020_07_17_042623) do
   add_foreign_key "customers", "users"
   add_foreign_key "elevators", "categories"
   add_foreign_key "elevators", "columns"
+  add_foreign_key "elevators", "types"
   add_foreign_key "employees", "users"
+  add_foreign_key "leads", "types"
   add_foreign_key "quotes", "categories"
   add_foreign_key "quotes", "types"
 end

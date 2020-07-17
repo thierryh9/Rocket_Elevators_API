@@ -7,7 +7,7 @@ class CreateLeads < ActiveRecord::Migration[5.2]
       t.string :cellPhone
       t.string :projectName
       t.string :description
-      t.string :division
+      t.references :type, foreign_key: true
       t.string :message
       t.binary :file
       t.date :contactDate

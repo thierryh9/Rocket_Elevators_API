@@ -8,6 +8,7 @@ class CreateElevators < ActiveRecord::Migration[5.2]
       t.string :certificat
       t.text :information
       t.text :note
+	  t.references :type, foreign_key: true
       t.references :column, foreign_key: true
       t.references :category, foreign_key: true
 
