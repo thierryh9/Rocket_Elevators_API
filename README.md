@@ -38,7 +38,7 @@ Database creation :
 
 Expansion of the relational database model. Creation of a decision database (DataWarehouse) with PostgreSQL and was also linked to our Rails app to stock the data harvested through MySQL from the website or the dashboard.
 Restitution and visualization of the data used for answering the three questions.
-
+see question.txt to get more info about sql querry
 1. How many contact requests are made per month?
 
 2. How many bid solicitations are made per month?
