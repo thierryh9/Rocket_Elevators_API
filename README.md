@@ -67,12 +67,14 @@ admin have the full access
   ```
   Ou courriel d'un coach
 ### Customer User:
-customer can only see charts
+customer can only see charts and building, building details.
+this change from the video..
   ```
   customer@user.com
   ```
 ### Normal User:
-normal user can connect but can't see the dashboard
+normal user is a employee and can mange every building they are associate with.
+this change from the video..
 ```
 normal@user.com
 ```
