@@ -51,7 +51,7 @@ Restitution and visualization of the data used for answering the three questions
 START SERVER
 
 * cd Rocket_Elevators_Information_System
-* rake db:create
+* rake db:create db:migrate db:seed **only the first time
 * rails s
 
 ## mysql -> postgresql
