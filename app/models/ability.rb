@@ -61,7 +61,6 @@ class Ability
         user.present?
 		end
 		can :read, Type
-		can :read, Category
 	end
     # Define abilities for the passed in user here. For example:
     #
