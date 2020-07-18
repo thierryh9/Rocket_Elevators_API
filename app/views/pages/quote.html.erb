@@ -125,15 +125,15 @@
 									</a>
 								</li>
 								<li>
-									<% if current_user %>
+								<% if current_user.try(:admin?) || !Customer.find_by(user_id:current_user.try(:id)).nil?|| !Employee.find_by(user_id:current_user.try(:id)).nil? %>
 										<%= link_to 'Dashboard', rails_admin.dashboard_path %>
-									<% else %>
-										<%= link_to 'Login', new_user_session_path %>
 									<% end %>
-								</li>
-								<li>
+									</li>
+									<li>
 									<% if current_user %>
 										<%= link_to "Sign out", destroy_user_session_path, :method => :get %>
+									<% else %>
+										<%= link_to 'Login', new_user_session_path %>
 									<% end %>
 								</li>
 							</ul>
