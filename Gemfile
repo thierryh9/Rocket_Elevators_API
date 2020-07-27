@@ -50,6 +50,9 @@ gem 'whenever'
 gem 'pg', '~> 0.18.4'
 gem 'cancancan'
 gem 'rails_admin_charts'
+
+gem 'sendgrid-ruby'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
