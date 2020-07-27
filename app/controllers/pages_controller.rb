@@ -3,6 +3,7 @@ class PagesController < ApplicationController
 
 	require 'sendgrid-ruby'
 	include SendGrid
+	require 'zendesk_api'
   def home
   end
   def create
@@ -33,6 +34,48 @@ The Rocket Team</body>
 
 	sg = SendGrid::API.new(api_key: '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')
 	response = sg.client.mail._('send').post(request_body: mail.to_json)
+	client = ZendeskAPI::Client.new do |config|
+  # Mandatory:
+
+  config.url = "https://alexrockethelp.zendesk.com/api/v2" # e.g. https://mydesk.zendesk.com/api/v2
+
+  # Basic / Token Authentication
+  config.username = "alexlevesque7@hotmail.fr"
+
+  # Choose one of the following depending on your authentication choice
+  config.token = "TLUZ0rzfARdxS7J6zZBwdOOYfeWs1N91Mccmw6o9"
+  #config.password = "your zendesk password"
+
+  # OAuth Authentication
+  #config.access_token = "your OAuth access token"
+
+  # Optional:
+
+  # Retry uses middleware to notify the user
+  # when hitting the rate limit, sleep automatically,
+  # then retry the request.
+  config.retry = true
+
+  # Raise error when hitting the rate limit.
+  # This is ignored and always set to false when `retry` is enabled.
+  # Disabled by default.
+  config.raise_error_when_rate_limited = false
+
+  # Logger prints to STDERR by default, to e.g. print to stdout:
+  require 'logger'
+  config.logger = Logger.new(STDOUT)
+
+  # Changes Faraday adapter
+  # config.adapter = :patron
+
+  # Merged with the default client options hash
+  # config.client_options = {:ssl => {:verify => false}, :request => {:timeout => 30}}
+
+  # When getting the error 'hostname does not match the server certificate'
+  # use the API at https://yoursubdomain.zendesk.com/api/v2
+end
+	
+ZendeskAPI::Ticket.create!(client, :subject => "Test Ticket", :comment => { :value => "This is a test" }, :submitter_id => client.current_user.id, :priority => "urgent")
   end
   
   def download
