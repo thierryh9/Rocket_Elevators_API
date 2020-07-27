@@ -3,17 +3,17 @@ require 'zendesk_api'
 client = ZendeskAPI::Client.new do |config|
   # Mandatory:
 
-  config.url = "https://rocketelevators7.zendesk.com/api" # e.g. https://mydesk.zendesk.com/api/v2
+  config.url = "https://alexrockethelp.zendesk.com/api/v2" # e.g. https://mydesk.zendesk.com/api/v2
 
   # Basic / Token Authentication
-  config.username = "login.email@zendesk.com"
+  config.username = "alexlevesque7@hotmail.fr"
 
   # Choose one of the following depending on your authentication choice
-  config.token = "your zendesk token"
-  config.password = "your zendesk password"
+  config.token = "TLUZ0rzfARdxS7J6zZBwdOOYfeWs1N91Mccmw6o9"
+  #config.password = "your zendesk password"
 
   # OAuth Authentication
-  config.access_token = "your OAuth access token"
+  #config.access_token = "your OAuth access token"
 
   # Optional:
 

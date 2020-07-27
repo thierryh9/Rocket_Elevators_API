@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.1'
+ruby '2.7.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.4', '>= 5.2.4.3'
@@ -52,6 +52,9 @@ gem 'cancancan'
 gem 'rails_admin_charts'
 
 gem 'sendgrid-ruby'
+gem "zendesk_api"
+gem 'ibm_watson'
+gem 'bootstrap-wysihtml5-rails', '> 0.3.1.24'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

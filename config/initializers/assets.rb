@@ -21,3 +21,4 @@ Rails.application.config.assets.precompile += %w( demo.portfolio_ajax.js )
 Rails.application.config.assets.precompile += %w( isotope.pkgd.min.js )
 Rails.application.config.assets.precompile += %w( jquery.nav.min.js )
 Rails.application.config.assets.precompile += %w( quote.js )
+Rails.application.config.assets.precompile += %w[ckeditor/config.js]
