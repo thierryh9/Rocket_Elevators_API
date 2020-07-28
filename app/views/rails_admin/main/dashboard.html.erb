@@ -1,5 +1,5 @@
  <audio autoplay id="audio">
-  <source src="<%= audio_path 'test4.mp3'%>" type="audio/mpeg">
+  <source src="<%= audio_path 'audio.mp3'%>" type="audio/mpeg">
 </audio>
 <script>
       var video = $('#audio').get(0);
@@ -15,17 +15,18 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
-      </tr>
+	<% ActiveRecord::Base.descendants.each do |imodel|%>
 
+
+		<% if !imodel.name.include? 'ApplicationRecord' and !imodel.name.include? 'ActiveRecord' and !imodel.name.include? 'ActiveStorage' %>
+      <tr>
+        <td><a href="admin/<%=imodel.name%>"><%=imodel.name%></a></td>
+        <td><div class="progress">
+  <div class="progress-bar" role="progressbar" style="width: <%= imodel.count/100%>%;" aria-valuenow="<%= imodel.count%>" aria-valuemin="0" aria-valuemax="400"><%= imodel.count%></div>
+</div></td>
+      </tr>
+	  <%end%>
+	<%end%>
     </tbody>
   </table>
-<%= 
-ActiveRecord::Base.descendants.each do |imodel|
-	imodel.name
-end
-		
-%>
+
