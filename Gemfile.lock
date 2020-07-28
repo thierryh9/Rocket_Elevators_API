@@ -123,6 +123,9 @@ GEM
     execjs (2.7.0)
     faraday (1.0.1)
       multipart-post (>= 1.2, < 3)
+    faye-websocket (0.10.9)
+      eventmachine (>= 0.12.0)
+      websocket-driver (>= 0.5.1)
     ffi (1.13.1)
     font-awesome-rails (4.7.0.5)
       railties (>= 3.2, < 6.1)
@@ -371,7 +374,6 @@ DEPENDENCIES
   devise
   faker!
   font-awesome-rails
-  http
   ibm_watson
   jbuilder (~> 2.5)
   jquery-rails
