@@ -93,3 +93,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 #figaro for application.yml
 gem 'figaro'
+gem 'slack-ruby-client'
+gem "slack-notifier"
+gem 'date'
+gem 'dotenv-rails'
