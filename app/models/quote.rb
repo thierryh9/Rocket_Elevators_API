@@ -6,12 +6,12 @@ class Quote < ApplicationRecord
 
   def create_quote_ticket
       client = ZendeskAPI::Client.new do |config|
-          config.url = ENV['ZENDESK_URL']
-          config.username = ENV['ZENDESK_USERNAME']
-          config.token = ENV['ZENDESK_TOKEN']
+          config.url = 'https://rocketelevators7.zendesk.com/api/v2'
+          config.username = "thierryh9@gmail.com"
+          config.token = "0uSkLGLqUN9vAwypvb3wXGl9QJBQFAMTPkMz0hus"
       end
       ZendeskAPI::Ticket.create!(client, 
-          :subject => "#{self.Full_Name} from #{self.Company_Name}", 
+          :subject => "#{self.fullName} from #{self.companyName}", 
           :comment => { 
               :value => "The contact #{self.Full_Name} from company #{self.Company_Name} 
                   can be reached at email #{self.Email} and at phone number #{self.Phone_Number}. 
