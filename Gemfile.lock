@@ -71,8 +71,6 @@ GEM
       autoprefixer-rails (>= 6.0.3)
       popper_js (>= 1.12.9, < 2)
       sass (>= 3.5.2)
-    bootstrap-wysihtml5-rails (0.3.3.8)
-      railties (>= 3.0)
     builder (3.2.4)
     byebug (11.1.3)
     cancancan (3.1.0)
@@ -361,7 +359,6 @@ PLATFORMS
 DEPENDENCIES
   bootsnap (>= 1.1.0)
   bootstrap (~> 4.0.0)
-  bootstrap-wysihtml5-rails (> 0.3.1.24)
   byebug
   cancancan
   capistrano (~> 3.10)
@@ -374,6 +371,7 @@ DEPENDENCIES
   devise
   faker!
   font-awesome-rails
+  http
   ibm_watson
   jbuilder (~> 2.5)
   jquery-rails
@@ -401,7 +399,7 @@ DEPENDENCIES
   zendesk_api
 
 RUBY VERSION
-   ruby 2.7.0p0
+   ruby 2.6.5p114
 
 BUNDLED WITH
    2.1.4
