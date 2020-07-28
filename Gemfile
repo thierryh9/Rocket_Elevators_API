@@ -91,8 +91,10 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-# zendesk api
-gem 'zendesk_api'
 
 #figaro for application.yml
 gem 'figaro'
+gem 'slack-ruby-client'
+gem "slack-notifier"
+gem 'date'
+gem 'dotenv-rails'

@@ -15,7 +15,33 @@ class PagesController < ApplicationController
     quote.save()
     redirect_to controller: 'pages'
     
+    ZendeskAPI::Ticket.create!($client, 
+          :subject => "#{params[:companyName]}", 
+          :comment => { 
+              :value => "The company #{params[:companyName]} 
+                  can be reached at email #{params[:email]}. 
+                  Building type selected is #{params[:building]} with product line #{params[:gamme]}. 
+                  Number of suggested elevator is #{params[:sumShafts]} and total price is #{params[:finalPrice]}. \n
+                  "
+          }, 
+          :requester => { 
+              "name": params[:companyName], 
+              "email": params[:email] 
+          },
+          :priority => "normal",
+          :type => "task"
+          )
+
+          if quote.save
+            flash[:notice] = "Your quote has been sent "
+            
+          else
+            flash[:notice] = "Something went wrong "
+            redirect_to action:"new"
+          end
+       
   end
+
 
   def to_number(string)
     Integer(string || '')
