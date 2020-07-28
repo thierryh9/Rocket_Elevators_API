@@ -26,19 +26,17 @@ module RailsAdmin
   authenticator: authenticator
 )
 		text_to_speech.service_url = "https://api.us-south.text-to-speech.watson.cloud.ibm.com/instances/27d6b4ce-149e-4509-9b0e-79278c9338da"
-
+		employee = Employee.find_by(user_id: current_user.id)
 File.open("app/assets/audios/audio.mp3", "wb") do |audio_file|
   response = text_to_speech.synthesize(
-    text: "Hello world!",
+    text: "Hello #{employee.firstName} #{employee.lastName}. There are currently #{Elevator.count} elevators deployed in the #{Building.count} buildings of your #{Customer.count} customers.Currently, #{Elevator.where(status: 1).count} elevators are not in Running Status and are being serviced. You currently have #{Quote.where(open: 1).count} quotes awaiting processing.You currently have #{Lead.count} leads in your contact requests. #{Battery.count} Batteries are deployed across #{Address.pluck(:city).uniq.count} cities
+",
     accept: "audio/mp3",
     voice: "en-US_AllisonVoice"
   ).result
   audio_file.write(response)
 end
 		
-            #You can specify flash messages
-            flash.now[:danger] = "Some type of danger message here."
-
             #After you're done processing everything, render the new dashboard
             render @action.template_name, status: 200
           end
