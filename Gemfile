@@ -51,6 +51,7 @@ gem 'pg', '~> 0.18.4'
 gem 'cancancan'
 gem 'rails_admin_charts'
 
+gem 'twilio-ruby', '~> 5.39.2'
 gem 'sendgrid-ruby'
 gem "zendesk_api"
 gem 'ibm_watson'
