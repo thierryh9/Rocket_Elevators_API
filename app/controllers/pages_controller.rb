@@ -34,7 +34,7 @@ The Rocket Team</body>
 </html>')
 	mail = Mail.new(from, subject, to, content)
 
-	sg = SendGrid::API.new(api_key: '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')
+	sg = SendGrid::API.new(api_key: ENV['sendgrid'])
 
   response = sg.client.mail._('send').post(request_body: mail.to_json)
   

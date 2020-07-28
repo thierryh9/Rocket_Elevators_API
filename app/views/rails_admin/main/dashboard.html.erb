@@ -20,7 +20,7 @@
 
 		<% if !imodel.name.include? 'ApplicationRecord' and !imodel.name.include? 'ActiveRecord' and !imodel.name.include? 'ActiveStorage' %>
       <tr>
-        <td><a href="admin/<%=imodel.name%>"><%=imodel.name%></a></td>
+        <td><a href="/admin/<%=imodel.name%>"><%=imodel.name%></a></td>
         <td><div class="progress">
   <div class="progress-bar" role="progressbar" style="width: <%= imodel.count/100%>%;" aria-valuenow="<%= imodel.count%>" aria-valuemin="0" aria-valuemax="400"><%= imodel.count%></div>
 </div></td>
