@@ -6,10 +6,10 @@ $client = ZendeskAPI::Client.new do |config|
   config.url = "https://rocketelevators7.zendesk.com/api/v2" # e.g. https://mydesk.zendesk.com/api/v2
 
   # Basic / Token Authentication
-  config.username = "thierryh9@gmail.com"
+  config.username = ENV[ZENDESK_USERNAME]
 
   # Choose one of the following depending on your authentication choice
-  config.token = "0uSkLGLqUN9vAwypvb3wXGl9QJBQFAMTPkMz0hus"
+  config.token = ENV[ZENDESK_TOKEN]
   #config.password = "your zendesk password"
 
   # OAuth Authentication
