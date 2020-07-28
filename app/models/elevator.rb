@@ -12,11 +12,12 @@ class Elevator < ApplicationRecord
     before_update :slack_notifier
 
     def slack_notifier
+      #puts ENV["Slack_Webhook_URL"]
         if self.status_changed?
           require 'date'
           current_time = DateTime.now.strftime("%d-%m-%Y %H:%M")
-          notifier = Slack::Notifier.new(ENV[Slack_Webhook_URL])  do
-            defaults channel: "#Thierry_Harvey"
+          notifier = Slack::Notifier.new ENV["Slack_Webhook_URL"]  do
+            defaults channel: "#elevators_opsthierryharvey"
           end
           notifier.ping "The Elevator #{self.id} with Serial Number #{self.serialNumber} changed status from #{self.status_was} to #{self.status} at #{current_time}."
     end
@@ -36,7 +37,7 @@ class Elevator < ApplicationRecord
     #     sms.send_sms(tech, id, sn, status)
     # end
 
-    # def intervention?
-    #     self.status == "Intervention"
-    # end
+     def intervention?
+         self.status == "Intervention"
+     end
 end
