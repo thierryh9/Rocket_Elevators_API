@@ -59,6 +59,7 @@ gem 'twilio-ruby', '~> 5.39.2'
 gem 'sendgrid-ruby'
 gem "zendesk_api"
 gem 'ibm_watson'
+gem 'dropbox_api'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
