@@ -50,8 +50,15 @@ gem 'whenever', '~> 0.9.4'
 gem 'pg', '~> 0.18.4'
 gem 'cancancan'
 gem 'rails_admin_charts'
+
 gem 'twilio-ruby', '~> 5.39.2'
 gem 'sendgrid-ruby'
+<<<<<<< HEAD
+=======
+gem "zendesk_api"
+gem 'ibm_watson'
+gem 'bootstrap-wysihtml5-rails', '> 0.3.1.24'
+>>>>>>> 20eab285d48222389671b78a559a4aac3a8aff4d
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -82,3 +89,6 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# zendesk api
+gem 'zendesk_api'

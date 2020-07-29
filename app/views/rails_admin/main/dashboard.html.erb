@@ -1,0 +1,31 @@
+ <audio autoplay id="audio">
+  <source src="<%= audio_path 'test4.mp3'%>" type="audio/mpeg">
+</audio>
+<script>
+      var video = $('#audio').get(0);
+      if (video.paused) {
+        video.play();
+      }
+</script>
+ <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Record</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>John</td>
+        <td>Doe</td>
+        <td>john@example.com</td>
+      </tr>
+
+    </tbody>
+  </table>
+<%= 
+ActiveRecord::Base.descendants.each do |imodel|
+	imodel.name
+end
+		
+%>
