@@ -122,6 +122,7 @@ ActiveRecord::Schema.define(version: 2020_07_17_042623) do
   create_table "elevators", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "serialNumber"
     t.boolean "status"
+    t.boolean "intervention"
     t.date "inspectionDate"
     t.date "installDate"
     t.string "certificat"

@@ -3,6 +3,7 @@ class CreateElevators < ActiveRecord::Migration[5.2]
     create_table :elevators do |t|
       t.string :serialNumber
       t.boolean :status
+      t.boolean :intervention
       t.date :inspectionDate
 	  t.date :installDate
       t.string :certificat
