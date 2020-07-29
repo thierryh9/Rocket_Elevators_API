@@ -1,4 +1,5 @@
- <audio id="audio">
+<% if current_user.admin == true %>
+<audio id="audio">
   <source src="<%= audio_path 'audio.mp3'%>" type="audio/mpeg">
 </audio>
 <script>
@@ -7,6 +8,7 @@
         video.play();
       }
 </script>
+<%end%>
  <table class="table table-striped">
     <thead>
       <tr>
