@@ -1,5 +1,6 @@
 class Lead < ApplicationRecord
   belongs_to :type
+
   def file_link
     %{<a href="/fileLeads/#{self.id}">Download file</a>}.html_safe
   end
@@ -11,26 +12,26 @@ class Lead < ApplicationRecord
 	
     list do
       field :file_link
+	  field :shareLink
 	  field :fullName
 	  field :entrepriseName
 	  field :email
 	  field :cellPhone
 	  field :projectName
 	  field :description
-	  field :division
 	  field :message
     end
 
     show do
 	
       field :file_link
+	  field :shareLink
 	  field :fullName
 	  field :entrepriseName
 	  field :email
 	  field :cellPhone
 	  field :projectName
 	  field :description
-	  field :division
 	  field :message
     end
   end

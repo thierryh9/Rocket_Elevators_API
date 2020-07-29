@@ -9,12 +9,39 @@ class PagesController < ApplicationController
   end
   def create
     
-    cat = Category.where(:name => params[:gamme]).first
-    building = Type.where(:name => params[:building]).first
-    quote = Quote.create(companyName: params[:companyName],email: params[:email],floor: to_number(params[:floor]),basement: to_number(params[:basement]),apartment: to_number(params[:apartment]),business: to_number(params[:commerce]),shaft: to_number(params[:shafts]),companie: to_number(params[:companie]),parking: to_number(params[:parking]),ocupant: to_number(params[:occupant]),open: to_number(params[:time]), category: cat, type: building)
+    cat = ::Category.where(:name => params[:gamme]).first
+    building = ::Type.where(:name => params[:building]).first
+    quote = ::Quote.create(companyName: params[:companyName],email: params[:email],floor: to_number(params[:floor]),basement: to_number(params[:basement]),apartment: to_number(params[:apartment]),business: to_number(params[:commerce]),shaft: to_number(params[:shafts]),companie: to_number(params[:companie]),parking: to_number(params[:parking]),ocupant: to_number(params[:occupant]),open: to_number(params[:time]), category: cat, type: building)
     quote.save()
     redirect_to controller: 'pages'
+    
+    ZendeskAPI::Ticket.create!($client, 
+          :subject => "#{params[:companyName]}", 
+          :comment => { 
+              :value => "The company #{params[:companyName]} 
+                  can be reached at email #{params[:email]}. 
+                  Building type selected is #{params[:building]} with product line #{params[:gamme]}. 
+                  Number of suggested elevator is #{params[:sumShafts]} and total price is #{params[:finalPrice]}. \n
+                  "
+          }, 
+          :requester => { 
+              "name": params[:companyName], 
+              "email": params[:email] 
+          },
+          :priority => "normal",
+          :type => "task"
+          )
+
+          if quote.save
+            flash[:notice] = "Your quote has been sent "
+            
+          else
+            flash[:notice] = "Something went wrong "
+            redirect_to action:"new"
+          end
+       
   end
+
 
   def to_number(string)
     Integer(string || '')
@@ -33,9 +60,21 @@ The Rocket Team</body>
 </html>')
 	mail = Mail.new(from, subject, to, content)
 
-	sg = SendGrid::API.new(api_key: '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')
-	response = sg.client.mail._('send').post(request_body: mail.to_json)
-	  end
+	sg = SendGrid::API.new(api_key: ENV['sendgrid'])
+
+  response = sg.client.mail._('send').post(request_body: mail.to_json)
+  
+  ZendeskAPI::Ticket.create!($client, :type => "Question", :subject => " '#{params[:contact][:name]}' from #{params[:contact][:entreprise]}", :comment => { :value => "
+      Comment: The contact '#{params[:contact][:name]}' from company '#{params[:contact][:entreprise]}'can be reached at email  '#{params[:contact][:email]}' and at 
+      phone number #{params[:contact][:phone]}. #{params[:contact][:department]} has a project named #{params[:contact][:projectname]} which would require contribution from Rocket 
+      Elevators. 
+      #{params[:contact][:describe]}
+      Attached Message: #{params[:contact][:message]}
+      The Contact uploaded an attachment
+      " },
+      :priority => "urgent")
+  end
+
   
   def download
    lead = Lead.where(:id => params[:id]).first

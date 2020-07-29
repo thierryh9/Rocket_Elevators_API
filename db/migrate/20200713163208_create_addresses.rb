@@ -10,6 +10,8 @@ class CreateAddresses < ActiveRecord::Migration[5.2]
       t.string :postalCode
       t.string :country
       t.string :notes
+	  t.float :lat
+	  t.float :long
 
       t.timestamps
     end

@@ -1,5 +1,6 @@
- <audio autoplay id="audio">
-  <source src="<%= audio_path 'test4.mp3'%>" type="audio/mpeg">
+<% if current_user.admin == true %>
+<audio id="audio">
+  <source src="<%= audio_path 'audio.mp3'%>" type="audio/mpeg">
 </audio>
 <script>
       var video = $('#audio').get(0);
@@ -7,6 +8,70 @@
         video.play();
       }
 </script>
+<%end%>
+
+<div style='width: 800px;'>  
+  <div id="map" style='width: 800px; height: 400px;'></div>  
+</div>  
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDM0bUR2l95VcS584KEgnQfj819PVC4M8Q&callback=initMap">
+        </script> 
+		
+<script>
+          
+     function initMap() {
+         center_psn = {lat: 46.829853, lng: -71.254028};
+         map = new google.maps.Map(document.getElementById('map'), {
+        zoom : 5,
+         center: center_psn,
+        })
+       
+	   
+		
+        <% @listmap.each_with_index do |lp| %>
+            lat = <%= lp[:lat] %>
+            long = <%= lp[:long] %>
+            myLatLng = {lat: lat, lng: long}
+            marker = new google.maps.Marker({
+                    position: myLatLng,
+                    
+                    map: map,
+            })
+
+            contentString = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading"> <%= lp[:name] %></h1>'+
+            '<div id="bodyContent">'+
+            '<p><b>Address: </b> <%= lp[:address] %></br>' +
+            '<b>Number of Floors: </b> <%= lp[:floors] %></br>' +
+            '<b>Client Name: </b> <%= lp[:client] %></br>' +
+            '<b>Number of Batteries: </b> <%= lp[:battery] %></br>' +
+            '<b>Number of Columns:</b> <%= lp[:column] %></br>' +
+            '<b>Number of Elevators:</b> <%= lp[:elevator] %></br>' +
+            '<b>Technician Name: </b> <%= lp[:technician] %></p>' +
+            '</div>'+
+            '</div>'
+
+            marker.infowindow = new google.maps.InfoWindow({
+            content: contentString
+            })
+
+            previous = false
+            marker.addListener('click', function() {
+                if(previous) {
+                    previous.close()
+                }
+                previous = this.infowindow;
+                this.infowindow.open(map, this);
+            })
+
+            
+        <% end %>
+       
+      }
+    </script>
+
  <table class="table table-striped">
     <thead>
       <tr>
@@ -15,17 +80,18 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
-      </tr>
+	<% ActiveRecord::Base.descendants.each do |imodel|%>
 
+
+		<% if !imodel.name.include? 'ApplicationRecord' and !imodel.name.include? 'ActiveRecord' and !imodel.name.include? 'ActiveStorage' %>
+      <tr>
+        <td><a href="/admin/<%=imodel.name%>"><%=imodel.name%></a></td>
+        <td><div class="progress">
+  <div class="progress-bar" role="progressbar" style="width: <%= imodel.count/100%>%;" aria-valuenow="<%= imodel.count%>" aria-valuemin="0" aria-valuemax="400"><%= imodel.count%></div>
+</div></td>
+      </tr>
+	  <%end%>
+	<%end%>
     </tbody>
   </table>
-<%= 
-ActiveRecord::Base.descendants.each do |imodel|
-	imodel.name
-end
-		
-%>
+

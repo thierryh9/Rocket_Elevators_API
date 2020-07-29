@@ -63,7 +63,11 @@ aa = ["Billing", "Shipping", "Home", "Business"]
 	col = Column.create(numberFloor: rand(100),status: rand(1),information: Faker::Types.rb_string , note: Faker::Types.rb_string , battery: batterie)
 	rand(4).times do
 		#elevator
+
 		elevator = Elevator.create(serialNumber: Faker::Device.serial,installDate: Faker::Date.between(from: '2019-09-23', to: '2020-01-25'),inspectionDate: Faker::Date.between(from: '2019-09-23', to: '2020-01-25'),status: rand(1..2),certificat: Faker::Device.serial,information: Faker::Types.rb_string , note: Faker::Types.rb_string , column: col,type: Type.offset(rand(Type.count)).first, category: Category.offset(rand(Category.count)).first)
+
+		elevator = Elevator.create(serialNumber: Faker::Device.serial,installDate: Faker::Date.between(from: '2019-09-23', to: '2020-01-25'),inspectionDate: Faker::Date.between(from: '2019-09-23', to: '2020-01-25'),status: rand(2),certificat: Faker::Device.serial,information: Faker::Types.rb_string , note: Faker::Types.rb_string , column: col,type: Type.offset(rand(Type.count)).first, category: Category.offset(rand(Category.count)).first)
+
 	end
  end
 end

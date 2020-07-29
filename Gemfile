@@ -1,7 +1,11 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.0'
+
+
+
+ruby '2.6.5'
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.4', '>= 5.2.4.3'
@@ -53,12 +57,17 @@ gem 'rails_admin_charts'
 
 gem 'twilio-ruby', '~> 5.39.2'
 gem 'sendgrid-ruby'
-<<<<<<< HEAD
-=======
+
+
 gem "zendesk_api"
 gem 'ibm_watson'
+
 gem 'bootstrap-wysihtml5-rails', '> 0.3.1.24'
->>>>>>> 20eab285d48222389671b78a559a4aac3a8aff4d
+
+
+gem 'dropbox_api'
+gem 'google_maps_service'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -90,5 +99,10 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-# zendesk api
-gem 'zendesk_api'
+
+#figaro for application.yml
+gem 'figaro'
+gem 'slack-ruby-client'
+gem "slack-notifier"
+gem 'date'
+gem 'dotenv-rails'
