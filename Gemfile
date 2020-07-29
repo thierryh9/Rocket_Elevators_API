@@ -49,18 +49,25 @@ gem "font-awesome-rails"
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'owlcarousel-rails'
-
-gem 'whenever'
+gem "figaro"
+gem 'whenever', '~> 0.9.4'
 gem 'pg', '~> 0.18.4'
 gem 'cancancan'
 gem 'rails_admin_charts'
 
 gem 'twilio-ruby', '~> 5.39.2'
 gem 'sendgrid-ruby'
+
+
 gem "zendesk_api"
 gem 'ibm_watson'
+
+gem 'bootstrap-wysihtml5-rails', '> 0.3.1.24'
+
+
 gem 'dropbox_api'
 gem 'google_maps_service'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
