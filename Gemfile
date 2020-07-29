@@ -60,6 +60,7 @@ gem 'sendgrid-ruby'
 gem "zendesk_api"
 gem 'ibm_watson'
 gem 'dropbox_api'
+gem 'google_maps_service'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
