@@ -160,6 +160,7 @@ ActiveRecord::Schema.define(version: 2020_07_17_042623) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "fileName", default: ""
+    t.string "shareLink", default: ""
     t.index ["type_id"], name: "index_leads_on_type_id"
   end
 

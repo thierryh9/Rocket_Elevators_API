@@ -87,26 +87,26 @@ end
 	
     list do
       field :file_link
+	  field :shareLink
 	  field :fullName
 	  field :entrepriseName
 	  field :email
 	  field :cellPhone
 	  field :projectName
 	  field :description
-	  field :division
 	  field :message
     end
 
     show do
 	
       field :file_link
+	  field :shareLink
 	  field :fullName
 	  field :entrepriseName
 	  field :email
 	  field :cellPhone
 	  field :projectName
 	  field :description
-	  field :division
 	  field :message
     end
   end
