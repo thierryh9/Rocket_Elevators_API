@@ -17,7 +17,7 @@ class Elevator < ApplicationRecord
           require 'date'
           current_time = DateTime.now.strftime("%d-%m-%Y %H:%M")
           notifier = Slack::Notifier.new ENV["Slack_Webhook_URL"]  do
-            defaults channel: "#elevators_opsthierryharvey"
+            defaults channel: "#elevator_operations"
           end
           notifier.ping "The Elevator #{self.id} with Serial Number #{self.serialNumber} changed status from #{self.status_was} to #{self.status} at #{current_time}."
     end
