@@ -19,7 +19,6 @@ class Elevator < ApplicationRecord
           from: rocketElevAlert,
           to: tech_phone_number, #self.column.battery.building.technician_phone,
           body: sms_body)
-        end
       end
     end
   end
