@@ -37,6 +37,26 @@ module RailsAdmin
 			audio_file.write(response)
 			end
 		#end
+		
+		@listmap = []
+		
+		Building.find_each do |b|
+			address = b.address
+			batt = b.battery.count
+            b_ids = Battery.where(building_id: b.id).ids
+			puts b_ids
+            c = Column.where(battery_id: b_ids).count
+            c_ids = Column.where(battery_id: b_ids).ids
+            e = Elevator.where(column_id: c_ids).count
+			
+			@listmap << {name: b.fullName, 
+                    lat: address.lat, long: address.long, 
+                    #address: add, floors: floors,
+                    client: b.fullName, 
+                    battery: batt, column: c, elevator: e,
+                    technician: b.techName}
+		end
+		
             #After you're done processing everything, render the new dashboard
             render @action.template_name, status: 200
           end
