@@ -13,6 +13,7 @@ class CreateQuotes < ActiveRecord::Migration[5.2]
       t.integer :companie
       t.integer :ocupant
       t.integer :open
+	  t.boolean :status
       t.references :category, foreign_key: true
 
       t.timestamps

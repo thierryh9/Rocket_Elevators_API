@@ -180,6 +180,7 @@ ActiveRecord::Schema.define(version: 2020_07_17_042623) do
     t.integer "companie"
     t.integer "ocupant"
     t.integer "open"
+    t.boolean "status"
     t.bigint "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

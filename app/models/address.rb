@@ -2,8 +2,8 @@ class Address < ApplicationRecord
 
 after_create :update_coord
   require 'google_maps_service'
-  require 'json'
   def update_coord
+	#puts "update address"
 	gmaps = GoogleMapsService::Client.new(key: ENV['GOOGLE'])
 	results = gmaps.geocode(self.street+","+self.city+","+self.country)
 	#	puts results[0][:geometry][:location][:lat]
