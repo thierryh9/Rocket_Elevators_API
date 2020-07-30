@@ -42,12 +42,18 @@ module RailsAdmin
 			
 			File.open("app/assets/audios/star_wars.mp3", "wb") do |audio_file|
 				response = text_to_speech.synthesize(
-					text: json[current_user.star_wars],
+					text: json[current_user.star_wars]['phrase'],
 					accept: "audio/mp3",
 					voice: "en-US_AllisonVoice"
 				).result
 			audio_file.write(response)
 			end
+			if current_user.star_wars > json.count
+				current_user.update_attribute(:star_wars, 0)
+			else
+				current_user.update_attribute(:star_wars, current_user.star_wars+1)
+			end
+			
 		#end
 		
 		@listmap = []
