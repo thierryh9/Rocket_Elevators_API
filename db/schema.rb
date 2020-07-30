@@ -121,8 +121,7 @@ ActiveRecord::Schema.define(version: 2020_07_17_042623) do
 
   create_table "elevators", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "serialNumber"
-    t.boolean "status"
-    t.boolean "intervention"
+    t.bigint "status_id"
     t.date "inspectionDate"
     t.date "installDate"
     t.string "certificat"
@@ -135,6 +134,7 @@ ActiveRecord::Schema.define(version: 2020_07_17_042623) do
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_elevators_on_category_id"
     t.index ["column_id"], name: "index_elevators_on_column_id"
+    t.index ["status_id"], name: "index_elevators_on_status_id"
     t.index ["type_id"], name: "index_elevators_on_type_id"
   end
 
@@ -180,12 +180,19 @@ ActiveRecord::Schema.define(version: 2020_07_17_042623) do
     t.integer "companie"
     t.integer "ocupant"
     t.integer "open"
+    t.string "summary_FCost"
     t.boolean "status"
     t.bigint "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_quotes_on_category_id"
     t.index ["type_id"], name: "index_quotes_on_type_id"
+  end
+
+  create_table "statuses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "types", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -218,6 +225,7 @@ ActiveRecord::Schema.define(version: 2020_07_17_042623) do
   add_foreign_key "customers", "users"
   add_foreign_key "elevators", "categories"
   add_foreign_key "elevators", "columns"
+  add_foreign_key "elevators", "statuses"
   add_foreign_key "elevators", "types"
   add_foreign_key "employees", "users"
   add_foreign_key "leads", "types"

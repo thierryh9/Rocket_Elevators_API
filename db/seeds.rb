@@ -15,6 +15,9 @@ Type.create(name:"residential")
 Type.create(name:"commercial")
 Type.create(name:"corporate")
 Type.create(name:"hybride")
+Status.create(name:"active")
+Status.create(name:"inactive")
+Status.create(name:"intervention")
  u1 = User.create(email: 'nicolas.genest@codeboxx.biz', password: 'password', password_confirmation: 'password', admin: 1)
 Employee.create(user: u1, email: 'nicolas.genest@codeboxx.biz', firstName: 'nicolas', lastName: 'genest', title: 'Comm Rep')
  u2 = User.create(email: 'nadya.fortier@codeboxx.biz', password: 'password', password_confirmation: 'password', admin: 1)
@@ -65,14 +68,15 @@ aa = ["Billing", "Shipping", "Home", "Business"]
 	col = Column.create(numberFloor: rand(100),status: rand(1),information: Faker::Types.rb_string , note: Faker::Types.rb_string , battery: batterie)
 	rand(4).times do
 		#elevator
+		
+		elevator = Elevator.create(serialNumber: Faker::Device.serial,installDate: Faker::Date.between(from: '2019-09-23', to: '2020-01-25'),inspectionDate: Faker::Date.between(from: '2019-09-23', to: '2020-01-25'),status: Status.offset(rand(Status.count)).first,certificat: Faker::Device.serial,information: Faker::Types.rb_string , note: Faker::Types.rb_string , column: col,type: Type.offset(rand(Type.count)).first, category: Category.offset(rand(Category.count)).first)
 
-		elevator = Elevator.create(serialNumber: Faker::Device.serial,installDate: Faker::Date.between(from: '2019-09-23', to: '2020-01-25'),inspectionDate: Faker::Date.between(from: '2019-09-23', to: '2020-01-25'),status: rand(1..2),certificat: Faker::Device.serial,information: Faker::Types.rb_string , note: Faker::Types.rb_string , column: col,type: Type.offset(rand(Type.count)).first, category: Category.offset(rand(Category.count)).first)
-
-		elevator = Elevator.create(serialNumber: Faker::Device.serial,installDate: Faker::Date.between(from: '2019-09-23', to: '2020-01-25'),inspectionDate: Faker::Date.between(from: '2019-09-23', to: '2020-01-25'),status: rand(2),certificat: Faker::Device.serial,information: Faker::Types.rb_string , note: Faker::Types.rb_string , column: col,type: Type.offset(rand(Type.count)).first, category: Category.offset(rand(Category.count)).first)
+		
 
 	end
  end
 end
+
 2.times do |i|
 Lead.create(fullName: Faker::Types.rb_string, entrepriseName: Faker::Company.name, email: Faker::Internet.email, cellPhone: Faker::PhoneNumber.cell_phone, projectName: Faker::Types.rb_string, description: Faker::Types.rb_string, type: Type.offset(rand(Type.count)).first, message: Faker::Types.rb_string, file: open("http://lorempixel.com/"+rand(180..600).to_s+"/"+rand(180..600).to_s).read, fileName: Faker::Types.rb_string+".jpg")
 end

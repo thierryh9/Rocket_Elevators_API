@@ -25,7 +25,7 @@ module RailsAdmin
 			text_to_speech = IBMWatson::TextToSpeechV1.new(
 				authenticator: authenticator
 			)
-			text_to_speech.service_url = "https://api.us-south.text-to-speech.watson.cloud.ibm.com/instances/27d6b4ce-149e-4509-9b0e-79278c9338da"
+			text_to_speech.service_url = ENV['WATSON_URL']
 			employee = Employee.find_by(user_id: current_user.id)
 			File.open("app/assets/audios/audio.mp3", "wb") do |audio_file|
 				response = text_to_speech.synthesize(

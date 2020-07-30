@@ -2,8 +2,7 @@ class CreateElevators < ActiveRecord::Migration[5.2]
   def change
     create_table :elevators do |t|
       t.string :serialNumber
-      t.boolean :status
-      t.boolean :intervention
+      t.references :status, foreign_key: true
       t.date :inspectionDate
 	  t.date :installDate
       t.string :certificat

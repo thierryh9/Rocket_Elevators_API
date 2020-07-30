@@ -465,6 +465,7 @@
         {
             "address1": "388 East Main Street",
             "address2": "",
+            "city": "Middlebury",
             "state": "VT",
             "postalCode": "05753",
             "coordinates": {
@@ -860,6 +861,7 @@
         {
             "address1": "270 Chrissy's Court",
             "address2": "",
+            "city": "Bristol",
             "state": "VT",
             "postalCode": "05443",
             "coordinates": {
@@ -1310,6 +1312,7 @@
         {
             "address1": "8 Watkins Road",
             "address2": "",
+            "city": "Milton",
             "state": "VT",
             "postalCode": "05468",
             "coordinates": {
@@ -1672,6 +1675,7 @@
         {
             "address1": "9 Brooklyn Street",
             "address2": "",
+            "city": "Swanton",
             "state": "VT",
             "postalCode": "05488",
             "coordinates": {
@@ -2749,6 +2753,7 @@
         {
             "address1": "3 Southerberry Drive",
             "address2": "",
+            "city": "Milton",
             "state": "VT",
             "postalCode": "05468",
             "coordinates": {
@@ -3892,6 +3897,7 @@
         {
             "address1": "95 Woods Hill Road",
             "address2": "",
+            "city": "Swanton",
             "state": "VT",
             "postalCode": "05488",
             "coordinates": {
