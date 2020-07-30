@@ -54,6 +54,8 @@ gem 'whenever', '~> 0.9.4'
 gem 'pg', '~> 0.18.4'
 gem 'cancancan'
 gem 'rails_admin_charts'
+gem 'rails_admin_weather', :git => 'https://github.com/alex07L/rails_admin_weather.git', :branch => 'master'
+gem 'http'
 
 gem 'twilio-ruby', '~> 5.39.2'
 gem 'sendgrid-ruby'
