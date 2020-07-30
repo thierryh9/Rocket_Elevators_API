@@ -29,7 +29,7 @@ module RailsAdmin
 			employee = Employee.find_by(user_id: current_user.id)
 			File.open("app/assets/audios/audio.mp3", "wb") do |audio_file|
 				response = text_to_speech.synthesize(
-					text: "Hello #{employee.firstName} #{employee.lastName}. There are currently #{Elevator.count} elevators deployed in the #{Building.count} buildings of your #{Customer.count} customers.Currently, #{Elevator.where(status: 1).count} elevators are not in Running Status and are being serviced. You currently have #{Quote.where(status: true).count} quotes awaiting processing.You currently have #{Lead.count} leads in your contact requests. #{Battery.count} Batteries are deployed across #{Address.pluck(:city).uniq.count} cities
+					text: "Hello #{employee.firstName} #{employee.lastName}. There are currently #{Elevator.count} elevators deployed in the #{Building.count} buildings of your #{Customer.count} customers.Currently, #{Elevator.where(status: 1).count} elevators are not in Running Status and are being serviced, You currently have #{Quote.where(status: true).count} quotes awaiting processing, You currently have #{Lead.count} leads in your contact requests, #{Battery.count} Batteries are deployed across #{Address.pluck(:city).uniq.count} cities
 					",
 					accept: "audio/mp3",
 					voice: "en-US_AllisonVoice"
@@ -39,20 +39,22 @@ module RailsAdmin
 			
 			data = File.read("lib/star_wars.json")
 			json= JSON.parse(data)
-			
+      
+      if current_user.star_wars+1 >= json["phrases"].count-1
+				current_user.update_attribute(:star_wars, 0)
+			else
+				current_user.update_attribute(:star_wars, current_user.star_wars+1)
+			end
+      
 			File.open("app/assets/audios/star_wars.mp3", "wb") do |audio_file|
 				response = text_to_speech.synthesize(
-					text: json[current_user.star_wars]['phrase'],
+					text: json["phrases"][current_user.star_wars]['phrase'],
 					accept: "audio/mp3",
 					voice: "en-US_AllisonVoice"
 				).result
 			audio_file.write(response)
 			end
-			if current_user.star_wars > json.count
-				current_user.update_attribute(:star_wars, 0)
-			else
-				current_user.update_attribute(:star_wars, current_user.star_wars+1)
-			end
+		
 			
 		#end
 		
