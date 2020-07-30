@@ -8,7 +8,7 @@ class Building < ApplicationRecord
   def self.data
 	[
 		name: "Weather",
-		apiKey: "2b23e7071c304d53b82160733203007"
+		apiKey: ENV['2b23e7071c304d53b82160733203007']
 	]
   end
 end

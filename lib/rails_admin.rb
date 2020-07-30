@@ -51,7 +51,8 @@ module RailsAdmin
 			Column.where(battery_id: b_ids).each do |cc|
 				floorsSum += cc.numberFloor
 			end
-			@listmap << {name: b.fullName, 
+			@listmap << {name: b.fullName,
+					zipCode: address.postalCode,
                     lat: address.lat, long: address.long, 
                     address: address.street,
 					floors: floorsSum,
