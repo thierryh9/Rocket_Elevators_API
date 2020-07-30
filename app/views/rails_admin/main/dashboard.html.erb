@@ -29,6 +29,7 @@
 	   
 		
         <% @listmap.each_with_index do |lp| %>
+		<% response = JSON.parse(HTTP.get("http://api.weatherapi.com/v1/forecast.json?key="+ENV['WEATHER']+"&q="+lp[:zipCode]+"&days=7").body) %> 
             lat = <%= lp[:lat] %>
             long = <%= lp[:long] %>
             myLatLng = {lat: lat, lng: long}
@@ -49,7 +50,8 @@
             '<b>Number of Batteries: </b> <%= lp[:battery] %></br>' +
             '<b>Number of Columns:</b> <%= lp[:column] %></br>' +
             '<b>Number of Elevators:</b> <%= lp[:elevator] %></br>' +
-            '<b>Technician Name: </b> <%= lp[:technician] %></p>' +
+            '<b>Technician Name: </b> <%= lp[:technician] %></br><b>Current Temperature: </b> <%= response['current']['temp_c'] %> °C</p>' +
+			
             '</div>'+
             '</div>'
 
