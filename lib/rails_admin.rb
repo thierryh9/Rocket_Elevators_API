@@ -37,18 +37,45 @@ module RailsAdmin
 			audio_file.write(response)
 			end
 			
-			data = File.read("lib/star_wars.json")
-			json= JSON.parse(data)
-      
-      if current_user.star_wars+1 >= json["phrases"].count-1
-				current_user.update_attribute(:star_wars, 0)
-			else
-				current_user.update_attribute(:star_wars, current_user.star_wars+1)
+			people = rand(1..60)
+			c = rand(1..8)
+			
+			json = JSON.parse(HTTP.get("https://swapi.dev/api/people/#{people}/").body)
+			phrase = ""
+			case c
+			when 1
+				phrase = "#{json['name']} weighing #{json['mass ']} kilograms"
+			when 2
+				phrase = "#{json['name']} play in #{json['films'].count} films"
+			when 3
+				phrase = "#{json['name']} birth in #{json['birth_year']}"
+			when 4
+				phrase = "the eyes of #{json['name']} is #{json['eye_color']}"
+			when 5
+				phrase = "the gender of #{json['name']} is #{json['gender']}"
+			when 6
+				if(json['vehicles'].count > 0
+					vehicles = JSON.parse(HTTP.get(json['vehicles'][rand(json['vehicles'].count)]).body)
+					phrase = "#{json['name']} drive #{vehicles['name']}"
+				else
+					phrase = "#{json['name']} never drive a vehicles"
+				end
+			when 7..8
+				if(json['starships'].count > 0
+					starships = JSON.parse(HTTP.get(json['starships'][rand(json['starships'].count)]).body)
+					if c ==7
+					phrase = "#{json['name']} drive #{starships['name']}"
+					else
+						phrase = "the cost of #{starships['name']} is #{starships['cpst_in_credits']}"
+					end
+				else
+					phrase = "#{json['name']} never drive a starships"
+				end
 			end
       
 			File.open("app/assets/audios/star_wars.mp3", "wb") do |audio_file|
 				response = text_to_speech.synthesize(
-					text: json["phrases"][current_user.star_wars]['phrase'],
+					text: phrase,
 					accept: "audio/mp3",
 					voice: "en-US_AllisonVoice"
 				).result
