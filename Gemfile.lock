@@ -1,4 +1,14 @@
 GIT
+  remote: https://github.com/alex07L/rails_admin_weather.git
+  revision: 04f127e20f343f953d903e1bce9a5dd3592dafe7
+  branch: master
+  specs:
+    rails_admin_weather (0.0.1)
+      http (> 0)
+      rails (>= 3.2)
+      rails_admin (> 0)
+
+GIT
   remote: https://github.com/faker-ruby/faker.git
   revision: 66e6113c29438e70bcc6a031971efe60ae06b71f
   branch: master
@@ -416,6 +426,7 @@ DEPENDENCIES
   figaro
   font-awesome-rails
   google_maps_service
+  http
   ibm_watson
   jbuilder (~> 2.5)
   jquery-rails
@@ -428,6 +439,7 @@ DEPENDENCIES
   rails (~> 5.2.4, >= 5.2.4.3)
   rails_admin
   rails_admin_charts
+  rails_admin_weather!
   rvm1-capistrano3
   sass-rails (~> 5.0)
   selenium-webdriver

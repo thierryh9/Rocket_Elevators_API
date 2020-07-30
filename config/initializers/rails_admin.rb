@@ -55,6 +55,7 @@ require Rails.root.join('lib', 'rails_admin.rb')
     except ['Dwhquote','Dwhcustomer','Dwhlead']
   end
 	charts
+	weather
     ## With an audit adapter, you can add:
     # history_index
     # history_show
