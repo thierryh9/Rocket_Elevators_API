@@ -29,7 +29,7 @@ module RailsAdmin
 			employee = Employee.find_by(user_id: current_user.id)
 			File.open("app/assets/audios/audio.mp3", "wb") do |audio_file|
 				response = text_to_speech.synthesize(
-					text: "Hello #{employee.firstName} #{employee.lastName}. There are currently #{Elevator.count} elevators deployed in the #{Building.count} buildings of your #{Customer.count} customers.Currently, #{Elevator.where(status: 1).count} elevators are not in Running Status and are being serviced. You currently have #{Quote.where(open: 1).count} quotes awaiting processing.You currently have #{Lead.count} leads in your contact requests. #{Battery.count} Batteries are deployed across #{Address.pluck(:city).uniq.count} cities
+					text: "Hello #{employee.firstName} #{employee.lastName}. There are currently #{Elevator.count} elevators deployed in the #{Building.count} buildings of your #{Customer.count} customers.Currently, #{Elevator.where(status: 1).count} elevators are not in Running Status and are being serviced. You currently have #{Quote.where(status: true).count} quotes awaiting processing.You currently have #{Lead.count} leads in your contact requests. #{Battery.count} Batteries are deployed across #{Address.pluck(:city).uniq.count} cities
 					",
 					accept: "audio/mp3",
 					voice: "en-US_AllisonVoice"
@@ -44,14 +44,17 @@ module RailsAdmin
 			address = b.address
 			batt = b.battery.count
             b_ids = Battery.where(building_id: b.id).ids
-			puts b_ids
             c = Column.where(battery_id: b_ids).count
             c_ids = Column.where(battery_id: b_ids).ids
             e = Elevator.where(column_id: c_ids).count
-			
+			floorsSum = 0
+			Column.where(battery_id: b_ids).each do |cc|
+				floorsSum += cc.numberFloor
+			end
 			@listmap << {name: b.fullName, 
                     lat: address.lat, long: address.long, 
-                    #address: add, floors: floors,
+                    address: address.street,
+					floors: floorsSum,
                     client: b.fullName, 
                     battery: batt, column: c, elevator: e,
                     technician: b.techName}

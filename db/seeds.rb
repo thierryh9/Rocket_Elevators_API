@@ -39,23 +39,25 @@ r = User.create(email: Faker::Internet.email, password: s, password_confirmation
 end
 
 100.times do
-Quote.create(companyName: Faker::Company.name, email: Faker::Internet.email,floor: rand(10),basement: rand(10),apartment: rand(10),business: rand(10),shaft: rand(10),parking: rand(10),companie: rand(10),ocupant: rand(10),open: rand(10), type: Type.offset(rand(Type.count)).first, category: Category.offset(rand(Category.count)).first)
+Quote.create(companyName: Faker::Company.name, email: Faker::Internet.email,floor: rand(10),basement: rand(10),apartment: rand(10),business: rand(10),shaft: rand(10),parking: rand(10),companie: rand(10),ocupant: rand(10),open: rand(10), type: Type.offset(rand(Type.count)).first, category: Category.offset(rand(Category.count)).first, status: Faker::Boolean.boolean)
 end
 
 csvFile = CSV.read("db/address.csv", :headers => true)
+data = File.read("db/addresses-us-500.json")
+json= JSON.parse(data)["addresses"]
 #puts csvFile[0]["first_name"]
 ee = ["Building", "Customer"]
 aa = ["Billing", "Shipping", "Home", "Business"]
 
  uc = User.create(email: 'customer@user.com', password: 'password', password_confirmation: 'password', admin: 0)
- ac = Address.create(aType: aa[rand(3)], status: "actif", entity: ee[1], street: csvFile[300]["address"].split("#")[0], suite: "#"+csvFile[300]["address"].split("#")[1].to_s, city: csvFile[300]["city"], postalCode: csvFile[300]["postal"], country: csvFile[300]["province"], notes: Faker::Types.rb_string)
+ ac = Address.create(aType: aa[rand(3)], status: "actif", entity: ee[1], street: json[300]["address1"], city: json[300]["city"], postalCode: json[300]["postalCode"], country: json[300]["state"], notes: Faker::Types.rb_string, lat: json[300]["coordinates"]["lat"], long: json[300]["coordinates"]["lng"])
  Customer.create(entrepriseName: csvFile[300]["company_name"], nameContact: csvFile[300]["first_name"], cellPhone: csvFile[300]["phone1"], email: csvFile[300]["email"], description: "", authorityName: csvFile[300]["first_name"], authorityPhone: csvFile[300]["phone2"], authorityEmail: csvFile[300]["email"], user: uc, address: ac)
 100.times do |n|
  u = User.create(email: csvFile[n]["email"], password: 'password', password_confirmation: 'password', admin: 0)
- a = Address.create(aType: aa[rand(3)], status: "actif", entity: ee[1], street: csvFile[n]["address"].split("#")[0], suite: "#"+csvFile[n]["address"].split("#")[1].to_s, city: csvFile[n]["city"], postalCode: csvFile[n]["postal"], country: csvFile[n]["province"], notes: Faker::Types.rb_string)
+ a = Address.create(aType: aa[rand(3)], status: "actif", entity: ee[1], street: json[n]["address1"], city: json[n]["city"], postalCode: json[n]["postalCode"], country: json[n]["state"], notes: Faker::Types.rb_string, lat: json[n]["coordinates"]["lat"], long: json[n]["coordinates"]["lng"])
  c = Customer.create(entrepriseName: csvFile[n]["company_name"], nameContact: csvFile[n]["first_name"], cellPhone: csvFile[n]["phone1"], email: csvFile[n]["email"], description: "", authorityName: csvFile[n]["first_name"], authorityPhone: csvFile[n]["phone2"], authorityEmail: csvFile[n]["email"], user: u, address: a)
- a1 = Address.create(aType: aa[3], status: "actif", entity: ee[0], street: csvFile[499-n]["address"].split("#")[0], suite: "#"+csvFile[499-n]["address"].split("#")[1].to_s, city: csvFile[499-n]["city"], postalCode: csvFile[499-n]["postal"], country: csvFile[499-n]["province"], notes: Faker::Types.rb_string)
- bb = Building.create(fullName: csvFile[499-n]["first_name"],email: csvFile[499-n]["email"],cellPhone: csvFile[499-n]["phone1"], techName: csvFile[499-n]["first_name"],techPhone: csvFile[499-n]["phone2"],techEmail: csvFile[499-n]["email"], address: a1, customer: c)
+ a1 = Address.create(aType: aa[3], status: "actif", entity: ee[0], street: json[498-n]["address1"], city: json[498-n]["city"], postalCode: json[498-n]["postalCode"], country: json[498-n]["state"], notes: Faker::Types.rb_string, lat: json[498-n]["coordinates"]["lat"], long: json[498-n]["coordinates"]["lng"])
+ bb = Building.create(fullName: csvFile[498-n]["first_name"],email: csvFile[498-n]["email"],cellPhone: csvFile[498-n]["phone1"], techName: csvFile[498-n]["first_name"],techPhone: csvFile[498-n]["phone2"],techEmail: csvFile[498-n]["email"], address: a1, customer: c)
  b_details = BuildingDetail.create(infoKey: Faker::Types.rb_string , infoValue: Faker::Types.rb_string , building: bb)
  batterie = Battery.create(installDate: Faker::Date.between(from: '2019-09-23', to: '2020-01-25'),inspectionDate: Faker::Date.between(from: '2019-09-23', to: '2020-01-25'), status: rand(1), information: Faker::Types.rb_string , note: Faker::Types.rb_string , type: Type.offset(rand(Type.count)).first, employee: Employee.offset(rand(Employee.count)).first, building: bb)
  rand(2).times do |x|
