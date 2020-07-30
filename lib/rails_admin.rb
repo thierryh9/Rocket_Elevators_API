@@ -36,6 +36,18 @@ module RailsAdmin
 				).result
 			audio_file.write(response)
 			end
+			
+			data = File.read("lib/star_wars.json")
+			json= JSON.parse(data)
+			
+			File.open("app/assets/audios/star_wars.mp3", "wb") do |audio_file|
+				response = text_to_speech.synthesize(
+					text: json[current_user.star_wars],
+					accept: "audio/mp3",
+					voice: "en-US_AllisonVoice"
+				).result
+			audio_file.write(response)
+			end
 		#end
 		
 		@listmap = []
