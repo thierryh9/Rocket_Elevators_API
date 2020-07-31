@@ -35,7 +35,7 @@ function showDetails() {
     $("#summary_type").text($("label[for="+input_Gamme.attr("id")+"]").text());
     var shaft = calcul();
     $("#summary_shaft").text(shaft);
-	$("#shafts").val(shaft);
+	$("#shafts_commerce").val(shaft);
     var type = type_Gamme[input_Gamme.val()];
     var costE = type.price*shaft;
     $("#summary_ECost").text("$"+Number(costE).toLocaleString('en', {
@@ -47,6 +47,9 @@ function showDetails() {
     $("#summary_FCost").text("$"+Number(costE*(1+type.frais)).toLocaleString('en', {
         minimumFractionDigits: 2
     }));
+	$("fPrice").val("$"+Number(costE*(1+type.frais)).toLocaleString('en', {
+        minimumFractionDigits: 2
+    }))
 }
 
 function calcul() {
