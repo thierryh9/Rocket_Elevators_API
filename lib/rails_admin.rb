@@ -43,15 +43,15 @@ module RailsAdmin
 			
 			json = JSON.parse(HTTP.get("https://swapi.dev/api/people/#{people}/").body)
 			phrase = ""
-			if !json['details'].nil?
-				json = JSON.parse(HTTP.get("https://swapi.dev/api/people/#{rand(1..3)}/").body)
-			end
 			case c
 			when 1
 				phrase = "#{json['name']} weighing #{json['mass']} kilograms"
 			when 2
-				
+				if !json['films'].nil? && json['films'].count > 0 
 				phrase = "#{json['name']} play in #{json['films'].count} films"
+				else
+				phrase = "#{json['name']} never play in a film"
+				end
 			when 3
 				phrase = "#{json['name']} birth in #{json['birth_year']}"
 			when 4
@@ -59,15 +59,15 @@ module RailsAdmin
 			when 5
 				phrase = "the gender of #{json['name']} is #{json['gender']}"
 			when 6
-				if json['vehicles'].count > 0
-					vehicles = JSON.parse(HTTP.get("https://swapi.dev/api/vehicles/"+json['vehicles'][rand(json['vehicles'].count)]).body)
+				if !json['vehicles'].nil?  && json['vehicles'].count > 0
+					vehicles = JSON.parse(HTTP.get(json['vehicles'][rand(json['vehicles'].count-1)]).body)
 					phrase = "#{json['name']} drive #{vehicles['name']}"
 				else
 					phrase = "#{json['name']} never drive a vehicles"
 				end
 			when 7..8
-				if json['starships'].count > 0
-					starships = JSON.parse(HTTP.get("https://swapi.dev/api/starships/"+json['starships'][rand(json['starships'].count)]).body)
+				if !json['starships'].nil? && json['starships'].count > 0
+					starships = JSON.parse(HTTP.get(json['starships'][rand(json['starships'].count-1)]).body)
 					if c ==7
 					phrase = "#{json['name']} drive #{starships['name']}"
 					else
