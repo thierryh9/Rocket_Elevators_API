@@ -83,6 +83,8 @@ Weather API
 When you get on the admin panel, you can click on any dropped pin to see the current temperature. 
 ALSO, we added the weather forecast for every building. you can access this in the building panel in the admin section.
 just click on the little sun on the right side of the building line.
+Alexandre created a custom gem for the forecast in the building page.
+you can check it here: https://github.com/alex07L/rails_admin_weather.
 
 Recaptcha API
 
@@ -98,6 +100,14 @@ Star Wars API
 
 Using the IBM Watson API, once you are in the admin page, just press play to get over 500 different facts about Star Wars. 
 This will update everytime you reload the admin page.
+
+PayPal
+
+To use the paypal, you go in the footer and you click on "Donate to Rocket Elevators", it will redirect you to the donation page where you can choose an amount
+to donate up to $100. To test it you can use 
+username: sb-iirfk2793523@personal.example.com 
+password: 23!sdiDD
+It will then redirect you to the "Thank you" page.
 
 CONFIGURATION
 
