@@ -64,7 +64,7 @@ function calcul() {
             shaft = c*col;
             break;
         case "commercial":
-            shaft = $("input[name=shafts]").val();
+            shaft = $("input[name=summary_shaft]").val();
             break;
         case "corporate":
             floor += parseInt($("input[name=basement]").val());
