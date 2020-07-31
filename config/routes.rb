@@ -14,7 +14,8 @@ Rails.application.routes.draw do
   
   post 'pages', to: "pages#create"
   post 'leads', to: "pages#createLead"
-  post 'donate', to: "pages#donate"
+  post 'donateToMe', to: "pages#donateToMe"
+  get 'thankyou', to: "pages#thankyou"
   get 'fileLeads/:id', to: 'pages#download'
   get 'index', to: 'pages#index.html'
   get 'donate', to: 'pages#donate'

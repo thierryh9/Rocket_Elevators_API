@@ -4,9 +4,7 @@ class PagesController < ApplicationController
 	require 'sendgrid-ruby'
 	include SendGrid
 	require 'zendesk_api'
-	require 'paypal-sdk-rest'
-	include PayPal::SDK::REST
-	
+	require 'active_merchant'
 	
   def home
   end
@@ -136,43 +134,26 @@ The Rocket Team</body>
 		redirect_to '/index#contact'
 	end
   end
+  
+  
 
-  def donate
-	puts params[:donate_number]
-	
-	PayPal::SDK::REST.set_config(
-	:mode => "sandbox", # "sandbox" or "live"
-	:client_id => ENV['CLIENTPAYPAL'],
-	:client_secret => ENV['SECRETPAYPAL'])
-	
-	@payment = Payment.new({
-  :intent =>  "sale",
-  :payer =>  {
-    :payment_method =>  "paypal" },
-  :redirect_urls => {
-    :return_url => "http://localhost:3000/payment/execute",
-    :cancel_url => "http://localhost:3000/" },
-  :transactions =>  [{
-    :item_list => {
-      :items => [{
-        :name => "item",
-        :sku => "item",
-        :price => "5",
-        :currency => "USD",
-        :quantity => 1 }]},
-    :amount =>  {
-      :total =>  "5",
-      :currency =>  "USD" },
-    :description =>  "This is the payment transaction description." }]})
-
-if @payment.create
-  # Redirect the user to given approval url
-  @redirect_url = @payment.links.find{|v| v.rel == "approval_url" }.href
-  logger.info "Payment[#{@payment.id}]"
-  logger.info "Redirect: #{@redirect_url}"
-else
-  logger.error @payment.error.inspect
-end
+  def donateToMe
+	    ActiveMerchant::Billing::Base.mode = :test
+  paypal_options = {
+    :login => ENV['PAYPALLOGIN'],
+    :password => ENV['PAYPALPASSWORD'],
+    :signature => ENV['PAYPALSIGNATURE']
+  }
+	 @gateway = ActiveMerchant::Billing::PaypalExpressGateway.new(paypal_options)
+	 response = @gateway.setup_purchase(params[:donate_number].to_i*100,
+        ip: request.remote_ip,
+        return_url: "https://rocket3levators.com/thank-you",
+        cancel_return_url: "https://rocket3levators.com/",
+        currency: "USD",
+        allow_guest_checkout: true,
+        items: [{name: "Coffe", description: "Donate to rocket elevator ", quantity: "1", amount: params[:donate_number].to_i*100}]
+    )
+    redirect_to  @gateway.redirect_url_for(response.token)
   end
   
   def download
