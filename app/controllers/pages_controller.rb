@@ -4,7 +4,8 @@ class PagesController < ApplicationController
 	require 'sendgrid-ruby'
 	include SendGrid
 	require 'zendesk_api'
-	
+	require 'paypal-sdk-rest'
+	include PayPal::SDK::REST
 	
 	
   def home
@@ -136,6 +137,43 @@ The Rocket Team</body>
 	end
   end
 
+  def donate
+	puts params[:donate_number]
+	
+	PayPal::SDK::REST.set_config(
+	:mode => "sandbox", # "sandbox" or "live"
+	:client_id => ENV['CLIENTPAYPAL'],
+	:client_secret => ENV['SECRETPAYPAL'])
+	
+	@payment = Payment.new({
+  :intent =>  "sale",
+  :payer =>  {
+    :payment_method =>  "paypal" },
+  :redirect_urls => {
+    :return_url => "http://localhost:3000/payment/execute",
+    :cancel_url => "http://localhost:3000/" },
+  :transactions =>  [{
+    :item_list => {
+      :items => [{
+        :name => "item",
+        :sku => "item",
+        :price => "5",
+        :currency => "USD",
+        :quantity => 1 }]},
+    :amount =>  {
+      :total =>  "5",
+      :currency =>  "USD" },
+    :description =>  "This is the payment transaction description." }]})
+
+if @payment.create
+  # Redirect the user to given approval url
+  @redirect_url = @payment.links.find{|v| v.rel == "approval_url" }.href
+  logger.info "Payment[#{@payment.id}]"
+  logger.info "Redirect: #{@redirect_url}"
+else
+  logger.error @payment.error.inspect
+end
+  end
   
   def download
    lead = Lead.where(:id => params[:id]).first
