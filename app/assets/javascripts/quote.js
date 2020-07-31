@@ -47,7 +47,7 @@ function showDetails() {
     $("#summary_FCost").text("$"+Number(costE*(1+type.frais)).toLocaleString('en', {
         minimumFractionDigits: 2
     }));
-	$("fPrice").val("$"+Number(costE*(1+type.frais)).toLocaleString('en', {
+	$("#fPrice").val("$"+Number(costE*(1+type.frais)).toLocaleString('en', {
         minimumFractionDigits: 2
     }))
 }
