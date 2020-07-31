@@ -23,7 +23,7 @@ class PagesController < ApplicationController
               :value => "The company #{params[:companyName]} 
                   can be reached at email #{params[:email]}. 
                   Building type selected is #{params[:building]} with product line #{params[:gamme]}. 
-                  Number of suggested elevator is #{(params[:shafts])} and total price is #{to_number(params[:finalPrice])}. \n
+                  Number of suggested elevator is #{(params[:shafts])} and total price is #{(params[:fPrice])}. \n
                   "
           }, 
           :requester => { 
