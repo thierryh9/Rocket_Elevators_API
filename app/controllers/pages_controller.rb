@@ -147,8 +147,8 @@ The Rocket Team</body>
 	 @gateway = ActiveMerchant::Billing::PaypalExpressGateway.new(paypal_options)
 	 response = @gateway.setup_purchase(params[:donate_number].to_i*100,
         ip: request.remote_ip,
-        return_url: "https://rocket3levators.com/thank-you",
-        cancel_return_url: "https://rocket3levators.com/",
+        return_url: "https://rocket3levators.com/thankyou",
+        cancel_return_url: "https://rocket3levators.com/", 
         currency: "USD",
         allow_guest_checkout: true,
         items: [{name: "Coffee", description: "Donate to Rocket Elevator ", quantity: "1", amount: params[:donate_number].to_i*100}]
