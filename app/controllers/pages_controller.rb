@@ -59,10 +59,11 @@ class PagesController < ApplicationController
 
   if verify_recaptcha
 	cansend = true
+
 	if !params[:contact][:attachment].nil?
-		
 		File.open("app/assets/images/"+params[:contact][:attachment].original_filename, 'wb') do |f|
 			f.write(params[:contact][:attachment].read)
+			f.close()
 		end
 		if MIME::Types.type_for("app/assets/images/"+params[:contact][:attachment].original_filename).first.try(:media_type) == "image"
 			url = URI("https://nuditysearch.p.rapidapi.com/nuditySearch/image")
@@ -79,6 +80,7 @@ class PagesController < ApplicationController
 
 			nudity = http.request(request)
 			if JSON.parse(nudity.read_body)["classification"] != "CLEAN"
+				puts "what??"
 				cansend = false
 			end
 			File.delete("app/assets/images/"+params[:contact][:attachment].original_filename)
@@ -90,6 +92,7 @@ class PagesController < ApplicationController
 	if params[:contact][:attachment].nil?
 		Lead.create(fullName: params[:contact][:name], entrepriseName: params[:contact][:entreprise], email: params[:contact][:email], cellPhone: params[:contact][:phone], projectName: params[:contact][:projectname], description: params[:contact][:describe], type: Type.where(:name => params[:contact][:department]).first, message: params[:contact][:message])
 	else
+		params[:contact][:attachment].rewind
 		Lead.create(fullName: params[:contact][:name], entrepriseName: params[:contact][:entreprise], email: params[:contact][:email], cellPhone: params[:contact][:phone], projectName: params[:contact][:projectname], description: params[:contact][:describe], type: Type.where(:name => params[:contact][:department]).first, message: params[:contact][:message], file: params[:contact][:attachment].read, fileName: params[:contact][:attachment].original_filename)
 	end
 	from = Email.new(email: ENV['EMAIL_SENDGRID'])
@@ -107,7 +110,7 @@ The Rocket Team</body>
 
   response = sg.client.mail._('send').post(request_body: mail.to_json)
   
-  ZendeskAPI::Ticket.create!($client, :type => "Question", :subject => " '#{params[:contact][:name]}' from #{params[:contact][:entreprise]}", :comment => { :value => "
+	ZendeskAPI::Ticket.create!($client, :type => "Question", :subject => " '#{params[:contact][:name]}' from #{params[:contact][:entreprise]}", :comment => { :value => "
       Comment: The contact '#{params[:contact][:name]}' from company '#{params[:contact][:entreprise]}'can be reached at email  '#{params[:contact][:email]}' and at 
       phone number #{params[:contact][:phone]}. #{params[:contact][:department]} has a project named #{params[:contact][:projectname]} which would require contribution from Rocket 
       Elevators. 
@@ -117,16 +120,16 @@ The Rocket Team</body>
       " },
       :priority => "urgent")
 	else
-			from = Email.new(email: ENV['EMAIL_SENDGRID'])
+		from = Email.new(email: ENV['EMAIL_SENDGRID'])
 		to = Email.new(email: params[:contact][:email])
 
 		subject = "Rocket Elevator"
 		content = Content.new(type: 'text/html', value: '<html><body><p>Hi, <br/>The following e-mail  is to advise you that you are being charged by the city  concerning the unwanted file you tried to send to our team. We care about the psychological health of our employees and it is unacceptable for us to  receive such files.<br/> Our legal team  has prepared a document explaining the  legal actions taken against you.<br/> You will be contacted shortly,<br/> Rocket Elevators</p></body></html>')
-	mail = Mail.new(from, subject, to, content)
+		mail = Mail.new(from, subject, to, content)
 
-	sg = SendGrid::API.new(api_key: ENV['SENDGRID'])
+		sg = SendGrid::API.new(api_key: ENV['SENDGRID'])
 
-  response = sg.client.mail._('send').post(request_body: mail.to_json)
+		response = sg.client.mail._('send').post(request_body: mail.to_json)
 	end
 	else
 		redirect_to '/index#contact'
