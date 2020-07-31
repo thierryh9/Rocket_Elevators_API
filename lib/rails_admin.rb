@@ -43,7 +43,7 @@ module RailsAdmin
 			
 			json = JSON.parse(HTTP.get("https://swapi.dev/api/people/#{people}/").body)
 			phrase = ""
-			if json['details'].nil?
+			if !json['details'].nil?
 				json = JSON.parse(HTTP.get("https://swapi.dev/api/people/#{rand(1..3)}/").body)
 			end
 			case c
