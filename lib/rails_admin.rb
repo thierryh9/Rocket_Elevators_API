@@ -5,7 +5,8 @@ module RailsAdmin
         RailsAdmin::Config::Actions.register(self)
 	
 	require "ibm_watson/authenticators"
-	require "ibm_watson/text_to_speech_v1"
+  require "ibm_watson/text_to_speech_v1"
+  require "http"
 	include IBMWatson
         register_instance_option :root? do
           true
@@ -54,14 +55,14 @@ module RailsAdmin
 			when 5
 				phrase = "the gender of #{json['name']} is #{json['gender']}"
 			when 6
-				if(json['vehicles'].count > 0
+				if json['vehicles'].count > 0
 					vehicles = JSON.parse(HTTP.get(json['vehicles'][rand(json['vehicles'].count)]).body)
 					phrase = "#{json['name']} drive #{vehicles['name']}"
 				else
 					phrase = "#{json['name']} never drive a vehicles"
 				end
 			when 7..8
-				if(json['starships'].count > 0
+				if json['starships'].count > 0
 					starships = JSON.parse(HTTP.get(json['starships'][rand(json['starships'].count)]).body)
 					if c ==7
 					phrase = "#{json['name']} drive #{starships['name']}"
