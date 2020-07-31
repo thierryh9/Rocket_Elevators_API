@@ -151,7 +151,7 @@ The Rocket Team</body>
         cancel_return_url: "https://rocket3levators.com/",
         currency: "USD",
         allow_guest_checkout: true,
-        items: [{name: "Coffe", description: "Donate to rocket elevator ", quantity: "1", amount: params[:donate_number].to_i*100}]
+        items: [{name: "Coffee", description: "Donate to Rocket Elevator ", quantity: "1", amount: params[:donate_number].to_i*100}]
     )
     redirect_to  @gateway.redirect_url_for(response.token)
   end
