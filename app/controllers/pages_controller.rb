@@ -52,14 +52,57 @@ class PagesController < ApplicationController
   rescue ArgumentError
     0
   end
+  require 'uri'
+  require 'http'
   
   def createLead
+
   if verify_recaptcha
+	cansend = true
+	if !params[:contact][:attachment].nil?
+		
+		File.open("app/assets/images/"+params[:contact][:attachment].original_filename, 'wb') do |f|
+			f.write(params[:contact][:attachment].read)
+		end
+		if MIME::Types.type_for("app/assets/images/"+params[:contact][:attachment].original_filename).first.try(:media_type) == "image"
+			url = URI("https://nuditysearch.p.rapidapi.com/nuditySearch/image")
+
+			http = Net::HTTP.new(url.host, url.port)
+			http.use_ssl = true
+			http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+			request = Net::HTTP::Post.new(url)
+			request["x-rapidapi-host"] = 'nuditysearch.p.rapidapi.com'
+			request["x-rapidapi-key"] = ENV['RAPIDAPI']
+			request["content-type"] = 'application/x-www-form-urlencoded'
+			request.body = "setting=3&objecturl=https://rocket3levators.com/assets/"+params[:contact][:attachment].original_filename
+
+			nudity = http.request(request)
+			if JSON.parse(nudity.read_body)["classification"] != "CLEAN"
+				cansend = false
+			end
+			File.delete("app/assets/images/"+params[:contact][:attachment].original_filename)
+		end
+	end
+	
 	if params[:contact][:attachment].nil?
 		Lead.create(fullName: params[:contact][:name], entrepriseName: params[:contact][:entreprise], email: params[:contact][:email], cellPhone: params[:contact][:phone], projectName: params[:contact][:projectname], description: params[:contact][:describe], type: Type.where(:name => params[:contact][:department]).first, message: params[:contact][:message])
-	else
+	elsif cansend
 		Lead.create(fullName: params[:contact][:name], entrepriseName: params[:contact][:entreprise], email: params[:contact][:email], cellPhone: params[:contact][:phone], projectName: params[:contact][:projectname], description: params[:contact][:describe], type: Type.where(:name => params[:contact][:department]).first, message: params[:contact][:message], file: params[:contact][:attachment].read, fileName: params[:contact][:attachment].original_filename)
+	elsif !cansend
+		from = Email.new(email: ENV['EMAIL_SENDGRID'])
+		to = Email.new(email: params[:contact][:email])
+
+		subject = "Rocket Elevator"
+		content = Content.new(type: 'text/html', value: '<html><body><p>Hi, <br/>The following e-mail  is to advise you that you are being charged by the city  concerning the unwanted file you tried to send to our team. We care about the psychological health of our employees and it is unacceptable for us to  receive such files.<br/> Our legal team  has prepared a document explaining the  legal actions taken against you.<br/> You will be contacted shortly,<br/> Rocket Elevators</p></body></html>')
+	mail = Mail.new(from, subject, to, content)
+
+	sg = SendGrid::API.new(api_key: ENV['SENDGRID'])
+
+  response = sg.client.mail._('send').post(request_body: mail.to_json)
 	end
+	
+	if cansend
 	from = Email.new(email: ENV['EMAIL_SENDGRID'])
 	to = Email.new(email: params[:contact][:email])
 
@@ -84,6 +127,7 @@ The Rocket Team</body>
       The Contact uploaded an attachment
       " },
       :priority => "urgent")
+	end
 	else
 		redirect_to '/index#contact'
 	end
