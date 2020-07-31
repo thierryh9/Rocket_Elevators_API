@@ -102,7 +102,7 @@ module RailsAdmin
 					zipCode: address.postalCode,
                     lat: address.lat, long: address.long, 
                     address: address.street,
-					floors: floorsSum,
+					floors: Column.where(battery_id: b_ids).maximum(:numberFloor),
                     client: b.fullName, 
                     battery: batt, column: c, elevator: e,
                     technician: b.techName}
