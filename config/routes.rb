@@ -2,9 +2,16 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   
 
+
   root to: 'pages#index'
 
-  devise_for :users
+  #devise_for :users
+  
+  devise_for :users, controllers: {
+	registrations: 'users/registrations',
+	sessions: 'users/sessions'
+  }
+  
   post 'pages', to: "pages#create"
   post 'leads', to: "pages#createLead"
   get 'fileLeads/:id', to: 'pages#download'

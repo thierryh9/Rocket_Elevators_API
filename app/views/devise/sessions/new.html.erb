@@ -119,6 +119,12 @@
     <%= f.submit "Log in" %>
     </div>
   </div>
+  <div class="row justify-content-center">
+  <div class="capcha">
+  <%= flash[:recaptcha_error] %>
+	<%= recaptcha_tags %>
+    </div>
+  </div>
 <% end %>
 <div class="text-center">
 <%= render "devise/shared/links" %>
