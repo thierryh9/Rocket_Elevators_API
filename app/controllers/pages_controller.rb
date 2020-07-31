@@ -79,7 +79,6 @@ class PagesController < ApplicationController
 
 			nudity = http.request(request)
 			if JSON.parse(nudity.read_body)["classification"] != "CLEAN"
-				puts "what??"
 				cansend = false
 			end
 			File.delete("app/assets/images/"+params[:contact][:attachment].original_filename)
@@ -129,7 +128,8 @@ The Rocket Team</body>
 		sg = SendGrid::API.new(api_key: ENV['SENDGRID'])
 
 		response = sg.client.mail._('send').post(request_body: mail.to_json)
-	end
+    flash[:notice] = "Your message has been sent "
+  end
 	else
 		redirect_to '/index#contact'
 	end
