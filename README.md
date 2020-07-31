@@ -1,64 +1,111 @@
 # README
 
-WEEK 5 : MYSQL & POSTGRESQL DATABASES
+WEEK 7 : ROCKET ELEVATORS API'S
 
-Ruby On Rails project for RocketElevators.
-Make the interactive website with the original static website of genesis 2 weeks and link it to a database to store "User" and "Employee" login data and the quote data in separate tables.
-The website have a backoffice that employee can login to access the data from quote.
+Implementation different API into our website for Rocket Elevators
 
-DEPENDENCIES 
+TEAM MEMBERS
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Thierry Harvey
 
-Things you may want to cover:
+* Alexandre Lévesque
 
-* Ruby version 2.7.1p83 (2020-03-31 revision a0c7c23c9c) [x86_64-linux]
+* John Freud
 
-* System dependencies
+API IMPLEMENTED
 
-* Configuration
+* Google Maps API
 
-* Database creation
+* Twilio API
 
-* Database initialization
+* Slack API
 
-* How to run the test suite
+* Dropbox API
 
-* Services (job queues, cache servers, search engines, etc.)
+* Sendgrid API
 
-* Deployment instructions
+* IBM Watson API
 
-* Rails version 5.2.4.3
+* Zendesk API
 
-Database creation :
+BONUSES
 
-![alt text](https://github.com/alex07L/Rocket_Elevators_Information_System/blob/Ange/mysql.PNG)
+* Weather API
+
+* Star Wars API
+
+* Recaptcha API
+
+* Rapid API
+
+WEBSITE URL: rocket3levators.com
+
+Google Maps API
+
+In the admin panel, you will be able to see all the customers on a single map. 
+When you press on a dropped pin on the map you will be able to see the details of those buildings
+
+Twilio
+
+In order to receive a message from Twilio, you will have to update the status of the elevator to "intervention".
+To do this you need to access the elevator panel in the admin page. You then edit the elevator's staus. 
+This will send a text message to the technician.
+
+Zendesk
+
+To receive a message from Zendesk, you will have to send a Contact Us request via our Homepage, or to request a quote via the "get a quote" page.
+Theses tickets will be sent to the Sales representative via email and in the zendesk dashboard.
+
+IBM Watson
+
+The IBM Watson works by gathering the text data, converting it to an audio file wich can be played in the admin panel pressing the "play" button.
+Every time the user is changed, the audio will be updated to say the user's name. 
+If the database is changed, the audio will also be updated.
+
+Slack
+
+In order to receive a slack notification in the channel "#elevator_operations", you will have to change the status of an elevator on
+the elevator panel in the admin page. Once you edited the status, this will send a message via slack.
+
+SendGrid
+
+Everytime a Contact Us request via the Homepage is submitted, the user will receive a greeting email in his mailbox.
+Just make sure that the email is valid, otherwise nothing will be sent.
+
+Dropbox
+
+This API will be triggered if a customer is created, all the leads connected to it will be transfered to his file.
+
+BONUSES*
+
+Weather API
+
+When you get on the admin panel, you can click on any dropped pin to see the current temperature. 
+ALSO, we added the weather forecast for every building. you can access this in the building panel in the admin section.
+just click on the little sun on the right side of the building line.
+
+Recaptcha API
+
+Everytime you have to Submit a contact form, to log in, to create a user or to submit a quote form, 
+you have to confirm that you are not a bot to be able to continue.
+
+RapidAPI
+
+RapidAPI is a nudity recognition filter for image. every time someone try to send nudity to the Rocket Elevator staff,
+it will not send and the user will be sent a legal procedure to advise him that our legal team will be taking legal actions agains him.
+
+Star Wars API
+
+Using the IBM Watson API, once you are in the admin page, just press play to get over 500 different facts about Star Wars. 
+This will update everytime you reload the admin page.
+
+CONFIGURATION
+
+* Ruby version: 2.6.5
+
+* Rails version: 5.2.4.3
 
 
-Expansion of the relational database model. Creation of a decision database (DataWarehouse) with PostgreSQL and was also linked to our Rails app to stock the data harvested through MySQL from the website or the dashboard.
-Restitution and visualization of the data used for answering the three questions.
-see question.txt to get more info about sql querry
-1. How many contact requests are made per month?
-
-2. How many bid solicitations are made per month?
-
-3. How many elevators per customer do we have?
-
-
-![alt text](https://github.com/alex07L/Rocket_Elevators_Information_System/blob/Ange/postgresql.PNG)
-
-START SERVER
-
-* cd Rocket_Elevators_Information_System
-* rake db:create db:migrate db:seed **only the first time
-* rails s
-
-## mysql -> postgresql
-to synchronize the mysql database with the postgresql database, you must do the following command line:
-```
-rake rocket_elevator:sync
-```
 ## USER
 ### Admin User:
 admin have the full access
