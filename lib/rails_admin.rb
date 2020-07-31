@@ -86,29 +86,6 @@ module RailsAdmin
 			
 		#end
 		
-		@listmap = []
-		
-		Building.find_each do |b|
-			address = b.address
-			batt = b.battery.count
-            b_ids = Battery.where(building_id: b.id).ids
-            c = Column.where(battery_id: b_ids).count
-            c_ids = Column.where(battery_id: b_ids).ids
-            e = Elevator.where(column_id: c_ids).count
-			floorsSum = 0
-			Column.where(battery_id: b_ids).each do |cc|
-				floorsSum += cc.numberFloor
-			end
-			@listmap << {name: b.fullName,
-					zipCode: address.postalCode,
-                    lat: address.lat, long: address.long, 
-                    address: address.street,
-					floors: Column.where(battery_id: b_ids).maximum(:numberFloor),
-                    client: b.fullName, 
-                    battery: batt, column: c, elevator: e,
-                    technician: b.techName}
-		end
-		
             #After you're done processing everything, render the new dashboard
             render @action.template_name, status: 200
           end

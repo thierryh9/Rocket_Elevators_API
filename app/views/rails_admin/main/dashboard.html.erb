@@ -25,11 +25,18 @@
        
 	   
 		
-        <% @listmap.each_with_index do |lp| %>
-		<% response = JSON.parse(HTTP.get("http://api.weatherapi.com/v1/forecast.json?key="+ENV['WEATHER']+"&q="+lp[:zipCode]+"&days=7").body) %> 
-            lat = <%= lp[:lat] %>
-            long = <%= lp[:long] %>
-            myLatLng = {lat: lat, lng: long}
+        <% Building.find_each do |b| %>
+		<%
+		
+			address = b.address
+			batt = b.battery.count
+            b_ids = Battery.where(building_id: b.id).ids
+            c = Column.where(battery_id: b_ids).count
+            c_ids = Column.where(battery_id: b_ids).ids
+            e = Elevator.where(column_id: c_ids).count
+		%>
+		<% response = JSON.parse(HTTP.get("http://api.weatherapi.com/v1/forecast.json?key="+ENV['WEATHER']+"&q="+address.postalCode+"&days=7").body) %> 
+            myLatLng = {lat: <%= address.lat%>, lng: <%= address.long%>}
             marker = new google.maps.Marker({
                     position: myLatLng,
                     
@@ -39,15 +46,15 @@
             contentString = '<div id="content">'+
             '<div id="siteNotice">'+
             '</div>'+
-            '<h1 id="firstHeading" class="firstHeading"> <%= lp[:name] %></h1>'+
+            '<h1 id="firstHeading" class="firstHeading"> <%= b.fullName %></h1>'+
             '<div id="bodyContent">'+
-            '<p><b>Address: </b> <%= lp[:address] %></br>' +
-            '<b>Number of Floors: </b> <%= lp[:floors] %></br>' +
-            '<b>Client Name: </b> <%= lp[:client] %></br>' +
-            '<b>Number of Batteries: </b> <%= lp[:battery] %></br>' +
-            '<b>Number of Columns:</b> <%= lp[:column] %></br>' +
-            '<b>Number of Elevators:</b> <%= lp[:elevator] %></br>' +
-            '<b>Technician Name: </b> <%= lp[:technician] %></br><b>Current Temperature: </b> <%= response['current']['temp_c'] %> °C</p>' +
+            '<p><b>Address: </b> <%= address.street %></br>' +
+            '<b>Number of Floors: </b> <%= Column.where(battery_id: b_ids).maximum(:numberFloor) %></br>' +
+            '<b>Client Name: </b> <%= b.fullName %></br>' +
+            '<b>Number of Batteries: </b> <%= batt %></br>' +
+            '<b>Number of Columns:</b> <%= c %></br>' +
+            '<b>Number of Elevators:</b> <%= e %></br>' +
+            '<b>Technician Name: </b> <%= b.techName %></br><b>Current Temperature: </b> <%= response['current']['temp_c'] %> °C</p>' +
 			
             '</div>'+
             '</div>'
