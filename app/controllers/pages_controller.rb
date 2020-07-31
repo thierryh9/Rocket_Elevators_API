@@ -10,7 +10,7 @@ class PagesController < ApplicationController
   def home
   end
   def create
-    
+    if verify_recaptcha
     cat = ::Category.where(:name => params[:gamme]).first
     building = ::Type.where(:name => params[:building]).first
     quote = ::Quote.create(summary_FCost: params[:finalPrice], companyName: params[:companyName],email: params[:email],floor: to_number(params[:floor]),basement: to_number(params[:basement]),apartment: to_number(params[:apartment]),business: to_number(params[:commerce]),shaft: to_number(params[:shafts]),companie: to_number(params[:companie]),parking: to_number(params[:parking]),ocupant: to_number(params[:occupant]),open: to_number(params[:time]), category: cat, type: building)
@@ -41,7 +41,9 @@ class PagesController < ApplicationController
             flash[:notice] = "Something went wrong "
             redirect_to action:"new"
           end
-       
+    else
+		redirect_to '/quote'
+	end
   end
 
 
@@ -52,7 +54,12 @@ class PagesController < ApplicationController
   end
   
   def createLead
-	Lead.create(fullName: params[:contact][:name], entrepriseName: params[:contact][:entreprise], email: params[:contact][:email], cellPhone: params[:contact][:phone], projectName: params[:contact][:projectname], description: params[:contact][:describe], type: Type.where(:name => params[:contact][:department]).first, message: params[:contact][:message], file: params[:contact][:attachment].read, fileName: params[:contact][:attachment].original_filename)
+  if verify_recaptcha
+	if params[:contact][:attachment].nil?
+		Lead.create(fullName: params[:contact][:name], entrepriseName: params[:contact][:entreprise], email: params[:contact][:email], cellPhone: params[:contact][:phone], projectName: params[:contact][:projectname], description: params[:contact][:describe], type: Type.where(:name => params[:contact][:department]).first, message: params[:contact][:message])
+	else
+		Lead.create(fullName: params[:contact][:name], entrepriseName: params[:contact][:entreprise], email: params[:contact][:email], cellPhone: params[:contact][:phone], projectName: params[:contact][:projectname], description: params[:contact][:describe], type: Type.where(:name => params[:contact][:department]).first, message: params[:contact][:message], file: params[:contact][:attachment].read, fileName: params[:contact][:attachment].original_filename)
+	end
 	from = Email.new(email: ENV['EMAIL_SENDGRID'])
 	to = Email.new(email: params[:contact][:email])
 	subject = "Rocket Elevator"
@@ -75,6 +82,9 @@ The Rocket Team</body>
       The Contact uploaded an attachment
       " },
       :priority => "urgent")
+	else
+		redirect_to '/index#contact'
+	end
   end
 
   
