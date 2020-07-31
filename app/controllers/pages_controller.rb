@@ -117,6 +117,8 @@ The Rocket Team</body>
       The Contact uploaded an attachment
       " },
       :priority => "urgent")
+      flash[:notice] = "Your message has been sent "
+      redirect_to "/index"
 	else
 		from = Email.new(email: ENV['EMAIL_SENDGRID'])
 		to = Email.new(email: params[:contact][:email])
@@ -128,8 +130,6 @@ The Rocket Team</body>
 		sg = SendGrid::API.new(api_key: ENV['SENDGRID'])
 
 		response = sg.client.mail._('send').post(request_body: mail.to_json)
-    flash[:notice] = "Your message has been sent "
-    redirect_to "/index"
   end
 	else
 		redirect_to '/index#contact'
