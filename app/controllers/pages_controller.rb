@@ -129,6 +129,7 @@ The Rocket Team</body>
 
 		response = sg.client.mail._('send').post(request_body: mail.to_json)
     flash[:notice] = "Your message has been sent "
+    redirect_to "/index"
   end
 	else
 		redirect_to '/index#contact'
