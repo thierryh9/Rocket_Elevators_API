@@ -198,6 +198,7 @@ GEM
       thor (>= 0.14, < 2.0)
     jquery-ui-rails (6.0.1)
       railties (>= 3.2.16)
+    json (2.3.1)
     jwt (2.2.1)
     kaminari (1.2.1)
       activesupport (>= 4.1.0)
@@ -306,6 +307,8 @@ GEM
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    recaptcha (5.5.0)
+      json
     regexp_parser (1.7.1)
     remotipart (1.4.4)
     responders (3.0.1)
@@ -440,6 +443,7 @@ DEPENDENCIES
   rails_admin
   rails_admin_charts
   rails_admin_weather!
+  recaptcha
   rvm1-capistrano3
   sass-rails (~> 5.0)
   selenium-webdriver

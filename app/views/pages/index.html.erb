@@ -1169,6 +1169,8 @@
 										<button type="submit" class="btn blue"><i class="fa fa-check"></i> SEND MESSAGE</button>
 									</div>
 								</div>
+								<%= flash[:recaptcha_error] %>
+								<%= recaptcha_tags %>
 							<% end %>
 
 						</div>

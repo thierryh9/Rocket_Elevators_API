@@ -316,6 +316,8 @@
 						</div>
 					</div>
 					<%= submit_tag "Submit"%>
+					<%= flash[:recaptcha_error] %>
+					<%= recaptcha_tags %>
 				<% end%>
 
 			</div>
