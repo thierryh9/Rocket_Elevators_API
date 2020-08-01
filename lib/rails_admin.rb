@@ -63,14 +63,14 @@ module RailsAdmin
 				phrase = "the gender of #{json['name']} is #{json['gender']}"
 			when 6
 				if !json['vehicles'].nil?  && json['vehicles'].count > 0
-					vehicles = JSON.parse(HTTP.get(json['vehicles'][rand(json['vehicles'].count-1)]).body)
+					vehicles = JSON.parse(HTTP.get(json['vehicles'][rand(json['vehicles'].count)]).body)
 					phrase = "#{json['name']} drive #{vehicles['name']}"
 				else
 					phrase = "#{json['name']} never drive a vehicles"
 				end
 			when 7..8
 				if !json['starships'].nil? && json['starships'].count > 0
-					starships = JSON.parse(HTTP.get(json['starships'][rand(json['starships'].count-1)]).body)
+					starships = JSON.parse(HTTP.get(json['starships'][rand(json['starships'].count)]).body)
 					if c ==7
 					phrase = "#{json['name']} drive #{starships['name']}"
 					else
