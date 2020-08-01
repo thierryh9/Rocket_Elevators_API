@@ -39,7 +39,7 @@ module RailsAdmin
 			end
 			
 			people = rand(1..60)
-			c = rand(1..8)
+			c = rand(1..6)
 			
 			json = JSON.parse(HTTP.get("https://swapi.dev/api/people/#{people}/").body)
       phrase = ""
@@ -67,17 +67,6 @@ module RailsAdmin
 					phrase = "#{json['name']} drive #{vehicles['name']}"
 				else
 					phrase = "#{json['name']} never drive a vehicles"
-				end
-			when 7..8
-				if !json['starships'].nil? && json['starships'].count > 0
-					starships = JSON.parse(HTTP.get(json['starships'][rand(json['starships'].count)]).body)
-					if c ==7
-					phrase = "#{json['name']} drive #{starships['name']}"
-					else
-						phrase = "the cost of #{starships['name']} is #{starships['cpst_in_credits']}"
-					end
-				else
-					phrase = "#{json['name']} never drive a starships"
 				end
 			end
       
