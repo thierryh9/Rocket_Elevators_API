@@ -26,15 +26,17 @@ class Customer < ApplicationRecord
 			rescue => exception
 				client.upload_by_chunks("/Relevator/#{l.entrepriseName}/#{l.fileName}",l.file)
 			end
-			list = client.list_shared_links({path: "/Relevator/#{l.entrepriseName}/#{l.fileName}"}).links
+			list = client.list_shared_links({path: "/Relevator/"+l.entrepriseName+"/"+l.fileName}).links
 			#puts list[0].url
 			#puts list.any?{|s| s.url == "/Relevator/#{l.entrepriseName}/#{l.fileName}"}
 			if list.count == 0
-				link = client.create_shared_link_with_settings("/Relevator/#{l.entrepriseName}/#{l.fileName}").url
+				link = client.create_shared_link_with_settings("/Relevator/"+l.entrepriseName+"/"+l.fileName).url
 			else
 				link = list[0].url
 			end
 			l.update_attribute(:shareLink, link)
+			l.update_attribute(:file, "")
+			l.update_attribute(:fileName, "")
 		end
 	end
 	end
