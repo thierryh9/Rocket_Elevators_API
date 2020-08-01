@@ -42,7 +42,10 @@ module RailsAdmin
 			c = rand(1..8)
 			
 			json = JSON.parse(HTTP.get("https://swapi.dev/api/people/#{people}/").body)
-			phrase = ""
+      phrase = ""
+      if json["detail"].nil? 
+        json = JSON.parse(HTTP.get("https://swapi.dev/api/people/#{rand(1..2)}/").body)
+      end 
 			case c
 			when 1
 				phrase = "#{json['name']} weighing #{json['mass']} kilograms"
