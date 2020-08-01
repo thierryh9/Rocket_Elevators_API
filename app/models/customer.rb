@@ -12,6 +12,7 @@ class Customer < ApplicationRecord
 
 	
 	leads.each do |l|
+		if !l.entrepriseName.nil?
 		begin
 			client.get_metadata("/Relevator/#{l.entrepriseName}") 
 			puts "found"
@@ -35,6 +36,7 @@ class Customer < ApplicationRecord
 			end
 			l.update_attribute(:shareLink, link)
 		end
+	end
 	end
 	
   end
