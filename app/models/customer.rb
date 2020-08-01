@@ -32,7 +32,7 @@ class Customer < ApplicationRecord
 			begin				
 				link = client.create_shared_link_with_settings("/Relevator/"+l.entrepriseName+"/"+l.fileName).url
 			rescue => exception
-				link = client.get_shared_link_metadata("/Relevator/"+l.entrepriseName+"/"+l.fileName).url
+				link = client.list_shared_links({path: "/Relevator/"+l.entrepriseName+"/"+l.fileName, direct_only: true}).links[0].url
 			end
 			l.update_attribute(:shareLink, link)
 			l.update_attribute(:file, "")
