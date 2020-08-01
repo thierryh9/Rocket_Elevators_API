@@ -124,12 +124,14 @@ We’ll Talk soon <br>
 		to = Email.new(email: params[:contact][:email])
 
 		subject = "Rocket Elevator"
-		content = Content.new(type: 'text/html', value: '<html><body><p>Hi, <br/>The following e-mail  is to advise you that you are being charged by the city  concerning the unwanted file you tried to send to our team. We care about the psychological health of our employees and it is unacceptable for us to  receive such files.<br/> Our legal team  has prepared a document explaining the  legal actions taken against you.<br/> You will be contacted shortly,<br/> Rocket Elevators</p></body></html>')
+		content = Content.new(type: 'text/html', value: '<html><body><a href="http://www.relevator.ca" title="Rocket Elevators"><img src="http://www.relevator.ca'+ActionController::Base.helpers.image_url('R2-01.jpg')+'" width=300 height=221 alt="Rocket logo" /></a><p>Hi, <br/>The following e-mail  is to advise you that you are being charged by the city  concerning the unwanted file you tried to send to our team. We care about the psychological health of our employees and it is unacceptable for us to  receive such files.<br/> Our legal team  has prepared a document explaining the  legal actions taken against you.<br/> You will be contacted shortly,<br/> Rocket Elevators</p></body></html>')
 		mail = Mail.new(from, subject, to, content)
 
 		sg = SendGrid::API.new(api_key: ENV['SENDGRID'])
 
-		response = sg.client.mail._('send').post(request_body: mail.to_json)
+    response = sg.client.mail._('send').post(request_body: mail.to_json)
+    flash[:notice] = "Your can't send those type of files, it is outrageous!! "
+      redirect_to "/index"
   end
 	else
 		redirect_to '/index#contact'
