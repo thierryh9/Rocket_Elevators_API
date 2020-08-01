@@ -39,7 +39,7 @@ module RailsAdmin
 			end
 			
 			people = rand(1..60)
-			c = rand(1..6)
+			c = rand(1..7)
 			
 			json = JSON.parse(HTTP.get("https://swapi.dev/api/people/#{people}/").body)
       phrase = ""
@@ -62,12 +62,10 @@ module RailsAdmin
 			when 5
 				phrase = "the gender of #{json['name']} is #{json['gender']}"
 			when 6
-				if !json['vehicles'].nil?  && json['vehicles'].count > 0
-					vehicles = JSON.parse(HTTP.get(json['vehicles'][rand(json['vehicles'].count)]).body)
-					phrase = "#{json['name']} drive #{vehicles['name']}"
-				else
-					phrase = "#{json['name']} never drive a vehicles"
-				end
+				phrase = "the skin color of #{json['name']} is #{json['skin_color']}"
+			when 7
+        phrase = "the hair color of #{json['name']} is #{json['hair_color']}"
+			
 			end
       
 			File.open("app/assets/audios/star_wars.mp3", "wb") do |audio_file|
