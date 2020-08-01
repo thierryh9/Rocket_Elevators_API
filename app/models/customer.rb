@@ -35,8 +35,8 @@ class Customer < ApplicationRecord
 				link = client.list_shared_links({path: "/Relevator/"+l.entrepriseName+"/"+l.fileName, direct_only: true}).links[0].url
 			end
 			l.update_attribute(:shareLink, link)
-			l.update_attribute(:file, "")
-			l.update_attribute(:fileName, "")
+			l.update_attribute(:file, nil)
+			#l.update_attribute(:fileName, nil)
 		end
 	end
 	end
