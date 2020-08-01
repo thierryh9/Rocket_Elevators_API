@@ -21,10 +21,10 @@ class Customer < ApplicationRecord
 		end
 		if l.file != nil
 			begin
-				client.get_metadata("/Relevator/#{l.entrepriseName}/#{l.fileName}") 
+				client.get_metadata("/Relevator/"+l.entrepriseName+"/"+l.fileName) 
 				puts "found"
 			rescue => exception
-				client.upload_by_chunks("/Relevator/#{l.entrepriseName}/#{l.fileName}",l.file)
+				client.upload_by_chunks("/Relevator/"+l.entrepriseName+"/"+l.fileName,l.file)
 			end
 			#list = client.list_shared_links({path: "/Relevator/"+l.entrepriseName+"/"+l.fileName}).links
 			#puts list[0].url
