@@ -100,7 +100,7 @@ class PagesController < ApplicationController
 	content = Content.new(type: 'text/html', value: '<html><body><a href="http://www.relevator.ca" title="Rocket Elevators"><img src="http://www.relevator.ca'+ActionController::Base.helpers.image_url('R2-01.jpg')+'" width=300 height=221 alt="Rocket logo" /></a><br />Greetings '+params[:contact][:name]+'<br/>We thank you for contacting Rocket Elevators to discuss the opportunity to contribute to your project'+params[:contact][:projectname]+'. <br> A representative from our team will be in touch with you very soon. <br> We look forward to demonstrate the value of our solutions and help you choose the appropriate product given your requirements. <br>
 
 We’ll Talk soon <br>
-The Rocket Team</body>
+<p style= "color:blue">The Rocket Team </p></body>
 </html>')
 	mail = Mail.new(from, subject, to, content)
 
