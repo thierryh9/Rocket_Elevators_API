@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  employeeID: 1
+  buildingID: 1
+  batteryID: MyString
+  integer: MyString
+  columnID: 1
+  elevatorID: 1
+  interventionStart: 2020-08-03 12:18:04
+  interventionEnd: 2020-08-03 12:18:04
+  result: MyString
+  repport: MyString
+  statut: MyString
+
+two:
+  employeeID: 1
+  buildingID: 1
+  batteryID: MyString
+  integer: MyString
+  columnID: 1
+  elevatorID: 1
+  interventionStart: 2020-08-03 12:18:04
+  interventionEnd: 2020-08-03 12:18:04
+  result: MyString
+  repport: MyString
+  statut: MyString
