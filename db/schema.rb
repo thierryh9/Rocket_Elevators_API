@@ -53,6 +53,12 @@ ActiveRecord::Schema.define(version: 2020_07_17_042623) do
     t.index ["building_id"], name: "index_building_details_on_building_id"
   end
 
+  create_table "statuses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "buildings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "fullName"
     t.string "email"
@@ -189,11 +195,6 @@ ActiveRecord::Schema.define(version: 2020_07_17_042623) do
     t.index ["type_id"], name: "index_quotes_on_type_id"
   end
 
-  create_table "statuses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "types", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
