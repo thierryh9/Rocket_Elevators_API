@@ -12,7 +12,7 @@ class Elevator < ApplicationRecord
   belongs_to :type
   belongs_to :status
 
-  before_save:notify_tech
+  #before_save:notify_tech
 
   def notify_tech
     if self.status_id_changed?
@@ -32,10 +32,10 @@ class Elevator < ApplicationRecord
   end
 
 
-  after_update :send_sms, if: :intervention?
+  #after_update :send_sms, if: :intervention?
    
     
-    before_update :slack_notifier
+    #before_update :slack_notifier
 
     def slack_notifier
 
