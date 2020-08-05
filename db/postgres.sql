@@ -19,18 +19,6 @@ CREATE TABLE IF NOT EXISTS fact_elevator (
   customer_id INT NOT NULL,
   building_city VARCHAR(70) NOT NULL);
 
-  CREATE TABLE IF NOT EXISTS fact_interventions (
-    employeeID INT NOT NULL,
-    buildingID INT NOT NULL,
-    batteryID  INT NULL,
-    columnID   INT NULL,
-    elevatorID INT NULL,
-    interventionStart_date timestamp NOT NULL,
-    interventionEnd_date timestamp  NULL,
-    result VARCHAR(12) NOT NULL,
-    repport VARCHAR(255) NULL,
-    statut VARCHAR(15) NOT NULL);
-
 CREATE TABLE IF NOT EXISTS dim_customers (
   id SERIAL NOT NULL,
   date_created timestamp NULL,

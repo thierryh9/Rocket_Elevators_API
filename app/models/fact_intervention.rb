@@ -1,2 +1,0 @@
-class FactIntervention < ApplicationRecord
-end
