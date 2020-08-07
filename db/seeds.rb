@@ -62,10 +62,10 @@ aa = ["Billing", "Shipping", "Home", "Business"]
  a1 = Address.create(aType: aa[3], status: "actif", entity: ee[0], street: json[498-n]["address1"], city: json[498-n]["city"], postalCode: json[498-n]["postalCode"], country: json[498-n]["state"], notes: Faker::Types.rb_string, lat: json[498-n]["coordinates"]["lat"], long: json[498-n]["coordinates"]["lng"])
  bb = Building.create(fullName: csvFile[498-n]["first_name"],email: csvFile[498-n]["email"],cellPhone: csvFile[498-n]["phone1"], techName: csvFile[498-n]["first_name"],techPhone: csvFile[498-n]["phone2"],techEmail: csvFile[498-n]["email"], address: a1, customer: c)
  b_details = BuildingDetail.create(infoKey: Faker::Types.rb_string , infoValue: Faker::Types.rb_string , building: bb)
- batterie = Battery.create(installDate: Faker::Date.between(from: '2019-09-23', to: '2020-01-25'),inspectionDate: Faker::Date.between(from: '2019-09-23', to: '2020-01-25'), status: rand(1), information: Faker::Types.rb_string , note: Faker::Types.rb_string , type: Type.offset(rand(Type.count)).first, employee: Employee.offset(rand(Employee.count)).first, building: bb)
+ batterie = Battery.create(installDate: Faker::Date.between(from: '2019-09-23', to: '2020-01-25'),inspectionDate: Faker::Date.between(from: '2019-09-23', to: '2020-01-25'), status: Status.offset(rand(Status.count)).first, information: Faker::Types.rb_string , note: Faker::Types.rb_string , type: Type.offset(rand(Type.count)).first, employee: Employee.offset(rand(Employee.count)).first, building: bb)
  rand(2).times do |x|
 	#column
-	col = Column.create(numberFloor: rand(100),status: rand(1),information: Faker::Types.rb_string , note: Faker::Types.rb_string , battery: batterie)
+	col = Column.create(numberFloor: rand(100),status: Status.offset(rand(Status.count)).first,information: Faker::Types.rb_string , note: Faker::Types.rb_string , battery: batterie)
 	rand(4).times do
 		#elevator
 		
