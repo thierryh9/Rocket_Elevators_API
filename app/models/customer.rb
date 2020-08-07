@@ -30,6 +30,7 @@ class Customer < ApplicationRecord
 			#puts list[0].url
 			#puts list.any?{|s| s.url == "/Relevator/#{l.entrepriseName}/#{l.fileName}"}
 			if list.count == 0
+				puts "hello"
 				link = client.create_shared_link_with_settings("/Relevator/#{l.entrepriseName}/#{l.fileName}").url
 			else
 				link = list[0].url
