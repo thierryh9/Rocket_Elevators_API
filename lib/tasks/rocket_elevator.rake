@@ -44,5 +44,34 @@ namespace :rocket_elevator do
 		#connection.exec("INSERT INTO dim_customers (id,date_created,company_name,contact_name, contact_email,nb_elevators, customer_city) VALUES (#{c.id},'#{c.created_at}', '#{c.entrepriseName}', '#{c.nameContact}','#{c.email}',count,'#{c.address.city}')")
 	end
   end
+  
+  task intervention: :environment do
+	connection = PG.connect(dbname: 'ThierryHarvey',host: 'codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com', user: 'codeboxx', password: 'Codeboxx1!')
+	#connection = PG.connect(dbname: 'allo',host: 'localhost', user: 'alex', password: 'alex')
+	connection.exec("CREATE TABLE IF NOT EXISTS factintervention (
+	id SERIAL,
+  employee_id int NOT NULL,
+  building_id int NULL,
+  battery_id int,
+  column_id int,
+  elevator_id int,
+  start_intervention timestamp NOT NULL,
+  end_intervention timestamp,
+  resultat VARCHAR(70) NOT NULL,
+  rapport VARCHAR,
+  status VARCHAR(70) NOT NULL);")
+  
+	connection.exec("TRUNCATE factintervention RESTART IDENTITY")
+  
+	10.times do
+		connection.exec("INSERT INTO factintervention (employee_id,building_id,battery_id,start_intervention,end_intervention,resultat,rapport,status) VALUES (#{rand(1..50)},#{rand(1..50)}, #{rand(1..50)},'#{Faker::Date.between(from: '2019-07-23', to: '2019-09-23')}','#{Faker::Date.between(from: '2019-09-23', to: '2020-01-25')}', '#{["success", "failure", "incomplete"].sample}', '#{Faker::Types.rb_string}', '#{["pending", "inprogress", "interrupted", "Resumed", "Complete"].sample}')")
+		connection.exec("INSERT INTO factintervention (employee_id,building_id,column_id,start_intervention,end_intervention,resultat,status) VALUES (#{rand(1..50)},#{rand(1..50)}, #{rand(1..50)},'#{Faker::Date.between(from: '2019-07-23', to: '2019-09-23')}','#{Faker::Date.between(from: '2019-09-23', to: '2020-01-25')}', '#{["success", "failure", "incomplete"].sample}', '#{["pending", "inprogress", "interrupted", "Resumed", "Complete"].sample}')")
+		connection.exec("INSERT INTO factintervention (employee_id,building_id,elevator_id,start_intervention,end_intervention,resultat,rapport,status) VALUES (#{rand(1..50)},#{rand(1..50)}, #{rand(1..50)},'#{Faker::Date.between(from: '2019-07-23', to: '2019-09-23')}','#{Faker::Date.between(from: '2019-09-23', to: '2020-01-25')}', '#{["success", "failure", "incomplete"].sample}', '#{Faker::Types.rb_string}', '#{["pending", "inprogress", "interrupted", "Resumed", "Complete"].sample}')")
+		connection.exec("INSERT INTO factintervention (employee_id,building_id,battery_id,start_intervention,resultat,rapport,status) VALUES (#{rand(1..50)},#{rand(1..50)}, #{rand(1..50)},'#{Faker::Date.between(from: '2019-07-23', to: '2020-01-23')}', '#{["success", "failure", "incomplete"].sample}', '#{Faker::Types.rb_string}', '#{["pending", "inprogress", "interrupted", "Resumed", "Complete"].sample}')")
+		connection.exec("INSERT INTO factintervention (employee_id,building_id,column_id,start_intervention,resultat,rapport,status) VALUES (#{rand(1..50)},#{rand(1..50)}, #{rand(1..50)},'#{Faker::Date.between(from: '2019-07-23', to: '2020-01-23')}', '#{["success", "failure", "incomplete"].sample}', '#{Faker::Types.rb_string}', '#{["pending", "inprogress", "interrupted", "Resumed", "Complete"].sample}')")
+		connection.exec("INSERT INTO factintervention (employee_id,building_id,elevator_id,start_intervention,resultat,status) VALUES (#{rand(1..50)},#{rand(1..50)}, #{rand(1..50)},'#{Faker::Date.between(from: '2019-08-23', to: '2020-01-23')}', '#{["success", "failure", "incomplete"].sample}', '#{["pending", "inprogress", "interrupted", "Resumed", "Complete"].sample}')")
+	end
+  
+  end
 
 end

@@ -27,3 +27,15 @@ CREATE TABLE IF NOT EXISTS dim_customers (
   contact_email VARCHAR(255) NOT NULL,
   nb_elevators INT NOT NULL,
   customer_city VARCHAR(70) NULL);
+  
+CREATE TABLE IF NOT EXISTS factintervention (
+  employee_id int NOT NULL,
+  building_id int NULL,
+  battery_id int,
+  column_id int,
+  elevator_id int,
+  start_intervention timestamp NOT NULL,
+  end_intervention timestamp,
+  resultat VARCHAR(70) NOT NULL,
+  rapport VARCHAR,
+  status VARCHAR(70) NOT NULL);
